@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="">
+        <nav class="navbar navbar-expand-lg bg-light p-3 ">
+            <div class="container ">
+                <a href="#" class="navbar-brand">
+                    <i class="fa-solid fa-store"></i>
+                    <span>Logo</span>
+                </a>
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse my-auto" id="nav-menu">
+                    <div></div>
+                    
+                    <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown"
+                                data-bs-target="shop-dropdown" role="button">Category</a>
+                            <ul class="dropdown-menu" id="shop-dropdown">
+                                <li><a href="#" class="dropdown-item">Laptop</a></li>
+                                <li><a href="#" class="dropdown-item">Smart Phone</a></li>
+                                <li><a href="#" class="dropdown-item">Headphone</a></li>
+                                <li><a href="#" class="dropdown-item">Monitor</a></li>
+                                <li><a href="#" class="dropdown-item">Accesories</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+
+                    </ul>
+                   
+                        <div>
+                            
+                              <a href="#" class="text-decoration-none text-dark fw-bold">Sign in </a><a href="#" class="text-decoration-none text-dark fw-bold">| Register</a>
+                                <a href="#" class="btn btn-light" id="cart-btn">
+                                    <i class="fa-solid fa-cart-shopping me-2 my-auto"></i>
+                                </a>
+                            
+                            
+                          
+                        </div>
+                 
+
+
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <header>
+        <img src="images/banner.jpg">
+        <!-- <img src="images/banner2.jpg" alt=""> -->
+    </header>
+    <main>
+        <div class="container" id="category-box">
+            <div class="hscroll">
+                <button class="btn-scroll" id="btn-scroll-left" onclick="scrollHorizontal(1)"><i class="fa-solid fa-angle-left fa-2x" ></i></button>
+                <button class="btn-scroll" id="btn-scroll-right" onclick="scrollHorizontal(-1)"><i class="fa-solid fa-angle-right fa-2x"></i></button>
+                <div class="category-items">
+                    <div class="product-item ps-4"><a href="#"><img src="images/laptop.jpg">Laptop</a></div>
+                    <div class="product-item"><a href="#"><img src="images/smartphone.png">Smartphone</a></div>
+                    <div class="product-item"><a href="#"><img src="images/headphone.jpg">Headphone</a></div>
+                    <div class="product-item"><a href="#"><img src="images/monitor.jpg">Monitor</a></div>
+                    <div class="product-item pe-5"><a href="#"><img src="images/accessories.jpg">Accesories</a></div>
+
+                </div>
+                
+            </div>
+           
+        </div>
+    </main>
+ 
+
+
+
+
+
+    <footer>
+
+        <div class="container">
+            <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4">
+                <div class="col-md-4 px-3">
+                    <h3 class="mb-3 text-center">Gizmotronix Store</h3>
+                    <p>Browse our selection of cutting-edge technology products in our online gadget store with pleasure. This is the time to purchase the best smart devices..</p>
+                </div>
+                <div class="col-md-4 px-3">
+                    <h3 class="text-center mb-3">Products</h3>
+                    <ul>
+                        <li><a href="#">Laptop</a></li>
+                        <li><a href="#">Smartphone</a></li>
+                        <li><a href="#">Headphone</a></li>
+                        <li><a href="#">Monitor</a></li>
+                        <li><a href="#">Accesories</a></li>
+                        
+                       
+
+                    </ul>
+                </div>
+                <div class="col-md-4 px-3">
+                    <h3 class="text-center mb-3">About</h3>
+                    <ul class="">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 px-3">
+                    <h3 class="text-center
+                    mb-4">Follow Us</h3>
+            
+                    <ul class="socmed">
+                        <li><a href=""><i class="fa-brands fa-facebook fa-2x"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-instagram fa-2x"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-twitter fa-2x"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-youtube fa-2x"></i></a></li>
+                        
+
+                    </ul>
+                </div>
+
+                
+            </div>
+
+        </div>
+        <p class="text-center mt-5">Copyright &copy 2023, Gizmotronix. All Rights Reserved. </p>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="main.js"></script>
+
+   
+
+
+   
+
+    
+</body>
+
+</html>
