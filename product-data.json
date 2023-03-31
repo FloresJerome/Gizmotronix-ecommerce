@@ -1,0 +1,184 @@
+{
+    "product": [
+        {
+            "id": 1,
+            "title": "ASUS ZenBook 14 Q409ZA OLED",
+            "brand": "ASUS",
+            "price": {
+                "value": "49,900",
+                "currency": "₱"
+            },
+            "description": "The powerful and compact Zenbook 14 OLED is just 16.9mm slim and 1.39kg light, with a breathtaking new design that's timelessly elegant yet totally modern. You'll experience perfect visual from the expansive 16:10 2.8K OLED HDR NanoEdge display, a color-accurate up to 600-nit screen that's PANTONE validated and has a cinema-grade 100% DCI-P3 gamut",
+            "Specification": {
+                "Model" : "Q409ZA",
+                "Operating System" : "Windows 11 Home - ASUS recommends Windows 11 Pro for business",
+                "Processor" : "Intel Core i5-1240P Processor 1.7GHz(12M Cache, up to 4.4GHz, 4P+8E cores)",
+                "Graphics" : "Intel Iris Xe Graphics",
+                "Display" : "14.0-inch, 2.8K (2880 x 1800) OLED 16:10 aspect ratio, 0.2ms response time, 90Hz refresh rate, 600nits HDR peak brightness, 100% DCI-P3 color gamut, 1,000,000:1, VESA CERTIFIED Display HDR True Black 600, 1.07 billion colors, PANTONE Validated, Glossy display, 70% less harmful blue light, SGS Eye Care Display, (Screen-to-body ratio)90%",
+                "Memory" : "8GB LPDDR5 on board (System memory upgradeable up to 16GB)",
+                "Storage" : "256GB M.2 NVMe™ PCIe® 4.0 SSD"
+            },
+            "category": "laptop",
+            "rating": {
+                "rate": 4,
+                "sold": 2
+            },
+            "image": ["https://dlcdnwebimgs.asus.com/gain/7c5affa3-a028-4cc3-8bac-8ce757a46f66/", "https://dlcdnwebimgs.asus.com/gain/9dabd2c8-9d31-4b3d-aa3c-088f95158710/", "https://dlcdnwebimgs.asus.com/gain/b0b2b274-fd54-4d08-bbc9-e05dfb48cd50/", "https://dlcdnwebimgs.asus.com/gain/1c7f0ec2-3a8f-49c9-965b-844ea4a01eb6/", "https://dlcdnwebimgs.asus.com/gain/5e0db8ab-c388-4c7a-8ad2-ff0ece10304e/", "https://dlcdnwebimgs.asus.com/gain/be70f035-d2af-4dc8-9e5a-8450e9cd4374/", "https://dlcdnwebimgs.asus.com/gain/7928ba34-bc35-4c53-88f0-3a57a7cd448a/", "https://dlcdnwebimgs.asus.com/gain/2a81e52a-b8ea-4f7d-8ea0-9a7c79ecf26f/"],
+            "stocks" : 20
+        },
+        {
+            "id": 2,
+            "title": "ASUS ROG Zephyrus M16",
+            "brand": "ASUS",
+            "price": {
+                "value": "104,900",
+                "currency": "₱"
+            },
+            "description": "The ROG Zephyrus M16 speeds through gaming and multitasking with up to a 13th Gen Intel® Core™ i9-13900H processor. Game with confidence with up to an NVIDIA® GeForce RTX™ 4090 Laptop GPU. With a dedicated MUX Switch, NVIDIA® Advanced Optimus, and G-SYNC support, every game runs at peak performance with no tearing.",
+            "Specification": {
+                "Model" : "GU603ZM",
+                "Operating System" : "Windows 11 64bit",
+                "Processor" : "Intel® i7-12700H",
+                "Graphics" : "NVIDIA RTX 3060 [6GB]",
+                "Display" : "16.0 WUXGA (1920 x 1200) 165Hz 3ms, 500-nits, 100% DCI-P3",
+                "Memory" : "16GB DDR5 4800MHz",
+                "Storage" : "512GB M.2 NVMe PCIe Gen4 SSD"
+            },
+            "category": "laptop",
+            "rating": {
+                "rate": 4,
+                "sold": 1
+            },
+            "image": ["https://benstore.com.ph/28751-pdt_771/asus-rog-zephyrus-m16-gu603zm-16-gaming-laptop-165hz-i7-12700h-rtx-3060-6gb-16gb-ddr5-512b-ssd-off-black-.jpg", "https://benstore.com.ph/28781-pdt_771/asus-rog-zephyrus-m16-gu603zw-16-gaming-laptop-165hz-i9-12900h-rtx-3070ti-8gb-16gb-ddr5-1tb-ssd-off-black-.jpg", "https://benstore.com.ph/28782-pdt_771/asus-rog-zephyrus-m16-gu603zw-16-gaming-laptop-165hz-i9-12900h-rtx-3070ti-8gb-16gb-ddr5-1tb-ssd-off-black-.jpg", "https://benstore.com.ph/28777-pdt_771/asus-rog-zephyrus-m16-gu603zw-16-gaming-laptop-165hz-i9-12900h-rtx-3070ti-8gb-16gb-ddr5-1tb-ssd-off-black-.jpg", "https://benstore.com.ph/28778-pdt_771/asus-rog-zephyrus-m16-gu603zw-16-gaming-laptop-165hz-i9-12900h-rtx-3070ti-8gb-16gb-ddr5-1tb-ssd-off-black-.jpg", "https://benstore.com.ph/28780-pdt_771/asus-rog-zephyrus-m16-gu603zw-16-gaming-laptop-165hz-i9-12900h-rtx-3070ti-8gb-16gb-ddr5-1tb-ssd-off-black-.jpg", "https://benstore.com.ph/28779-pdt_771/asus-rog-zephyrus-m16-gu603zw-16-gaming-laptop-165hz-i9-12900h-rtx-3070ti-8gb-16gb-ddr5-1tb-ssd-off-black-.jpg", "https://benstore.com.ph/28772-pdt_771/asus-rog-zephyrus-m16-gu603zw-16-gaming-laptop-165hz-i9-12900h-rtx-3070ti-8gb-16gb-ddr5-1tb-ssd-off-black-.jpg"],
+            "stocks" : 5
+        },
+        {
+            "id": 3,
+            "title": "ASUS TUF Dash F15",
+            "brand": "ASUS",
+            "price": {
+                "value": "59,995",
+                "currency": "₱"
+            },
+            "description": "The TUF Dash is Asus's most affordable all-purpose/gaming laptop series at this point, and a lot more powerful than the previous generation in this 2022 update. It's still a thinner and lighter alternative for the full-size TUF Gaming models, and is still an Intel-exclusive design, but it is a balanced performer and competitively priced in most regions, thus an option to consider if you're shopping on a lower budget. Just be careful about that FHD 144Hz screen option and aim for a configuration with the FHD 300Hz display, if available in your area.",
+            "Specification": {
+                "Model" : "FX516PC",
+                "Operating System" : "Windows 10 (Free Windows 11 upgrade)",
+                "Processor" : "Intel® Core™ i5-11300H Processor 3.1 GHz, 4 cores (8M Cache, up to 4.4GHz)",
+                "Graphics" : "NVIDIA® GeForce RTX™ 3050 Laptop GPU, Up to 1600MHz at 60W (75W with Dynamic Boost), 4GB GDDR6",
+                "Display" : "15.6-inch, FHD (1920 x 1080) 16:9, Value IPS-level, Anti-glare display, sRGB:62.5%, Adobe:47.34%, Refresh Rate:144Hz, Adaptive-Sync, Optimus",
+                "Memory" : "8GB DDR4 on board, Max Capacity:32GB",
+                "Storage" : "1TB PCIe® 3.0 NVMe™ M.2 SSD"
+            },
+            "category": "Laptop",
+            "rating": {
+                "rate": 4.25,
+                "sold": 1
+            },
+            "image": ["https://cdn.shopify.com/s/files/1/0355/8296/7943/products/NEW-LAPTOP-MAIN_TEMPLATE_ac114af2-4a6b-4cdf-a7c3-aa6a9221ad91_600x.jpg?v=1676864467", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/download_be589bf1-af75-4c9d-b408-d7a185bffe6b_600x.png?v=1676864473", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/download_2_3cd2bb23-a05c-43a7-93c6-8580e78a211a_600x.png?v=1676864479", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/download_1_01748955-e65b-4d48-a19e-b0c2427ac132_600x.png?v=1676864486", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/download_3_e99cf4af-c5b8-4358-8656-eb53612eb681_600x.png?v=1676864492", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/download_4_f66a7e63-d1d3-4431-b567-78fbf966ab04_600x.png?v=1676864497", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/w800-Copy_dc3a0122-20a2-45d5-a7a6-82ecc0fcb883_600x.png?v=1676864499"],
+            "stocks" : 0
+        },
+        {
+            "id": 4,
+            "title": "Acer Predator Helios 300",
+            "brand": "Acer",
+            "price": {
+                "value": "67,649",
+                "currency": "₱"
+            },
+            "description": "The TUF Dash is Asus's most affordable all-purpose/gaming laptop series at this point, and a lot more powerful than the previous generation in this 2022 update. It's still a thinner and lighter alternative for the full-size TUF Gaming models, and is still an Intel-exclusive design, but it is a balanced performer and competitively priced in most regions, thus an option to consider if you're shopping on a lower budget. Just be careful about that FHD 144Hz screen option and aim for a configuration with the FHD 300Hz display, if available in your area.",
+            "Specification": {
+                "Model" : "PH315-54-70BF",
+                "Operating System" : "Windows 11 Home 64-bit",
+                "Processor" : "Intel® Core™ i7-12700H Processor 2.30 GHz, 4 cores (8M Cache, up to 4.4GHz)",
+                "Graphics" : "NVIDIA® GeForce RTX™ 3070Ti Laptop GPU, Up to 1510MHz at 60W (75W with Dynamic Boost), 8GB GDDR6",
+                "Display" : "15.6-inch, LCD (2560 x 1440) Refresh Rate:249Hz",
+                "Memory" : "16GB DDR5 on board, Max Capacity:32GB",
+                "Storage" : "1TB PCIe® 3.0 NVMe™ M.2 SSD"
+            },
+            "category": "Laptop",
+            "rating": {
+                "rate": 4.9,
+                "sold": 4
+            },
+            "image": ["https://cdn.shopify.com/s/files/1/0355/8296/7943/products/NEW-LAPTOP-MAIN_TEMPLATE_ac114af2-4a6b-4cdf-a7c3-aa6a9221ad91_600x.jpg?v=1676864467", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/download_be589bf1-af75-4c9d-b408-d7a185bffe6b_600x.png?v=1676864473", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/download_2_3cd2bb23-a05c-43a7-93c6-8580e78a211a_600x.png?v=1676864479", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/download_1_01748955-e65b-4d48-a19e-b0c2427ac132_600x.png?v=1676864486", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/download_3_e99cf4af-c5b8-4358-8656-eb53612eb681_600x.png?v=1676864492", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/download_4_f66a7e63-d1d3-4431-b567-78fbf966ab04_600x.png?v=1676864497", "https://cdn.shopify.com/s/files/1/0355/8296/7943/products/w800-Copy_dc3a0122-20a2-45d5-a7a6-82ecc0fcb883_600x.png?v=1676864499"],
+            "stocks" : 0
+        }, 
+        {
+            "id": 5,
+            "title": "OPPO A17K",
+            "brand": "OPPO",
+            "price": {
+                "value": "5,999",
+                "currency": "₱"
+            },
+            "description": "Oppo A17k has been officially released on Oct. 18, 2022. The smartphone is powered by MediaTek MT6765 Helio G35 Octa-core processor with PowerVR GE8320 GPU. The device runs on Android 12 + ColorOS 12.1 operating system. The device is packed with 3 GB RAM with 64 GB internal storage, which can be increased with microSDXC",
+            "Specification": {
+                "Model" : "OPPO A17K",
+                "Operating System" : "Android 12, ColorOS 12,1",
+                "Processor" : "Octa-core (4x2.3 GHz Cortex-A53 & 4x1.8 GHz Cortex-A53)",
+                "Graphics" : "Mediatek MT6765 Helio G35 (12 nm), PowerVR GE8320",
+                "Display" : "IPS LCD, 480 nits (typ), 600 nits (HBM), 6.56 inches, 103.4 cm2 (~83.3% screen-to-body ratio), 720 x 1612 pixels, 20:9 ratio (~269 ppi density)",
+                "Memory" : "64GB 3GB RAM eMMC 5.1",
+                "Battery" : "Li-Po 5000 mAh, non-removable"
+            },
+            "category": "Smartphone",
+            "rating": {
+                "rate": "4.9",
+                "sold": "3.1k"
+            },
+            "image": ["https://www.91-img.com/gallery_images_uploads/4/d/4d312bec80b11d23a5881a6b61dc6d67f3c9a2e4.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/2/f/2ffd0dd95ed9a66dff8f18284142e64b934d8238.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/5/9/59dc99f5912ac7d77854266040daa1d53cf469ec.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/2/6/2690e71563c9741083916ff1aa6a6481d4baa5c2.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/6/8/68e9fc1d94cc9e6ce89f03515648a0f8352fd6a4.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/8/f/8fcc40b4f20645fb7ae3e35bdad8d544d301c46c.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/0/d/0d70117f616811ce499a01b1ce02187b5379bc2d.jpg?tr=h-550,w-0,c-at_max"],
+            "stocks" : 406
+        },
+        {
+            "id": 6,
+            "title": "VIVO V27e",
+            "brand": "VIVO",
+            "price": {
+                "value": "16,499",
+                "currency": "₱"
+            },
+            "description": "VIVO V27e has been officially announced on March 1, 2023. The display features an AMOLED 6.62 inches screen that comes with a 398 PPI density. It is packed with 8 GB RAM and 128 GB, 256 GB internal storage. The smartphone runs on the Android 13 + Funtouch 13 operating system. The device features a triple-camera on the rear side that consists of 50 MP (wide) + 2 MP (depth) + 2 MP (macro) while on the front there is a single camera of 16 MP (wide).",
+            "Specification": {
+                "Model" : "VIVO V27e",
+                "Operating System" : "Android 13, Funtouch 13",
+                "Processor" : "Octa-core (2x2.2 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)",
+                "Graphics" : "Mediatek MT8781 Helio G99 (6nm), Mali-G57 MC2",
+                "Display" : "AMOLED, 120Hz 6.62 inches, 105.8 cm2 (~85.9% screen-to-body ratio) 1080 x 2400 pixels, 20:9 ratio (~398 ppi density)",
+                "Memory" : "128GB 8GB RAM, 256GB 8GB RAM, 256GB 12GB RAM",
+                "Battery" : "Li-Po 4600 mAh, non-removable"
+            },
+            "category": "Smartphone",
+            "rating": {
+                "rate": "4.9",
+                "sold": "82"
+            },
+            "image": ["https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1677147748930/zip/img/gallery-pc-img1.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1677147748930/zip/img/gallery-pc-img2.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1677147748930/zip/img/gallery-pc-img3.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1677147748930/zip/img/gallery-pc-img4.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1677147748930/zip/img/gallery-pc-img5.jpg"],
+            "stocks" : 23
+        },
+        {
+            "id": 7,
+            "title": "Sony WH-1000XM4 Wirelss Headphones",
+            "brand": "Sony",
+            "price": {
+                "value": "13,999",
+                "currency": "₱"
+            },
+            "description": "The Sony WH-1000XM4 are the successor to the Sony WH-1000XM3 Wireless, coming with a longer continuous battery life, additional touch-sensitive control features, and multi-device pairing. Like their predecessor, they have an outstanding noise isolation performance thanks to their ANC feature and a comfortable, premium-looking design. Overall, these decently versatile headphones are a solid choice for many different listeners, and even though they've Sony's replaced them with the Sony WH-1000XM5 Wireless, they're still worth checking out as a comparable alternative.",
+            "Features": {
+                "feature 1" : "HD Noise Canceling Processor QN1, Bluetooth Audio SoC and a dual noise sensor let you listen without distractions",
+                "feature 2" : "Personal Noise Canceling Optimizer and Atmospheric Pressure Optimizing",
+                "feature 3" : "High-quality audio with DSEE Extreme™ and LDAC",
+                "feature 4" : "Adaptive Sound Control automatically adjusts ambient sound settings to suit your location and behavior",
+                "feature 5" : "Wireless freedom with BLUETOOTH® technology"
+            },
+            "category": "Headphone",
+            "rating": {
+                "rate": "4.8",
+                "sold": "97"
+            },
+            "image": ["https://static.bhphoto.com/images/images500x500/1596715570_1582549.jpg", "https://static.bhphoto.com/images/multiple_images/images500x500/1596716161_IMG_1398643.jpg", "https://static.bhphoto.com/images/multiple_images/images500x500/1596716161_IMG_1398644.jpg", "https://static.bhphoto.com/images/multiple_images/images500x500/1596716161_IMG_1398645.jpg", "https://static.bhphoto.com/images/multiple_images/images500x500/1596716161_IMG_1398646.jpg", "https://static.bhphoto.com/images/multiple_images/images500x500/1596716161_IMG_1398648.jpg"],
+            "stocks" : 18
+        }
+    ]
+}
