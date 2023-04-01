@@ -125,7 +125,7 @@
             "category": "Smartphone",
             "rating": {
                 "rate": "4.9",
-                "sold": "3.1k"
+                "sold": 3100
             },
             "image": ["https://www.91-img.com/gallery_images_uploads/4/d/4d312bec80b11d23a5881a6b61dc6d67f3c9a2e4.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/2/f/2ffd0dd95ed9a66dff8f18284142e64b934d8238.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/5/9/59dc99f5912ac7d77854266040daa1d53cf469ec.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/2/6/2690e71563c9741083916ff1aa6a6481d4baa5c2.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/6/8/68e9fc1d94cc9e6ce89f03515648a0f8352fd6a4.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/8/f/8fcc40b4f20645fb7ae3e35bdad8d544d301c46c.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/0/d/0d70117f616811ce499a01b1ce02187b5379bc2d.jpg?tr=h-550,w-0,c-at_max"],
             "stocks" : 406
@@ -151,7 +151,7 @@
             "category": "Smartphone",
             "rating": {
                 "rate": "4.9",
-                "sold": "82"
+                "sold": 82
             },
             "image": ["https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1677147748930/zip/img/gallery-pc-img1.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1677147748930/zip/img/gallery-pc-img2.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1677147748930/zip/img/gallery-pc-img3.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1677147748930/zip/img/gallery-pc-img4.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1677147748930/zip/img/gallery-pc-img5.jpg"],
             "stocks" : 23
@@ -175,7 +175,7 @@
             "category": "Headphone",
             "rating": {
                 "rate": "4.8",
-                "sold": "97"
+                "sold": 97
             },
             "image": ["https://static.bhphoto.com/images/images500x500/1596715570_1582549.jpg", "https://static.bhphoto.com/images/multiple_images/images500x500/1596716161_IMG_1398643.jpg", "https://static.bhphoto.com/images/multiple_images/images500x500/1596716161_IMG_1398644.jpg", "https://static.bhphoto.com/images/multiple_images/images500x500/1596716161_IMG_1398645.jpg", "https://static.bhphoto.com/images/multiple_images/images500x500/1596716161_IMG_1398646.jpg", "https://static.bhphoto.com/images/multiple_images/images500x500/1596716161_IMG_1398648.jpg"],
             "stocks" : 18
