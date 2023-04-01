@@ -9,142 +9,251 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
+
+
+ 
 </head>
 
 <body>
+    <div>
 
-    <div class="">
-        <nav class="navbar navbar-expand-lg bg-light p-3 ">
-            <div class="container ">
-                <a href="#" class="navbar-brand">
-                    <i class="fa-solid fa-store"></i>
-                    <span>Logo</span>
-                </a>
-               
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse my-auto" id="nav-menu">
-                    <div></div>
+        <div class="">
+            <nav class="navbar navbar-expand-lg bg-light p-3 ">
+                <div class="container ">
+                    <a href="#" class="navbar-brand">
+                        <i class="fa-solid fa-store"></i>
+                        <span>Logo</span>
+                    </a>
+                
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse my-auto" id="nav-menu">
+                        <div></div>
+                        
+                        <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4">
+                            <li class="nav-item"><a href="#home-page" class="nav-link active" onclick="navigate('home-page')">Home</a></li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown"
+                                    data-bs-target="shop-dropdown" role="button">Category</a>
+                                <ul class="dropdown-menu bg-transparent" id="shop-dropdown">
+                                    <li><a href="#" class="dropdown-item">Laptop</a></li>
+                                    <li><a href="#" class="dropdown-item">Smart Phone</a></li>
+                                    <li><a href="#" class="dropdown-item">Headphone</a></li>
+                                    <li><a href="#" class="dropdown-item">Monitor</a></li>
+                                    <li><a href="#" class="dropdown-item">Accesories</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a href="#contact-page" class="nav-link" onclick="navigate('contact-page')">Contact</a></li>
+
+                        </ul>
                     
-                    <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown"
-                                data-bs-target="shop-dropdown" role="button">Category</a>
-                            <ul class="dropdown-menu" id="shop-dropdown">
-                                <li><a href="#" class="dropdown-item">Laptop</a></li>
-                                <li><a href="#" class="dropdown-item">Smart Phone</a></li>
-                                <li><a href="#" class="dropdown-item">Headphone</a></li>
-                                <li><a href="#" class="dropdown-item">Monitor</a></li>
-                                <li><a href="#" class="dropdown-item">Accesories</a></li>
+                            <div>
+                                
+                                <a href="#login-page" class="text-decoration-none text-dark" onclick = "navigate('login-page')">Login </a>
+                                <!-- <span class="login-area"><a href="#loginpage" class="text-decoration-none text-dark hide" onclick = "navigate('loginpage')" id="logout-btn">Logout </a></span> -->
+                                
+                                <a href="#register-page" class="text-decoration-none text-dark" onclick = "navigate('register-page')">| Register</a>
+                                    <a href="#" class="btn btn-light" id="cart-btn">
+                                        <i class="fa-solid fa-cart-shopping me-2 my-auto"></i>
+                                    </a>
 
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                            </div>
 
-                    </ul>
-                   
-                        <div>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+
+
+
+
+                            <!-- CONTACT SECTION / CONTACT SECTION / CONTACT SECTION  -->
+
+
+
+        <div class="container page hide" id="contact-page">
+            <div class="bg-light mt-3 mx-auto text-dark bg-opacity-50 shadow p-3 mb-5 bg-body rounded" id="contact-container">
+                <h3 class="text-center text-uppercase pt-3 fw-bold">contact us</h3>
+                <div class="row">
+                    <div class="col-6">
+                        <form action="aboutme.html" id="login-form">
+                            <fieldset>
+                                <div class="row my-3">
+                                    <div class="col">
+                                        <label for="full-name" class="form-label pt-2">Full Name:</label>
+                                    </div>
+                                    <div>
+                                        <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required>
+                                    </div>  
+                                    
+                                </div>
+                                <div class="row my-3">
+                                    <div class="col">
+                                        <label for="email" class="form-label pt-2">Email Address:</label>
+                                    </div>
+                                    <div>
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                                    </div>  
+                                    
+                                </div>
+                                <div class="row my-3">
+                                    <div class="col">
+                                        <label for="message-box" class="form-label pt-2" >Message:</label>
+                                    </div>
+                                    <div>
+                                        <input type="text" name="message-box" id="message-box" class="w-100"  >
+                                        
+                                    </div>  
+                                    
+                                </div>
+                                
+                                <div class="row my-3">
+                                    <div class=""></div>
+                                    <div class="col mx-auto">
+                                        <input type="submit" value="Submit" formaction="index.html" name="register" class="btn btn-primary" id="login-btn">
+                                        
+                                    </div>  
+                                    
+                                </div>
+                                <div>
+                                    <p class="mt-5">Don't have an account? <a href="#" class="fw-bold text-decoration-none text-dark">Register here</a></p>
+                                </div>
                             
-                              <a href="#" class="text-decoration-none text-dark fw-bold">Sign in </a><a href="#" class="text-decoration-none text-dark fw-bold">| Register</a>
-                                <a href="#" class="btn btn-light" id="cart-btn">
-                                    <i class="fa-solid fa-cart-shopping me-2 my-auto"></i>
-                                </a>
-                            
-                            
-                          
+                    </div>
+                    <div class="col-6 mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold">USA & Canada</h5>
+                                <p class="fw-bold">Sales</p><p>1-888-248-9325 (toll free)</p><p>Mon to Fri from 8am to 6pm GMT</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold">Philippines</h5>
+                                <p class="fw-bold">Sales</p><p>(02) 8876 1111</p><p>Mon to Fri from 8am to 7pm </p>
+                            </div>
+
                         </div>
+                        <div class="col px-3">
+                            <h3 class="text-center mt-5 mb-4">Follow Us</h3>
+                    
+                            <ul class="socmed d-flex ">
+                                <li><a href=""><i class="fa-brands fa-facebook fa-2x"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-instagram fa-2x"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-twitter fa-2x"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-youtube fa-2x"></i></a></li>
+                                
+    
+                            </ul>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
                  
-
-
-                </div>
-
-            </div>
-        </nav>
-    </div>
-    <header>
-        <img src="images/banner.jpg">
-        <!-- <img src="images/banner2.jpg" alt=""> -->
-    </header>
-    <main>
-        <div class="container" id="category-box">
-            <div class="hscroll">
-                <button class="btn-scroll" id="btn-scroll-left" onclick="scrollHorizontal(1)"><i class="fa-solid fa-angle-left fa-2x" ></i></button>
-                <button class="btn-scroll" id="btn-scroll-right" onclick="scrollHorizontal(-1)"><i class="fa-solid fa-angle-right fa-2x"></i></button>
-                <div class="category-items">
-                    <div class="product-item ps-4"><a href="#"><img src="images/laptop.jpg">Laptop</a></div>
-                    <div class="product-item"><a href="#"><img src="images/smartphone.png">Smartphone</a></div>
-                    <div class="product-item"><a href="#"><img src="images/headphone.jpg">Headphone</a></div>
-                    <div class="product-item"><a href="#"><img src="images/monitor.jpg">Monitor</a></div>
-                    <div class="product-item pe-5"><a href="#"><img src="images/accessories.jpg">Accesories</a></div>
-
-                </div>
                 
             </div>
-           
         </div>
-    </main>
+
+
+ 
+
+
+
+        <div class="page" id="home-page">
+            <header>
+                <img src="images/banner.jpg">
+            
+            </header>
+            <main>
+                <div class="container " id="category-box">
+                    <div class="hscroll">
+                        <button class="btn-scroll" id="btn-scroll-left" onclick="scrollHorizontal(1)"><i class="fa-solid fa-angle-left fa-2x" ></i></button>
+                        <button class="btn-scroll" id="btn-scroll-right" onclick="scrollHorizontal(-1)"><i class="fa-solid fa-angle-right fa-2x"></i></button>
+                        <div class="category-items">
+                            <div class="product-item ps-4"><a href="#"><img src="images/laptop.jpg">Laptop</a></div>
+                            <div class="product-item"><a href="#"><img src="images/smartphone.png">Smartphone</a></div>
+                            <div class="product-item"><a href="#"><img src="images/headphone.jpg">Headphone</a></div>
+                            <div class="product-item"><a href="#"><img src="images/monitor.jpg">Monitor</a></div>
+                            <div class="product-item pe-5"><a href="#"><img src="images/accessories.jpg">Accesories</a></div>
+
+                        </div>
+                        
+                    </div>
+                
+                </div>
+            </main>
+
+        </div>
  
 
 
 
 
 
-    <footer>
-
-        <div class="container">
-            <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4">
-                <div class="col-md-4 px-3">
-                    <h3 class="mb-3 text-center">Gizmotronix Store</h3>
-                    <p>Browse our selection of cutting-edge technology products in our online gadget store with pleasure. This is the time to purchase the best smart devices..</p>
-                </div>
-                <div class="col-md-4 px-3">
-                    <h3 class="text-center mb-3">Products</h3>
-                    <ul>
-                        <li><a href="#">Laptop</a></li>
-                        <li><a href="#">Smartphone</a></li>
-                        <li><a href="#">Headphone</a></li>
-                        <li><a href="#">Monitor</a></li>
-                        <li><a href="#">Accesories</a></li>
-                        
-                       
-
-                    </ul>
-                </div>
-                <div class="col-md-4 px-3">
-                    <h3 class="text-center mb-3">About</h3>
-                    <ul class="">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 px-3">
-                    <h3 class="text-center
-                    mb-4">Follow Us</h3>
-            
-                    <ul class="socmed">
-                        <li><a href=""><i class="fa-brands fa-facebook fa-2x"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-instagram fa-2x"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-twitter fa-2x"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-youtube fa-2x"></i></a></li>
+        <footer>
+            <div class="container">
+                <div class="row row-cols-sm-2 row-cols-md-2 row-cols-lg-4">
+                    <div class="col-md-6 px-3">
+                        <h3 class="mb-3 text-center">Gizmotronix Store</h3>
+                        <p>Browse our selection of cutting-edge technology products in our online gadget store with pleasure. This is the time to purchase the best smart devices..</p>
+                    </div>
+                    <div class="col-md-6 px-3">
+                        <h3 class="text-center mb-4">Products</h3>
+                        <ul>
+                            <li><a href="#">Laptop</a></li>
+                            <li><a href="#">Smartphone</a></li>
+                            <li><a href="#">Headphone</a></li>
+                            <li><a href="#">Monitor</a></li>
+                            <li><a href="#">Accesories</a></li>
+                            
                         
 
-                    </ul>
-                </div>
-
+                        </ul>
+                    </div>
+                    <div class="col-md-6 px-3">
+                        <h3 class="text-center mb-3">About</h3>
+                        <ul class="">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 px-3">
+                        <h3 class="text-center
+                        mb-4">Follow Us</h3>
                 
+                        <ul class="socmed">
+                            <li><a href=""><i class="fa-brands fa-facebook fa-2x"></i></a></li>
+                            <li><a href=""><i class="fa-brands fa-instagram fa-2x"></i></a></li>
+                            <li><a href=""><i class="fa-brands fa-twitter fa-2x"></i></a></li>
+                            <li><a href=""><i class="fa-brands fa-youtube fa-2x"></i></a></li>
+                            
+
+                        </ul>
+                    </div>
+
+                    
+                </div>
+
             </div>
+            <p class="text-center mt-5">Copyright &copy 2023, Gizmotronix. All Rights Reserved. </p>
+        </footer>
 
-        </div>
-        <p class="text-center mt-5">Copyright &copy 2023, Gizmotronix. All Rights Reserved. </p>
-    </footer>
 
+
+
+
+
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="main.js"></script>
+
 
    
 

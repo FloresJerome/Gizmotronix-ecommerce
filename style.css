@@ -11,11 +11,44 @@
     
 }
 
+.hide {
+    display: none;
+}
+
 header img {
     width: 100%;
+    position: relative;
+    
     
 }
 
+#contact-page .socmed {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    
+    
+}
+
+#contact-page .socmed i {
+    color: black;
+}
+
+
+
+#registration-container {
+    width: 50%;
+}
+
+#login-container{
+    width: 50%;
+}
+
+#message-box {
+    height: 150px;
+    border-radius: 8px;
+    border-color: black;
+}
 
 
 #category-box {
@@ -23,7 +56,13 @@ header img {
     justify-content: center;
     align-items: center;
     background-color: white;
-    /* height: 100vh; */
+    position: relative;
+    top: -50px;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    
+    
 }
 
 .hscroll {
@@ -46,7 +85,7 @@ header img {
     padding: 85px 10px;
     border: 0;
     z-index: 1;
-    box-shadow: 0 0 5px;
+    box-shadow: 0 0 0px;
     cursor: pointer;
 }
 
@@ -113,6 +152,19 @@ footer h3 {
 
 
 
+
+@media screen and (max-width:991px) {
+
+    #registration-container {
+        width: 100%;
+    }
+
+    #login-container {
+        width: 100%;
+    }
+
+
+}
 
 
 
