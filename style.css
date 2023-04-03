@@ -4,6 +4,28 @@
     box-sizing: border-box;
 }
 
+nav {
+    background-color: transparent;
+
+    
+    
+    
+}
+header p{
+    position: absolute;
+    z-index: 1;
+    font-size: 2rem;
+}
+
+header img {
+    width: 100%;
+    position: relative;
+    
+    
+    
+    
+}
+
 
 
 #nav-menu{
@@ -15,12 +37,7 @@
     display: none;
 }
 
-header img {
-    width: 100%;
-    position: relative;
-    
-    
-}
+
 
 #contact-page .socmed {
     display: flex;
@@ -51,38 +68,78 @@ header img {
 }
 
 
+#brand-card-main {
+    
+    top: -50px;
+    position: relative;
+    
+    
+}
+
+#brand-card{
+    align-items: center;
+    height: 100px;
+    width: 150px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 8px;
+    /* top: -50px; */
+   
+    
+}
+
+#brand-card a img{
+    height: 3rem;
+    width: 100%;
+    align-items: center;
+    padding: 0 25px;
+
+}
+
+#brand-card a{
+    text-decoration: none;
+    color: black;
+
+}
+
+
+
+
 #category-box {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     position: relative;
-    top: -50px;
+    top: -70px;
     background-color: transparent;
     height: 100%;
     width: 100%;
     
     
+    
 }
 
 .hscroll {
-    width: 700px;
-    height: 200px;
+    width: 600px;
+    height: 150px;
     background-color: white;
     border: solid 1px #ddd;
     border-radius: 20px;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding: 0;
+    
 }
 
 .hscroll .btn-scroll {
     background-color: white;
     color: black;
-    padding: 85px 10px;
+    padding: 85px 20px;
     border: 0;
     z-index: 1;
     box-shadow: 0 0 0px;
@@ -90,6 +147,7 @@ header img {
 }
 
 .category-items {
+   
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -98,6 +156,11 @@ header img {
     left: 0;
     transition: 0.5s all ease-in-out;
     
+}
+
+.product-item a img {
+    height: 50px;
+    width: 80px;
 }
 
 .product-item {
@@ -160,6 +223,7 @@ header img {
 
 footer {
     background-color: #ddd;
+    bottom: 0;
 }
 
 footer ul {
@@ -197,6 +261,20 @@ footer h3 {
         width: 100%;
     }
 
+    #category-box {
+        margin-left: 1px;
+    }
+
+
+    .hscroll {
+        display: flex;
+        width: 100%;
+        
+    }
+    #brand-card-main {
+        display: none;
+    }
+ 
 
 }
 
