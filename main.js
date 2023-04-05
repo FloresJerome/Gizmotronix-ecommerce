@@ -113,12 +113,27 @@ function fetchData(event) {
                         shopDropDown.appendChild(list);
                     }
                 });
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
-}
+            } else if (event === 'initializeFilter') {
+
+                data.product.forEach(item => {
+                    const productList = document.querySelectorAll('#brands-list div input');
+                    let count = 0;
+                    for (let list of productList) {
+                        if (item.brand === list.id) {
+                            count++;
+                        }
+                    }
+
+                    if (count === 0) {
+                        const list = document.createElement('div');
+                        const brandsList = document.getElementById('brands-list');
+                        list.innerHTML = `<div>
+                                                <input type="checkbox" id=${item.brand} name="product-brands" id=${item.brand} class="brands" checked>
+                                                <label for=${item.brand}>${item.brand}</label>
+                                        </div>`;
+                        brandsList.appendChild(list);
+                    }
+                });
 
 
 
@@ -179,8 +194,7 @@ function updatePage(pageName) {
         const page = document.getElementById(pageName);
         page.classList.remove('hide');
     } else {
-        const pageName = document.getElementById('to-product-list');
-        pageName.classList.remove('hide');
+        fetchData('initializeFilter');
     }
 }
 
