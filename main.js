@@ -310,6 +310,9 @@ function updatePage(pageName) {
         const page = document.getElementById(pageName);
         page.classList.remove('hide');
     } else {
+        const toProduceList = document.getElementById('to-product-list');
+        toProduceList.classList.remove('hide');
+        console.log(pageName);
         fetchData('initializeFilter');
         fetchData(pageName);
 
