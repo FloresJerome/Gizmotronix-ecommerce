@@ -198,7 +198,76 @@
             </div>
         </div>
 
-
+        <div class="row page my-5 gx-5 hide" id="to-product-list">
+            <div class="col-2 border rounded-2 py-3">
+                <li class="list-group-item" id="brands-list">
+                    <h5 class="d-flex justify-content-center">Brands</h5>
+                    <div>
+                        <input type="checkbox" id="all-brand" name="product-brands" id="all-brand" class="brands">
+                        <label for="all-brand">All Brands</label>
+                    </div>
+                </li>
+                <li class="list-group-item" id="rating">
+                    <h5 class="d-flex justify-content-center">Rating</h5>
+                </li>
+                <li class="list-group-item">
+                    <h5 class="d-flex justify-content-center">Price Range</h5>
+                </li>
+                <li class="list-group-item">
+                    <h5 class="d-flex justify-content-center">Availability</h5>
+                    <div>
+                        <input type="checkbox" id="available" name="availability" value="available">
+                        <label for="available">Available</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="out-of-stock" name="availability" value="out-of-stock">
+                        <label for="out-of-stock">Out of stock</label>
+                    </div>
+                </li>
+                </ul>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-12 p-0">
+                        <ul class="nav nav-pills nav-fill border p-3 rounded-2 category" style="width: 60rem">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="popular">Popular</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="best-selling">Best Selling</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="newest">Newest</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="cheapest-price">Cheapest Price</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 mt-3 p-0">
+                        <div class="row" id="product-list">
+                            <div class="col-3">
+                                <div class="card border-2 " style="width: 18rem;" id="sample-card" type="button"
+                                    data-bs-toggle="modal" data-bs-target="#myModal">
+                                    <img src="https://dlcdnwebimgs.asus.com/gain/7c5affa3-a028-4cc3-8bac-8ce757a46f66/"
+                                        class="card-img-top product-img" alt="product">
+                                    <div class="card-body border-top border-2">
+                                        <p class="card-text d-flex justify-content-center">Title</p>
+                                        <p class="card-text d-flex justify-content-between px-4">
+                                            <span>Price</span>Available
+                                        </p>
+                                        <p class="card-text d-flex justify-content-between px-4"><i
+                                                class="fa-solid fa-star"><i class="fa-solid fa-star"></i></i>
+                                            <span>Sold</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
