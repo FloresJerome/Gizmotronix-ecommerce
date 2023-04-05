@@ -154,56 +154,41 @@ let scrollAmount = 200;
 
 
 
-                        // FOR HISTORY API
+// FOR HISTORY API
 
-    window.history.replaceState({ page: 'homepage'}, 'homepage', '#homepage');
+window.history.replaceState({ page: 'homepage' }, 'homepage', '#homepage');
 
-    function nextContent(pageName) {
-        const pages = document.getElementsByClassName('page');
-        for (let p of pages) {
-            p.classList.add('hidden');
-        }
+function nextContent(pageName) {
+    window.history.pushState({ page: pageName }, pageName, `#${pageName}`);
+    updatePage(pageName);
+}
 
-        const currentPage = document.getElementById(pageName);
-        currentPage.classList.remove('hide');
+function updatePage(pageName) {
+    const pages = document.getElementsByClassName('page');
+    for (let p of pages) {
+        p.classList.add('hide');
     }
 
-    function navigate(pageName) {
-        windows.history.pushState({page: pageName}, pageName, `#${pageName}`);
-
-        nextContent(pageName);
+    if (pageName === 'home-page') {
+        const homePageHeader = document.getElementById('home-page-header');
+        homePageHeader.classList.remove('hide');
+        const homePageMain = document.getElementById('home-page-main');
+        homePageMain.classList.remove('hide');
+    } else if (pageName === 'contact-page' || pageName === 'register-page' || pageName === 'login-page') {
+        const page = document.getElementById(pageName);
+        page.classList.remove('hide');
+    } else {
+        const pageName = document.getElementById('to-product-list');
+        pageName.classList.remove('hide');
     }
+}
 
 
-
-    window.history.replaceState({ page: 'homepage' }, 'homepage', '#homepage');
-
-   
-    function updateContent(pageName) {
-      
-        const pages = document.getElementsByClassName('page');
-        for (let p of pages) {
-            p.classList.add('hide');
-        }
-
-        const currentPage = document.getElementById(pageName);
-        currentPage.classList.remove('hide');
-
+window.addEventListener('popstate', function (e) {
+    if (e.state) {
+        updatePage(e.state.page);
     }
-
-
-    function navigate(pageName) {
-
-        window.history.pushState({ page: pageName }, pageName, `#${pageName}`);
-
-        updateContent(pageName);
-    }
-
-    window.addEventListener('popstate', function(e) {
-        if (e.state) {
-            updateContent(e.state.page);
-        }
-    });
+});
 
 
 
