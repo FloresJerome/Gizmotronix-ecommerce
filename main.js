@@ -134,10 +134,126 @@ function fetchData(event) {
                         brandsList.appendChild(list);
                     }
                 });
+            } else if (event === 'all-product') {
 
+                //Clear All Fields Product List
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
 
+                const allBrands = document.getElementById('all-brand')
+                allBrands.checked = true;
+                const ASUS = document.getElementById('ASUS')
+                ASUS.checked = true;
+                const Acer = document.getElementById('Acer')
+                Acer.checked = true;
 
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
 
+                for (let x = 1; x <= countItem; x++) {
+                    let rating = 0, count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (rating < item.rating.rate) {
+                            rating = item.rating.rate;
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+
+                    const productList = document.getElementById('product-list');
+                    const productContainer = document.createElement('div');
+                    productContainer.className = 'col-3';
+                    productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                        <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
+                                                        <div class="card-body border-top border-2">
+                                                            <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
+                                                            <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
+                                                            <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
+                                                        </div>
+                                                    </div>`;
+                    productList.appendChild(productContainer);
+
+                    data.product.splice(itemIndex, 1);
+                }
+            } else if (event === 'best-seller') {
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let sold = 0, count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (sold < item.rating.sold) {
+                            sold = item.rating.sold;
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+
+                    const productList = document.getElementById('product-list');
+                    const productContainer = document.createElement('div');
+                    productContainer.className = 'col-3';
+                    productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                    <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
+                                                    <div class="card-body border-top border-2">
+                                                        <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
+                                                        <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
+                                                        <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
+                                                    </div>
+                                                </div>`;
+                    productList.appendChild(productContainer);
+
+                    data.product.splice(itemIndex, 1);
+                }
+            } else if (event === 'new-arrival') {
+
+                    //Clear product list
+                    const productList = document.getElementById('product-list');
+                    productList.innerHTML = '';
+
+                    let countItem = 0;
+                        for (let y of data.product) {
+                            countItem++;
+                        }
+
+                        for (let x = 1; x <= countItem; x++) {
+                            let sold = data.product[0].rating.sold, count = 0, itemIndex = 0;
+                            for (let item of data.product) {
+                                if (sold > item.rating.sold) {
+                                    sold = item.rating.sold;
+                                    itemIndex = count;
+                                }
+                                count++;
+                            }
+
+                            const productList = document.getElementById('product-list');
+                            const productContainer = document.createElement('div');
+                            productContainer.className = 'col-3';
+                            productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                        <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
+                                                        <div class="card-body border-top border-2">
+                                                            <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
+                                                            <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
+                                                            <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
+                                                        </div>
+                                                    </div>`;
+                            productList.appendChild(productContainer);
+
+                            data.product.splice(itemIndex, 1);
+            }}
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
 
 
 
@@ -195,6 +311,8 @@ function updatePage(pageName) {
         page.classList.remove('hide');
     } else {
         fetchData('initializeFilter');
+        fetchData(pageName);
+
     }
 }
 
