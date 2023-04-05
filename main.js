@@ -1,7 +1,7 @@
 //Page 1
 
-fetchData('best-seller');
-fetchData('new-arrival');
+fetchData('best-seller-home');
+fetchData('new-arrival-home');
 fetchData('shop-dropdown');
 
 function fetchData(event) {
@@ -14,7 +14,7 @@ function fetchData(event) {
         })
         .then(data => {
 
-            if (event === 'best-seller') {
+            if (event === 'best-seller-home') {
                 for (let x = 1; x < 8; x++) {
                     let bestSellerList = data.product;
                     let soldItem = 0;
@@ -55,7 +55,7 @@ function fetchData(event) {
                     const removeItem = bestSellerList.splice(itemIndex, 1);
 
                 }
-            } else if (event === 'new-arrival') {
+            } else if (event === 'new-arrival-home') {
                 for (let y = 1; y < 8; y++) {
                     let newArrivalList = data.product;
                     let newItem = newArrivalList[0].rating.sold;
@@ -92,7 +92,7 @@ function fetchData(event) {
                                                 </div>`;
                     newArrival.appendChild(productContainer);
 
-                    const removeItem = newArrivalList.splice(itemIndex, 1);
+                    newArrivalList.splice(itemIndex, 1);
                 }
             } else if (event === 'shop-dropdown') {
 
