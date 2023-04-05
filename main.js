@@ -1,6 +1,7 @@
 //Page 1
 
 fetchData('best-seller');
+fetchData('new-arrival');
 fetchData('shop-dropdown');
 
 function fetchData(event) {
@@ -14,7 +15,7 @@ function fetchData(event) {
         .then(data => {
 
             if (event === 'best-seller') {
-                for (let x = 0; x < 8; x++) {
+                for (let x = 1; x < 8; x++) {
                     let bestSellerList = data.product;
                     let soldItem = 0;
                     let count = 0;
