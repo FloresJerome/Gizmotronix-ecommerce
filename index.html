@@ -24,32 +24,30 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse my-auto" id="nav-menu">
-                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a href="#home-page" class="nav-link active" onclick="navigate('home-page')">Home</a></li>
+            <div class="collapse navbar-collapse my-auto d-flex justify-content-center" id="nav-menu">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 d-flex gap-4">
+                    <li class="nav-item"><a class="nav-link active text-white" onclick="nextContent('home-page')">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active text-white" onclick="nextContent('all-product')">All Product</a></li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle text-white" aria-expanded="false" data-bs-toggle="dropdown"
                             data-bs-target="shop-dropdown" role="button">Brands</a>
                         <ul class="dropdown-menu bg-light" id="shop-dropdown">
-                            <li><a href="#" class="dropdown-item">Apple</a></li>
-                            <li><a href="#" class="dropdown-item">Samsung</a></li>
-                            <li><a href="#" class="dropdown-item">Oppo</a></li>
-                            <li><a href="#" class="dropdown-item">Vivo</a></li>
-                            <li><a href="#" class="dropdown-item">Realme</a></li>
-
+                            
                         </ul>
                     </li>
-                    <li class="nav-item"><a href="#contact-page" class="nav-link" onclick="navigate('contact-page')">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" onclick="nextContent('best-seller')">Best Seller</a></li>
+                    <li class="nav-item"><a class="nav-link active text-white" onclick="nextContent('new-arrival')">New Arrival</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" onclick="nextContent('contact-page')">Contact</a></li>
                 </ul>
-                    <div>
-                        <a href="#login-page" class="text-decoration-none text-dark" onclick = "navigate('login-page')">Login </a>
-                        <!-- <span class="login-area"><a href="#loginpage" class="text-decoration-none text-dark hide" onclick = "navigate('loginpage')" id="logout-btn">Logout </a></span> -->
-                        
-                        <a href="#register-page" class="text-decoration-none text-dark" onclick = "navigate('register-page')">| Register</a>
-                            <a href="#" class="btn btn-light" id="cart-btn">
-                                <i class="fa-solid fa-cart-shopping me-2 my-auto"></i>
-                            </a>
-                    </div>
+            </div>
+            <div>
+                <a class="text-decoration-none text-white" onclick = "nextContent('login-page')">Login </a>
+                <!-- <span class="login-area"><a href="#loginpage" class="text-decoration-none text-dark hide" onclick = "navigate('loginpage')" id="logout-btn">Logout </a></span> -->
+                
+                <a class="text-decoration-none text-white" onclick = "nextContent('register-page')">| Register</a>
+                    <a href="#" class="btn btn-light" id="cart-btn">
+                        <i class="fa-solid fa-cart-shopping me-2 my-auto"></i>
+                    </a>
             </div>
 
         </div>
@@ -57,16 +55,16 @@
    
 
         
-    <header class="page" id="home-page">
+    <header class="page" id="home-page-header">
         
         <img src="https://about.att.com/ecms/dam/snr/2020/November2020/StoryLevelBanner/11042020_iPhoneProMax_STORY_LEVEL_BANNER_1600x483.jpg">
 
     
     </header>
 
-    <main>
+    <main class="container-lg">
 
-        <div class="container page" id="home-page">
+        <div class="container page" id="home-page-main">
 
             <div class="row" id="category-box">
                 <div class="hscroll">
