@@ -1,0 +1,423 @@
+{
+    "product" : [{
+            "id": 1,
+            "title": "OPPO Find N",
+            "brand": "OPPO",
+            "price": {
+                "value": "59,572",
+                "currency": "₱"
+            },
+            "description": "Oppo Find N 5G, the first foldable flagship from OPPO features a 5.4″ AMOLED outer screen and 7.1″ LTPO AMOLED display when unfolded. It runs on Snapdragon 888 5G octa-core processor and features Adreno 660 GPU. The smartphone comes with 8GB / 12GB RAM and 256GB / 512Gb internal storage options.",
+            "Specification": {
+                "Model" : "OPPO Find N",
+                "Operating System" : "Android 12, ColorOS 12",
+                "Processor" : "Octa-core (1x2.84 GHz Cortex-X1 & 3x2.42 GHz Cortex-A78 & 4x1.80 GHz Cortex-A55)",
+                "Graphics" : "Qualcomm SM8350 Snapdragon 888 5G (5 nm), Adreno 660",
+                "Display" : "Foldable LTPO AMOLED, 120Hz, HDR10+, 500 nits (typ), 800 nits (HBM), 1000 nits (peak), 7.1 inches, 162.2 cm2 (~87.3% screen-to-body ratio)",
+                "Memory" : "256GB 8GB RAM, 512GB 12GB RAM",
+                "Battery" : "Li-Po 4500 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "0.0",
+                "sold": 0
+            },
+            "image": {
+                "thumbnail": "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-n-1.jpg",
+                "Other images": ["https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-n-4.jpg", "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-n-3.jpg", "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-n-03.jpg"]
+            },
+            "stocks" : 10
+        
+    },
+    {
+        "id": 2,
+            "title": "OPPO Find X5",
+            "brand": "OPPO",
+            "price": {
+                "value": "25,016",
+                "currency": "₱"
+            },
+            "description": "The OPPO Find X5 Pro comes with 6.55-inch OLED display with 120Hz refresh rate and Qualcomm Snapdragon 888 processor. Specs also include 4800mAh battery with 80W charging speed, Triple camera setup on the back with 50MP main sensor and 32MP front selfie camera.",
+            "Specification": {
+                "Model" : "OPPO Find X5",
+                "Operating System" : "Android 12, upgradable to Android 13, ColorOS 13",
+                "Processor" : "Octa-core (1x2.84 GHz Cortex-X1 & 3x2.42 GHz Cortex-A78 & 4x1.80 GHz Cortex-A55",
+                "Graphics" : "Qualcomm SM8350 Snapdragon 888 5G (5 nm), Adreno 660",
+                "Display" : "AMOLED, 1B colors, 120Hz, HDR10+, 500 nits (typ), 800 nits (HBM), 1000 nits (peak), 6.55 inches, 103.6 cm2 (~89.0% screen-to-body ratio), 1080 x 2400 pixels, 20:9 ratio (~402 ppi density)",
+                "Memory" : "128GB 8GB RAM, 256GB 8GB RAM, 256GB 12GB RAM",
+                "Battery" : "Li-Po 4800 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "5.0",
+                "sold": 8
+            },
+            "image": {
+                "thumbnail": "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x5-1.jpg",
+                "Other images": ["https://fdn.gsmarena.com/imgroot/reviews/22/oppo-find-x5/lifestyle/-1024w2/gsmarena_032.jpg", "https://fdn.gsmarena.com/imgroot/reviews/22/oppo-find-x5/lifestyle/-1024w2/gsmarena_034.jpg", "https://fdn.gsmarena.com/imgroot/reviews/22/oppo-find-x5/lifestyle/-1024w2/gsmarena_014.jpg"]
+            },
+            "stocks" : 10
+    },
+    {
+        "id": 3,
+            "title": "OPPO Find X3 Pro",
+            "brand": "OPPO",
+            "price": {
+                "value": "41,990",
+                "currency": "₱"
+            },
+            "description": "OPPO Find X3 Pro, labeled the first camera-to-screen 'billion colors' phone, offers the best display and most thoughtful camera set in a long time, all the while it manages to fit great in the hand, and dazzle with a unique Microlens photography.",
+            "Specification": {
+                "Model" : "OPPO Find X3 Pro",
+                "Operating System" : "Android 11, upgradable to Android 13, ColorOS 13",
+                "Processor" : "Octa-core (1x2.84 GHz Cortex-X1 & 3x2.42 GHz Cortex-A78 & 4x1.80 GHz Cortex-A55)",
+                "Graphics" : "Qualcomm SM8350 Snapdragon 888 5G (5 nm), Adreno 660",
+                "Display" : "LTPO AMOLED, 1B colors, 120Hz, HDR10+, BT.2020, 500 nits (typ), 1300 nits (peak), 6.7 inches, 108.4 cm2 (~89.6% screen-to-body ratio), 1440 x 3216 pixels, 20:9 ratio (~525 ppi density)",
+                "Memory" : "256GB 8GB RAM, 256GB 12GB RAM, 512GB 16GB RAM",
+                "Battery" : "Li-Po 4500 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "5.0",
+                "sold": 1
+            },
+            "image": {
+                "thumbnail": "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x3-pro-4.jpg",
+                "Other images": ["https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x3-pro-1.jpg", "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x3-pro-3.jpg", "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x3-pro-2.jpg"]
+            },
+            "stocks" : 29
+    },
+    {
+        "id": 4,
+            "title": "VIVO X80 Pro",
+            "brand": "VIVO",
+            "price": {
+                "value": "40,821",
+                "currency": "₱"
+            },
+            "description": "The vivo X80 Pro comes with 6.78-inch AMOLED display with 120Hz refresh rate and Qualcomm Snapdragon 8 Gen 1 processor. Specs also include 4700mAh battery with 80W charging speed, Quad camera setup on the back with 50MP main sensor and 32MP front selfie camera.",
+            "Specification": {
+                "Model" : "VIVO X80 Pro",
+                "Operating System" : "Android 12, upgradable to Android 13, Funtouch 13 (Global), Origin OS Ocean (China)",
+                "Processor" : "Octa-core (1x3.00 GHz Cortex-X2 & 3x2.50 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510)",
+                "Graphics" : "Qualcomm SM8450 Snapdragon 8 Gen 1 (4 nm), Adreno 730",
+                "Display" : "LTPO3 AMOLED, 1B colors, 120Hz, HDR10+, 1500 nits (peak), 6.78 inches, 111.4 cm2 (~89.9% screen-to-body ratio), 1440 x 3200 pixels, 20:9 ratio (~517 ppi density)",
+                "Memory" : "256GB 8GB RAM, 256GB 12GB RAM, 512GB 12GB RAM",
+                "Battery" : "Li-Po 4700 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "5.0",
+                "sold": 2
+            },
+            "image": {
+                "thumbnail": "https://fdn2.gsmarena.com/vv/pics/vivo/vivo-x80-pro-1.jpg",
+                "Other images": ["https://fdn2.gsmarena.com/vv/pics/vivo/vivo-x80-pro-2.jpg", "https://fdn.gsmarena.com/imgroot/reviews/22/vivo-x80-pro/lifestyle/-1024w2/gsmarena_011.jpg", "https://fdn.gsmarena.com/imgroot/reviews/22/vivo-x80-pro/lifestyle/-1024w2/gsmarena_022.jpg"]
+            },
+            "stocks" : 10
+    },
+    {
+        "id": 5,
+            "title": "VIVO V25 Pro",
+            "brand": "VIVO",
+            "price": {
+                "value": "23,990",
+                "currency": "₱"
+            },
+            "description": "The Vivo V25 Pro 5G smartphone is perfectly suited for multitaskers, you can effortlessly elevate your entertainment to a different extreme and enhance your productivity. This phone boosts your performance with its magnificent 16.66 cm (6.56) POLED display and quick 120 Hz refresh rate.",
+            "Specification": {
+                "Model" : "VIVO V25 Pro",
+                "Operating System" : "Android 12, Funtouch 12",
+                "Processor" : "Octa-core (1x3.0 GHz Cortex-A78 & 3x2.6 GHz Cortex-A78 & 4x2.0 GHz Cortex-A55)",
+                "Graphics" : "Mediatek Dimensity 1300 (6 nm), Mali-G77 MC9",
+                "Display" : "AMOLED, 120Hz, HDR10+, 1300 nits (peak), 6.56 inches, 104.6 cm2 (~89.6% screen-to-body ratio), 1080 x 2376 pixels (~398 ppi density)",
+                "Memory" : "128GB 8GB RAM, 256GB 12GB RAM",
+                "Battery" : "Li-Po 4830 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "0.0",
+                "sold": 2
+            },
+            "image": {
+                "thumbnail": "https://fdn2.gsmarena.com/vv/pics/vivo/vivo-v25-pro-1.jpg",
+                "Other images": ["https://fdn2.gsmarena.com/vv/pics/vivo/vivo-v25-pro-2.jpg", "https://fdn.gsmarena.com/imgroot/reviews/22/vivo-v25-pro/lifestyle/-1024w2/gsmarena_001.jpg", "https://fdn.gsmarena.com/imgroot/reviews/22/vivo-v25-pro/lifestyle/-1024w2/gsmarena_029.jpg"]
+            },
+            "stocks" : 9
+    },
+    {
+        "id": 6,
+            "title": "OPPO Reno 8",
+            "brand": "OPPO",
+            "price": {
+                "value": "27,999",
+                "currency": "₱"
+            },
+            "description": "The Reno8 is a solid all-rounder with a good chipset, nice screen, long battery life, blazing-fast charging and excellent camera performance, including the selfie. However, as it's usually the case with Oppo smartphones, it's its pricing that keeps us from recommending it straight up.",
+            "Specification": {
+                "Model" : "OPPO Reno 8",
+                "Operating System" : "Android 12, ColorOS 12.1",
+                "Processor" : "Octa-core (1x3.0 GHz Cortex-A78 & 3x2.6 GHz Cortex-A78 & 4x2.0 GHz Cortex-A55)",
+                "Graphics" : "Mediatek Dimensity 1300 (6 nm), Mali-G77 MC9",
+                "Display" : "AMOLED, 90Hz, 430 nits (typ), 600 nits (HBM), 800 nits (peak), 6.4 inches, 98.9 cm2 (~83.9% screen-to-body ratio), 1080 x 2400 pixels, 20:9 ratio (~411 ppi density) ",
+                "Memory" : "128GB 8GB RAM, 256GB 8GB RAM",
+                "Battery" : "Li-Po 4500 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "4.8",
+                "sold": 235
+            },
+            "image": {
+                "thumbnail": "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno8-02.jpg",
+                "Other images": ["https://fdn.gsmarena.com/imgroot/reviews/22/oppo-reno8/lifestyle/-1024w2/gsmarena_003.jpg", "https://fdn.gsmarena.com/imgroot/reviews/22/oppo-reno8/lifestyle/-1024w2/gsmarena_004.jpg", "https://fdn.gsmarena.com/imgroot/reviews/22/oppo-reno8/lifestyle/-1024w2/gsmarena_005.jpg"]
+            },
+            "stocks" :55
+    },
+    {
+        "id": 7,
+            "title": "OPPO Reno 8 Pro",
+            "brand": "OPPO",
+            "price": {
+                "value": "28,286",
+                "currency": "₱"
+            },
+            "description": "Reno8 Pro is powered by the Dimensity 8100 Max. It is an octa-core CPU that can boost up to a 2.85GHz, and it is paired with a Mali-G610 MC6 GPU. videos, and enables 4K Ultra HDR Video from the primary rear camera.",
+            "Specification": {
+                "Model" : "OPPO Reno 8 Pro",
+                "Operating System" : "Android 12, ColorOS 12.1",
+                "Processor" : "Octa-core (4x2.85 GHz Cortex-A78 & 4x2.0 GHz Cortex-A55)",
+                "Graphics" : "Mediatek Dimensity 8100-Max (5 nm), Mali-G610 MC6",
+                "Display" : "AMOLED, 1B colors, 120Hz, HDR10+, 500 nits (typ), 800 nits (HBM), 950 nits (peak), 6.7 inches, 108.0 cm2 (~90.3% screen-to-body ratio), 1080 x 2412 pixels, 20:9 ratio (~394 ppi density)",
+                "Memory" : "256GB 8GB RAM, 256GB 12GB RAM",
+                "Battery" : "Li-Po 4500 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "5.0",
+                "sold": 3
+            },
+            "image": {
+                "thumbnail": "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno8-pro-02.jpg",
+                "Other images": ["https://fdn.gsmarena.com/imgroot/reviews/22/oppo-reno8-pro/lifestyle/-1024w2/gsmarena_002.jpg", "https://fdn.gsmarena.com/imgroot/reviews/22/oppo-reno8-pro/lifestyle/-1024w2/gsmarena_011.jpg", "https://fdn.gsmarena.com/imgroot/reviews/22/oppo-reno8-pro/lifestyle/-1024w2/gsmarena_022.jpg"]
+            },
+            "stocks" :10
+    },
+    {
+        "id": 8,
+            "title": "VIVO T1x",
+            "brand": "VIVO",
+            "price": {
+                "value": "7,999",
+                "currency": "₱"
+            },
+            "description": "VIVO T1x with 6.58″ FHD+ 90Hz display, Snapdragon 680, up to 6GB RAM, 5000mAh battery launched in India starting at Rs. 11999. vivo just launched the T1x smartphone in India, as it had promised. It has a 6.58-inch FHD+ LCD screen with 90Hz refresh rate and an 8MP front camera inside the notch.",
+            "Specification": {
+                "Model" : "VIVO T1x",
+                "Operating System" : "Android 11, OriginOS",
+                "Processor" : "Octa-core (2x2.4 GHz Cortex-A78 & 6x2.0 GHz Cortex-A55)",
+                "Graphics" : "Mediatek MT6877 Dimensity 900 (6 nm), Mali-G68 MC4",
+                "Display" : "IPS LCD, 120Hz, 6.58 inches, 104.3 cm2 (~84.5% screen-to-body ratio), 1080 x 2408 pixels, 20:9 ratio (~401 ppi density)",
+                "Memory" : "128GB 6GB RAM, 128GB 8GB RAM, 256GB 8GB RAM",
+                "Battery" : "Li-Po 5000 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "5.0",
+                "sold": 792
+            },
+            "image": {
+                "thumbnail": "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1650533842016/zip/img/gallery-pc-img1.jpg",
+                "Other images": ["https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1650533842016/zip/img/gallery-pc-img2.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1650533842016/zip/img/gallery-pc-img3.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1650533842016/zip/img/gallery-pc-img4.jpg"]
+            },
+            "stocks" :11
+    },
+    {
+        "id": 9,
+            "title": "VIVO V23e",
+            "brand": "VIVO",
+            "price": {
+                "value": "19,999",
+                "currency": "₱"
+            },
+            "description": "Vivo V23e 5G is powered by an octa-core MediaTek Dimensity 810 processor. It comes with 8GB of RAM. The Vivo V23e 5G runs Android 12 and is powered by a 4050mAh battery. The Vivo V23e 5G supports proprietary fast charging.",
+            "Specification": {
+                "Model" : "VIVO V23e",
+                "Operating System" : "Android 11, Funtouch 12",
+                "Processor" : "Octa-core (2x2.05 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)",
+                "Graphics" : "Mediatek Helio G96 (12 nm), Mali-G57 MC2",
+                "Display" : "AMOLED, 6.44 inches, 100.1 cm2 (~83.8% screen-to-body ratio), 1080 x 2400 pixels, 20:9 ratio (~409 ppi density)",
+                "Memory" : "128GB 8GB RAM",
+                "Battery" : "Li-Po 4050 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "4.9",
+                "sold": 229
+            },
+            "image": {
+                "thumbnail": "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1635492221573/zip/img/gallery-pc1-img1.jpg",
+                "Other images": ["https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1635492221573/zip/img/gallery-pc1-img2.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1635492221573/zip/img/gallery-pc2-img5.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1635492221573/zip/img/gallery-pc1-img5.jpg"]
+            },
+            "stocks" :2
+    },
+    {
+        "id": 10,
+            "title": "VIVO Y02s",
+            "brand": "VIVO",
+            "price": {
+                "value": "5,499",
+                "currency": "₱"
+            },
+            "description": "Vivo V23e 5G is powered by an octa-core MediaTek Dimensity 810 processor. It comes with 8GB of RAM. The Vivo V23e 5G runs Android 12 and is powered by a 4050mAh battery. The Vivo V23e 5G supports proprietary fast charging.",
+            "Specification": {
+                "Model" : "VIVO Y02s",
+                "Operating System" : "Android 12, Funtouch 12",
+                "Processor" : "Octa-core (4x2.35 GHz Cortex-A53 & 4x1.8 GHz Cortex-A53)",
+                "Graphics" : "Mediatek MT6765 Helio P35 (12nm), PowerVR GE8320",
+                "Display" : "IPS LCD, 6.51 inches, 102.3 cm2 (~82.1% screen-to-body ratio), 720 x 1600 pixels, 20:9 ratio (~270 ppi density)",
+                "Memory" : "32GB 2GB RAM, 32GB 3GB RAM, 64GB 3GB RAM",
+                "Battery" : "Li-Po 5000 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "4.9",
+                "sold": 3500
+            },
+            "image": {
+                "thumbnail": "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1658210537238/zip/img/gallery-pc-img1.jpg",
+                "Other images": ["https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1658210537238/zip/img/gallery-pc-img2.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1658210537238/zip/img/gallery-pc-img3.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1658210537238/zip/img/gallery-pc-img4.jpg"]
+            },
+            "stocks" :59
+    },
+    {
+        "id": 11,
+            "title": "OPPO A94",
+            "brand": "OPPO",
+            "price": {
+                "value": "8,599",
+                "currency": "₱"
+            },
+            "description": "The OPPO A94 is a mid-range smartphone that features a 6.43-inch FHD+ AMOLED display, 48MP + 8MP + 2MP + 2MP quad rear cameras, and a single 32MP selfie camera on a small punch-hole. It runs on a MediaTek Helio P95 chipset with 8GB of RAM, Android 11 OS, and ColorOS software. There's also an under-display fingerprint scanner, 4G LTE connectivity, and 128GB of expandable storage.",
+            "Specification": {
+                "Model" : "OPPO A94",
+                "Operating System" : "Android 11, ColorOS 11.1",
+                "Processor" : "Octa-core (2x2.2 GHz Cortex-A75 & 6x2.0 GHz Cortex-A55)",
+                "Graphics" : "Mediatek MT6779V Helio P95 (12 nm), PowerVR GM9446",
+                "Display" : "AMOLED, 430 nits (typ), 800 nits (peak), 6.43 inches, 99.8 cm2 (~85.2% screen-to-body ratio), 1080 x 2400 pixels, 20:9 ratio (~409 ppi density)",
+                "Memory" : "128GB 8GB RAM",
+                "Battery" : "Li-Po 4310 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "5.0",
+                "sold": 7
+            },
+            "image": {
+                "thumbnail": "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a94-1.jpg",
+                "Other images": ["https://www.91-img.com/gallery_images_uploads/b/3/b37c6cba55efdb008b4ed92885efcc18da3611d9.jpg", "https://www.91-img.com/gallery_images_uploads/c/f/cf37b6fee32b73c08a9781dd53df09647ca55b96.jpg", "https://www.91-img.com/gallery_images_uploads/a/2/a23ba4d76bf29280a8ad10bf1bc5398a1402017f.jpg"]
+            },
+            "stocks" : 1
+    },
+    {
+        "id": 12,
+            "title": "VIVO Y02",
+            "brand": "VIVO",
+            "price": {
+                "value": "4,999",
+                "currency": "₱"
+            },
+            "description": "VIVO Y02 comes with a 6.51-inch touchscreen display offering a resolution of 720x1600 pixels (HD+). Vivo Y02 is powered by an octa-core processor. It comes with 2GB, 3GB of RAM. The Vivo Y02 runs Android 12 Go Edition and is powered by a 5000mAh battery.",
+            "Specification": {
+                "Model" : "VIVO Y02",
+                "Operating System" : "Android 12 (Go edition), Funtouch 12",
+                "Processor" : "Octa-core 2.0 GHz Cortex-A53",
+                "Graphics" : "Mediatek MT6762 Helio P22 (12 nm), PowerVR GE8320",
+                "Display" : "IPS LCD, 6.51 inches, 102.3 cm2 (~82.5% screen-to-body ratio), 720 x 1600 pixels, 20:9 ratio (~270 ppi density)",
+                "Memory" : "32GB 3GB RAM",
+                "Battery" : "Li-Po 5000 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "5.0",
+                "sold": 2
+            },
+            "image": {
+                "thumbnail": "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1667358240785/zip/img/gallery-pc-img1.jpg",
+                "Other images": ["https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1667358240785/zip/img/gallery-pc-img2.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1667358240785/zip/img/gallery-pc-img3.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1667358240785/zip/img/gallery-pc-img4.jpg"]
+            },
+            "stocks" : 16
+    },
+    {
+        "id": 13,
+            "title": "OPPO A16",
+            "brand": "OPPO",
+            "price": {
+                "value": "5,999",
+                "currency": "₱"
+            },
+            "description": "Oppo A16 comes with a 6.52-inch touchscreen display offering a resolution of 720x1600 pixels at a pixel density of 269 pixels per inch (ppi). Oppo A16 is powered by an octa-core MediaTek Helio G35 processor. It comes with 3GB of RAM. The Oppo A16 runs Android 11 and is powered by a 5000mAh battery.",
+            "Specification": {
+                "Model" : "OPPO A16",
+                "Operating System" : "Android 11, ColorOS 11.1",
+                "Processor" : "Octa-core (4x2.3 GHz Cortex-A53 & 4x1.8 GHz Cortex-A53)",
+                "Graphics" : "Mediatek MT6765G Helio G35 (12 nm), PowerVR GE8320",
+                "Display" : "IPS LCD, 480 nits (typ), 6.52 inches, 102.6 cm2 (~82.9% screen-to-body ratio), 720 x 1600 pixels, 20:9 ratio (~269 ppi density)",
+                "Memory" : "32GB 3GB RAM",
+                "Battery" : "Li-Po 5000 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "5.0",
+                "sold": 6
+            },
+            "image": {
+                "thumbnail": "https://img.giznext.com/assets/model/9/5748/oppo-a16-b6b9ab9b4cb2a8c969da1116943fc2.jpg?width=360",
+                "Other images": ["https://img.giznext.com/assets/model/9/5748/oppo-a16-f7ef1c66759a1322a8252bd719de73.jpg?width=360", "https://img.giznext.com/assets/model/9/5748/oppo-a16-598fadb3d872c9d11e49128afb7480.jpg?width=360", "https://img.giznext.com/assets/model/9/5748/oppo-a16-721d412d20ecabda8862a1926cf14d.jpg?width=360"]
+            },
+            "stocks" : 5
+    },
+    {
+        "id": 14,
+            "title": "VIVO Y22s",
+            "brand": "VIVO",
+            "price": {
+                "value": "11,949",
+                "currency": "₱"
+            },
+            "description": "The VIVO Y22s is a smartphone that features a 6.55-inch HD+ display, 50MP + 2MP dual rear cameras, and an 8MP selfie camera. It runs on a Qualcomm Snapdragon 680 chipset with either 4GB or 8GB of RAM, up to 8GB of additional virtual RAM, Android 12 OS, and Funtouch 12 interface. There's also a side-mounted fingerprint scanner, 4G LTE connectivity, dual-band Wi-Fi, and 128GB of expandable storage.",
+            "Specification": {
+                "Model" : "OPPO Y22s",
+                "Operating System" : "Android 12, Funtouch 12",
+                "Processor" : "Octa-core (4x2.4 GHz Kryo 265 Gold & 4x1.9 GHz Kryo 265 Silver)",
+                "Graphics" : "Qualcomm SM6225 Snapdragon 680 4G (6 nm), Adreno 610",
+                "Display" : "IPS LCD, 6.55 inches, 103.1 cm2 (~82.4% screen-to-body ratio), 720 x 1612 pixels, 20:9 ratio (~270 ppi density)",
+                "Memory" : "128GB 6GB RAM, 128GB 8GB RAM",
+                "Battery" : "Li-Po 5000 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "5.0",
+                "sold": 7
+            },
+            "image": {
+                "thumbnail": "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1660220110504/zip/img/gallery-pc-img1.jpg",
+                "Other images": ["https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1660220110504/zip/img/gallery-pc-img2.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1660220110504/zip/img/gallery-pc-img3.jpg", "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/Picture_library/1660220110504/zip/img/gallery-pc-img4.jpg"]
+            },
+            "stocks" : 9
+    },
+    {
+        "id": 15,
+            "title": "OPPO A95",
+            "brand": "VIVO",
+            "price": {
+                "value": "16,639",
+                "currency": "₱"
+            },
+            "description": "The OPPO A95 is a 'midrange' smartphone that features a 6.43-inch FHD+ AMOLED display, 48MP + 2MP + 2MP triple rear cameras, and a 16MP punch-hole selfie camera. It runs on a Qualcomm Snapdragon 662 chipset with 8GB of RAM, 5GB of additional extended RAM, Android 11 OS, and ColorOS 11.1 software. There's also an under-display fingerprint scanner, 4G LTE connectivity, dual-band Wi-Fi, and 128GB of expandable storage. A large 5,000mAh battery powers the device with support for 33W SuperVOOC 2.0 fast charging technology.",
+            "Specification": {
+                "Model" : "OPPO A95",
+                "Operating System" : "Android 11, ColorOS 11.1",
+                "Processor" : "Octa-core (4x2.0 GHz Kryo 260 Gold & 4x1.8 GHz Kryo 260 Silver)",
+                "Graphics" : "Qualcomm SM6115 Snapdragon 662 (11 nm), Adreno 610",
+                "Display" : "AMOLED, 430 nits (typ), 800 nits (peak), 6.43 inches, 99.8 cm2 (~84.4% screen-to-body ratio), 1080 x 2400 pixels, 20:9 ratio (~409 ppi density)",
+                "Memory" : "128GB 8GB RAM, 256GB 8GB RAM",
+                "Battery" : "Li-Po 5000 mAh, non-removable"
+            },
+            "rating": {
+                "rate": "0.0",
+                "sold": 1
+            },
+            "image": {
+                "thumbnail": "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a55-1.jpg",
+                "Other images": ["https://www.91-img.com/gallery_images_uploads/2/6/2676ca477164a1db5d440e24655681d235a2e898.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/9/a/9a96b3b4d4d93f8557a790c05bb0ff9771001c1b.jpg?tr=h-550,w-0,c-at_max", "https://www.91-img.com/gallery_images_uploads/c/4/c494095cb316953a98c7d1da9351a7379476a7d6.jpg?tr=h-550,w-0,c-at_max"]
+            },
+            "stocks" : 4
+    }]
+}
