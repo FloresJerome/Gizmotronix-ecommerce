@@ -316,7 +316,12 @@ footer h3 {
         
     }
 
-   
+    
+    .row-product {
+        display: none;
+    }
+
+    
  
 
 }
