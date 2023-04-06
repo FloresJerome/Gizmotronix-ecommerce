@@ -81,7 +81,7 @@ header img {
 }
 
 .hscroll {
-    display: flex;
+    display: none;
     width: 770px;
     height: 120px;
     background-color: white;
@@ -141,6 +141,51 @@ header img {
     height: 150px;
     width: 150px;
     transform: rotateZ('-45deg');
+}
+
+
+.row-product {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(255, 255, 255, 1);
+    top: -40px;
+    position: relative;
+    border-radius: 50px;
+    margin-bottom: 70px;
+    
+    
+}
+
+.card-product {
+    height: 80px;
+    background-color: white;
+    /* top: -50px;
+    position: relative; */
+    border-radius: 5px;
+    
+
+}
+
+.card-product a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+}
+
+.card-product img {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    object-fit: contain;
+    margin-top: 5px;
+    
+}
+
+.card-product img:hover {
+    transform: scale(0.8);
+    
 }
 
 
