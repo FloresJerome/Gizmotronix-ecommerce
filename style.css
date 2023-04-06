@@ -4,13 +4,10 @@
     box-sizing: border-box;
 }
 
-nav {
-    background-color: transparent;
-
-    
-    
-    
+.nav-absolute {
+    background-color: black;
 }
+
 header p{
     position: absolute;
     z-index: 1;

@@ -1,7 +1,8 @@
 //Page 1
 
-fetchData('best-seller');
-fetchData('new-arrival')
+fetchData('best-seller-home');
+fetchData('new-arrival-home');
+fetchData('shop-dropdown');
 
 function fetchData(event) {
     return fetch('https://raw.githubusercontent.com/FloresJerome/Gizmotronix-ecommerce/main/product-data.json')
@@ -13,8 +14,8 @@ function fetchData(event) {
         })
         .then(data => {
 
-            if (event === 'best-seller') {
-                for (let x = 0; x < 8; x++) {
+            if (event === 'best-seller-home') {
+                for (let x = 1; x < 8; x++) {
                     let bestSellerList = data.product;
                     let soldItem = 0;
                     let count = 0;
@@ -58,7 +59,7 @@ function fetchData(event) {
                     const removeItem = bestSellerList.splice(itemIndex, 1);
 
                 }
-            } else if (event === 'new-arrival') {
+            } else if (event === 'new-arrival-home') {
                 for (let y = 1; y < 8; y++) {
                     let newArrivalList = data.product;
                     let newItem = newArrivalList[0].rating.sold;
@@ -96,18 +97,168 @@ function fetchData(event) {
                                                 </div>`;
                     newArrival.appendChild(productContainer);
 
-                    const removeItem = newArrivalList.splice(itemIndex, 1);
+                    newArrivalList.splice(itemIndex, 1);
                 }
-            }
+            } else if (event === 'shop-dropdown') {
+
+                data.product.forEach(item => {
+                    const dropDownList = document.querySelectorAll('#shop-dropdown li a');
+                    let count = 0;
+
+                    for (let list of dropDownList) {
+                        if (item.brand === list.textContent) {
+                            count++;
+                        }
+                    }
+
+                    if (count === 0) {
+                        const list = document.createElement('li');
+                        const shopDropDown = document.getElementById('shop-dropdown');
+                        list.innerHTML = `<a class="dropdown-item" onclick="nextContent(${item.brand})">${item.brand}</a>`;
+                        shopDropDown.appendChild(list);
+                    }
+                });
+            } else if (event === 'initializeFilter') {
+
+                data.product.forEach(item => {
+                    const productList = document.querySelectorAll('#brands-list div input');
+                    let count = 0;
+                    for (let list of productList) {
+                        if (item.brand === list.id) {
+                            count++;
+                        }
+                    }
+
+                    if (count === 0) {
+                        const list = document.createElement('div');
+                        const brandsList = document.getElementById('brands-list');
+                        list.innerHTML = `<div>
+                                                <input type="checkbox" id=${item.brand} name="product-brands" id=${item.brand} class="brands" checked>
+                                                <label for=${item.brand}>${item.brand}</label>
+                                        </div>`;
+                        brandsList.appendChild(list);
+                    }
+                });
+            } else if (event === 'all-product') {
+
+                //Clear All Fields Product List
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                const allBrands = document.getElementById('all-brand')
+                allBrands.checked = true;
+                const ASUS = document.getElementById('ASUS')
+                ASUS.checked = true;
+                const Acer = document.getElementById('Acer')
+                Acer.checked = true;
+
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let rating = 0, count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (rating < item.rating.rate) {
+                            rating = item.rating.rate;
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+
+                    const productList = document.getElementById('product-list');
+                    const productContainer = document.createElement('div');
+                    productContainer.className = 'col-3';
+                    productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                        <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
+                                                        <div class="card-body border-top border-2">
+                                                            <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
+                                                            <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
+                                                            <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
+                                                        </div>
+                                                    </div>`;
+                    productList.appendChild(productContainer);
+
+                    data.product.splice(itemIndex, 1);
+                }
+            } else if (event === 'best-seller') {
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let sold = 0, count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (sold < item.rating.sold) {
+                            sold = item.rating.sold;
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+
+                    const productList = document.getElementById('product-list');
+                    const productContainer = document.createElement('div');
+                    productContainer.className = 'col-3';
+                    productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                    <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
+                                                    <div class="card-body border-top border-2">
+                                                        <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
+                                                        <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
+                                                        <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
+                                                    </div>
+                                                </div>`;
+                    productList.appendChild(productContainer);
+
+                    data.product.splice(itemIndex, 1);
+                }
+            } else if (event === 'new-arrival') {
+
+                    //Clear product list
+                    const productList = document.getElementById('product-list');
+                    productList.innerHTML = '';
+
+                    let countItem = 0;
+                        for (let y of data.product) {
+                            countItem++;
+                        }
+
+                        for (let x = 1; x <= countItem; x++) {
+                            let sold = data.product[0].rating.sold, count = 0, itemIndex = 0;
+                            for (let item of data.product) {
+                                if (sold > item.rating.sold) {
+                                    sold = item.rating.sold;
+                                    itemIndex = count;
+                                }
+                                count++;
+                            }
+
+                            const productList = document.getElementById('product-list');
+                            const productContainer = document.createElement('div');
+                            productContainer.className = 'col-3';
+                            productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                        <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
+                                                        <div class="card-body border-top border-2">
+                                                            <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
+                                                            <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
+                                                            <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
+                                                        </div>
+                                                    </div>`;
+                            productList.appendChild(productContainer);
+
+                            data.product.splice(itemIndex, 1);
+            }}
         })
         .catch(error => {
             console.log(error);
         });
 }
-
-
-
-
 
 
 
@@ -142,56 +293,45 @@ let scrollAmount = 140;
 
 
 
-                        // FOR HISTORY API
+// FOR HISTORY API
 
-    window.history.replaceState({ page: 'homepage'}, 'homepage', '#homepage');
+window.history.replaceState({ page: 'homepage' }, 'homepage', '#homepage');
 
-    function nextContent(pageName) {
-        const pages = document.getElementsByClassName('page');
-        for (let p of pages) {
-            p.classList.add('hidden');
-        }
+function nextContent(pageName) {
+    window.history.pushState({ page: pageName }, pageName, `#${pageName}`);
+    updatePage(pageName);
+}
 
-        const currentPage = document.getElementById(pageName);
-        currentPage.classList.remove('hide');
+function updatePage(pageName) {
+    const pages = document.getElementsByClassName('page');
+    for (let p of pages) {
+        p.classList.add('hide');
     }
 
-    function navigate(pageName) {
-        windows.history.pushState({page: pageName}, pageName, `#${pageName}`);
-
-        nextContent(pageName);
-    }
-
-
-
-    window.history.replaceState({ page: 'homepage' }, 'homepage', '#homepage');
-
-   
-    function updateContent(pageName) {
-      
-        const pages = document.getElementsByClassName('page');
-        for (let p of pages) {
-            p.classList.add('hide');
-        }
-
-        const currentPage = document.getElementById(pageName);
-        currentPage.classList.remove('hide');
+    if (pageName === 'home-page') {
+        const homePageHeader = document.getElementById('home-page-header');
+        homePageHeader.classList.remove('hide');
+        const homePageMain = document.getElementById('home-page-main');
+        homePageMain.classList.remove('hide');
+    } else if (pageName === 'contact-page' || pageName === 'register-page' || pageName === 'login-page') {
+        const page = document.getElementById(pageName);
+        page.classList.remove('hide');
+    } else {
+        const toProduceList = document.getElementById('to-product-list');
+        toProduceList.classList.remove('hide');
+        console.log(pageName);
+        fetchData('initializeFilter');
+        fetchData(pageName);
 
     }
+}
 
 
-    function navigate(pageName) {
-
-        window.history.pushState({ page: pageName }, pageName, `#${pageName}`);
-
-        updateContent(pageName);
+window.addEventListener('popstate', function (e) {
+    if (e.state) {
+        updatePage(e.state.page);
     }
-
-    window.addEventListener('popstate', function(e) {
-        if (e.state) {
-            updateContent(e.state.page);
-        }
-    });
+});
 
 
 
