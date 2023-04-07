@@ -210,6 +210,12 @@ function fetchData(event) {
                         brandsList.appendChild(list);
                     }
                 });
+                const oppo = document.getElementById('OPPO');
+                const vivo = document.getElementById('VIVO');
+
+                oppo.addEventListener('click', filterCheckBox);
+                vivo.addEventListener('click', filterCheckBox);
+
             } else if (allBrand.checked && popular.classList[1] === 'active') {
 
                 //Clear All Fields Product List
