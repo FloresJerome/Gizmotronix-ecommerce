@@ -128,7 +128,7 @@ function fetchData(event) {
                                                     </div>`;
                     newArrival.appendChild(productContainer);
 
-                    const removeItem = bestSellerList.splice(itemIndex, 1);
+                    bestSellerList.splice(itemIndex, 1);
 
                 }
             } else if (event === 'new-arrival-home') {
