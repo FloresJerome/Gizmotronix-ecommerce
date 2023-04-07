@@ -185,7 +185,7 @@ function fetchData(event) {
                     if (count === 0) {
                         const list = document.createElement('li');
                         const shopDropDown = document.getElementById('shop-dropdown');
-                        list.innerHTML = `<a class="dropdown-item" onclick="nextContent(${item.brand})">${item.brand}</a>`;
+                        list.innerHTML = `<a class="dropdown-item" onclick="nextContent('${item.brand}')">${item.brand}</a>`;
                         shopDropDown.appendChild(list);
                     }
                 });
