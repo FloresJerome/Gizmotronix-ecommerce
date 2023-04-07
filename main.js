@@ -4,6 +4,16 @@ fetchData('best-seller-home');
 fetchData('new-arrival-home');
 fetchData('shop-dropdown');
 
+//Page 2
+
+const popular = document.getElementById('popular');
+const bestSeller = document.getElementById('best-selling');
+const newest = document.getElementById('newest');
+const cheapest = document.getElementById('cheapest-price');
+popular.addEventListener('click', sortButton);
+bestSeller.addEventListener('click', sortButton);
+newest.addEventListener('click', sortButton);
+cheapest.addEventListener('click', sortButton);
 function navigationButton(event) {
     console.log(event);
     const category = document.querySelectorAll('.category a');
@@ -11,6 +21,18 @@ function navigationButton(event) {
         list.classList.remove('active');
 
         if (list.id === event) {
+            list.classList.add('active');
+        }
+    }
+    fetchData();
+}
+
+function sortButton(event) {
+    const category = document.querySelectorAll('.category a');
+    for (let list of category) {
+        list.classList.remove('active');
+
+        if (list.id === event.target.id) {
             list.classList.add('active');
         }
     }
