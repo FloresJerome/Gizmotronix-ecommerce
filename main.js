@@ -107,7 +107,7 @@ function fetchData(event) {
                     const newArrival = document.getElementById('best-seller');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
-                    productContainer.innerHTML = `<div class="card">
+                    productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${bestSellerList[itemIndex].id}>
                                                             <div class="inner"><a href="#"><img class="card-img-top" src="${bestSellerList[itemIndex].image[0]}"></a></div>
                                                             <div class="card-body p-2">
                                                                     <div>
@@ -148,7 +148,7 @@ function fetchData(event) {
                     const newArrival = document.getElementById('new-arrival');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
-                    productContainer.innerHTML = `<div class="card">
+                    productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${newArrivalList[itemIndex].id}>
                                                     <div class="inner"><a href="#"><img class="card-img-top" src="${newArrivalList[itemIndex].image[0]}"></a></div>
                                                     <div class="card-body p-2">
                                                             <div>
