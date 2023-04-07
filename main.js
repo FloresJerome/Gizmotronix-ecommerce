@@ -10,10 +10,12 @@ const popular = document.getElementById('popular');
 const bestSeller = document.getElementById('best-selling');
 const newest = document.getElementById('newest');
 const cheapest = document.getElementById('cheapest-price');
+const allBrand = document.getElementById('all-brand');
 popular.addEventListener('click', sortButton);
 bestSeller.addEventListener('click', sortButton);
 newest.addEventListener('click', sortButton);
 cheapest.addEventListener('click', sortButton);
+allBrand.addEventListener('click', filterCheckBox);
 function navigationButton(event) {
     console.log(event);
     const category = document.querySelectorAll('.category a');
@@ -38,6 +40,37 @@ function sortButton(event) {
     }
     fetchData();
 }
+
+function filterCheckBox(event) {
+    console.log(event.target);
+    const vivo = document.getElementById('VIVO');
+    const oppo = document.getElementById('OPPO');
+
+    if (event.target.id === 'all-brand' && event.target.checked === true) {
+        const brands = document.querySelectorAll('#brands-list .brands');
+        for (let brand of brands) {
+            brand.checked = true;
+        }
+    } else if (event.target.id === 'all-brand' && event.target.checked === false) {
+        const brands = document.querySelectorAll('#brands-list .brands');
+        for (let brand of brands) {
+            brand.checked = false;
+        }
+    } else if (event.target.id === 'OPPO' && event.target.checked === false) {
+        allBrand.checked = false;
+
+    } else if (event.target.id === 'VIVO' && event.target.checked === false) {
+        allBrand.checked = false;
+
+    } else if (oppo.checked === true && vivo.checked === true) {
+        allBrand.checked = true;
+
+    }
+
+    fetchData();
+}
+
+
 function fetchData(event) {
     return fetch('https://raw.githubusercontent.com/FloresJerome/Gizmotronix-ecommerce/main/product-data.json')
         .then(response => {
