@@ -11,11 +11,19 @@ const bestSeller = document.getElementById('best-selling');
 const newest = document.getElementById('newest');
 const cheapest = document.getElementById('cheapest-price');
 const allBrand = document.getElementById('all-brand');
+const myModal = document.getElementById('myModal');
+
+
 popular.addEventListener('click', sortButton);
 bestSeller.addEventListener('click', sortButton);
 newest.addEventListener('click', sortButton);
 cheapest.addEventListener('click', sortButton);
 allBrand.addEventListener('click', filterCheckBox);
+myModal.addEventListener('show.bs.modal', modalFetch);
+
+const addCart = [];
+
+
 function navigationButton(event) {
     console.log(event);
     const category = document.querySelectorAll('.category a');
@@ -297,8 +305,111 @@ function fetchData(event) {
 
                 //Clear product list
 
-                            data.product.splice(itemIndex, 1);
-            }}
+function modalFetch(event) {
+
+    return fetch('https://raw.githubusercontent.com/FloresJerome/Gizmotronix-ecommerce/main/smartphone-product.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response error');
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = '';
+
+            data.product.forEach(item => {
+                if (item.id == event.relatedTarget.id) {
+
+                    const productItem = document.createElement('div');
+                    productItem.innerHTML = `<div class="modal-header d-flex justify-content-end border-0">
+                                                     <button type="button" class="btn-close bg-danger btn-close-danger" data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                    <div class="row">
+                                                            <div class="col">
+                                                                    <div class="row">
+                                                                            <div class="col-12">
+                                                                                    <div class="text-center mx-auto" style="width: 342px; height: 342px">
+                                                                                    <img style="width: 100%; height: auto;"
+                                                                                         src=${item.image.thumbnail}
+                                                                                         class="rounded" alt="product">
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-12 d-flex justify-content-around align-items-center">
+                                                                            <img style="width: 25%"
+                                                                                 src=${item.image.OtherImages[0]}
+                                                                                 class="rounded" alt="sample-1">
+                                                                            <img style="width: 25%"
+                                                                                src=${item.image.OtherImages[1]}
+                                                                                class="rounded" alt="sample-2">
+                                                                            <img style="width: 25%"
+                                                                                 src=${item.image.OtherImages[2]}
+                                                                                 class="rounded" alt="sample-3">
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="col">
+                                                            <div class="row">
+                                                                    <div class="col-12">
+                                                                            <h3>${item.brand}</h3>
+                                                                            <h1>${item.title}</h1>
+                                                                            <p><span><i class="fa-solid fa-star" style="color: #febf00;"></i> 
+                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
+                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
+                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
+                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i>
+                                                                               </span>
+                                                                               <span>${item.rating.rate}/5</span> (${item.rating.sold} Item Sold)
+                                                                            </p>
+                                                                            <h4 class="mt-3">Description</h4>
+                                                                            <p>${item.description}</p>
+                                                                    </div>
+                                                                    <div class="col-12">
+                                                                            <div class="row">
+                                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                                            <h2>${item.price.currency} ${item.price.value}</h2>
+                                                                                    </div>
+                                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                                            <h2>Qty: <span id="item-quantity">5</span></h2>
+                                                                                    </div>
+                                                                                    <div class="col mt-4 d-flex justify-content-center gap-5">
+                                                                                            <button style="width: 176px;" type="button" class="btn btn-warning fs-3" data-bs-dismiss="modal" id="add-to-cart" data-id=${item.id}>Add to Cart</button>
+                                                                                            <button style="width: 176px;" type="button" class="btn btn-primary fs-3" id="buy-now">Buy Now</button></div>
+                                                                                    </div>
+                                                                            </div>
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                              </div>`;
+                    modalContent.appendChild(productItem);
+
+                    const addToCart = document.getElementById('add-to-cart');
+                    addToCart.addEventListener('click', (event) => {
+                        console.log(event);
+                        const itemQuantity = document.getElementById('item-quantity');
+                        let a = `${event.target.dataset.id}`;
+                        let b = `${itemQuantity.textContent}`;
+                        console.log(a);
+                        console.log(b);
+
+                        // function cartItems(id, itemQuantity) {
+                        //     this.id = id;
+                        //     this.itemQuantity = itemQuantity;
+
+                        // }
+
+                        const cartItem = {id: a, quantity: b}
+                        addCart.push(cartItem);
+                        console.log(addCart);
+
+
+                        
+
+                    });
+                }
+            });
         })
         .catch(error => {
             console.log(error);
