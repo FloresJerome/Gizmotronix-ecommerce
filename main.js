@@ -111,13 +111,12 @@ function fetchData(event) {
                                                             <div class="inner"><img class="card-img-top" src="${bestSellerList[itemIndex].image.thumbnail}"></div>
                                                             <div class="card-body p-2 text-center">
                                                                     <div>
-                                                                            <p class="card-text fw-bolder text-center">${bestSellerList[itemIndex].title}</p>
+                                                                            <p class="card-text fw-bolder">${bestSellerList[itemIndex].title}</p>
                                                                             
                                                                                 <span class="fs-4">${bestSellerList[itemIndex].price.currency} ${bestSellerList[itemIndex].price.value}</span><br>
                                                                                 <span class="text-dark fs-6">${bestSellerList[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
                                     
-                                                                                <div class="d-flex justify-content-center text-warning my-4">
-                                        
+                                                                                <div class="d-flex justify-content-center text-warning my-4 text-center">
                                                                                         <div><i class="fa-solid fa-star"></i></div>
                                                                                         <div><i class="fa-solid fa-star"></i></div>
                                                                                         <div><i class="fa-solid fa-star"></i></div>
@@ -156,11 +155,11 @@ function fetchData(event) {
                                                     <div class="inner"><img class="card-img-top" src="${newArrivalList[itemIndex].image.thumbnail}"></div>
                                                     <div class="card-body p-2 text-center">
                                                             <div>
-                                                                    <p class="card-text fw-bolder text-center">${newArrivalList[itemIndex].title}</p>
+                                                                    <p class="card-text fw-bolder">${newArrivalList[itemIndex].title}</p>
                                                                     <span class="fs-4">${newArrivalList[itemIndex].price.currency} ${newArrivalList[itemIndex].price.value}</span><br>
                                                                     <span class="text-dark fs-6">${newArrivalList[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
                             
-                                                                    <div class="d-flex justify-content-center text-warning my-4">
+                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
                                                                             <div><i class="fa-solid fa-star"></i></div>
                                                                             <div><i class="fa-solid fa-star"></i></div>
                                                                             <div><i class="fa-solid fa-star"></i></div>
