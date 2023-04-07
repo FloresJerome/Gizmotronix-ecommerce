@@ -17,16 +17,12 @@ header p{
 header img {
     width: 100%;
     position: relative;
-    
-    
-    
-    
+ 
 }
 
-
-
 #nav-menu{
-    justify-content: space-between;
+    display: flex;
+    justify-content: center;
     
 }
 
@@ -65,43 +61,6 @@ header img {
 }
 
 
-#brand-card-main {
-    
-    top: -50px;
-    position: relative;
-    
-    
-}
-
-#brand-card{
-    align-items: center;
-    height: 100px;
-    width: 150px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 8px;
-    /* top: -50px; */
-   
-    
-}
-
-#brand-card a img{
-    height: 3rem;
-    width: 100%;
-    align-items: center;
-    padding: 0 25px;
-
-}
-
-#brand-card a{
-    text-decoration: none;
-    color: black;
-
-}
-
-
-
-
 #category-box {
     display: flex;
     justify-content: center;
@@ -118,12 +77,12 @@ header img {
 }
 
 .hscroll {
-    width: 600px;
-    height: 150px;
+    display: none;
+    width: 770px;
+    height: 120px;
     background-color: white;
     border: solid 1px #ddd;
     border-radius: 20px;
-    display: none;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -136,7 +95,7 @@ header img {
 .hscroll .btn-scroll {
     background-color: white;
     color: black;
-    padding: 85px 20px;
+    padding: 85px 10px;
     border: 0;
     z-index: 1;
     box-shadow: 0 0 0px;
@@ -181,41 +140,120 @@ header img {
 }
 
 
+.row-product {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(255, 255, 255, 1);
+    top: -40px;
+    position: relative;
+    border-radius: 50px;
+    margin-bottom: 70px;
+    
+    
+}
 
-
-.color-variant input[type="radio"] {
-    /* display: none; */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #000;
-    background-color: #fff;
-    outline: none;
-    margin-right: 10px;
+.card-product {
+    height: 80px;
+    background-color: white;
+    /* top: -50px;
+    position: relative; */
+    border-radius: 5px;
     
 
 }
-.color-variant input[type="radio"]:checked {
-    background-color: #000;
-    color: red;
 
+.card-product a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+}
+
+.card-product img {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    object-fit: contain;
+    margin-top: 5px;
+    
+}
+
+.card-product img:hover {
+    transform: scale(0.8);
+    
+}
+
+#best-seller {
+    position: relative;
+}
+
+#best-seller a::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
   }
 
-  .color-btn {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    /* background-color: red; */
-    border: 1;
-   
-   
+
+#best-seller .card{
+    height: 35rem;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: center;
+ 
+}
+
+#best-seller .card img{
+    height: 15em;
+    width: 70%;
+    margin: 30px 0;
+    object-fit: contain;
+    
+
+}
+#best-seller p {
+    font-size: 1.3em;
+}
+
+
+
+#new-arrival {
+    position: relative;
+}
+
+#new-arrival a::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
   }
 
 
+#new-arrival .card{
+    height: 35rem;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: center;
+}
 
+
+#new-arrival .card img{
+    height: 15em;
+    width: 70%;
+    margin: 30px 0;
+    object-fit: contain;
+
+}
+#new-arrival p {
+    font-size: 1.3em;
+}
 
 
 footer {
@@ -266,10 +304,18 @@ footer h3 {
     .hscroll {
         display: flex;
         width: 100%;
+        height: 100px;
         
     }
-    #brand-card-main {
+
+    
+    .row-product {
         display: none;
+    }
+
+    #nav-menu {
+        display: flex;
+        justify-content: start;
     }
  
 
