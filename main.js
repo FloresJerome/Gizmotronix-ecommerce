@@ -4,6 +4,18 @@ fetchData('best-seller-home');
 fetchData('new-arrival-home');
 fetchData('shop-dropdown');
 
+function navigationButton(event) {
+    console.log(event);
+    const category = document.querySelectorAll('.category a');
+    for (let list of category) {
+        list.classList.remove('active');
+
+        if (list.id === event) {
+            list.classList.add('active');
+        }
+    }
+    fetchData();
+}
 function fetchData(event) {
     return fetch('https://raw.githubusercontent.com/FloresJerome/Gizmotronix-ecommerce/main/product-data.json')
         .then(response => {
@@ -297,7 +309,7 @@ function updatePage(pageName) {
         toProduceList.classList.remove('hide');
         console.log(pageName);
         fetchData('initializeFilter');
-        fetchData(pageName);
+        navigationButton(pageName);
 
     }
 }
