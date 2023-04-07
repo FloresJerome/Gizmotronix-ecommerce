@@ -210,7 +210,7 @@ function fetchData(event) {
                         brandsList.appendChild(list);
                     }
                 });
-            } else if (event === 'all-product') {
+            } else if (allBrand.checked && popular.classList[1] === 'active') {
 
                 //Clear All Fields Product List
                 const productList = document.getElementById('product-list');
@@ -248,7 +248,7 @@ function fetchData(event) {
 
                     data.product.splice(itemIndex, 1);
                 }
-            } else if (event === 'best-seller') {
+            } else if (allBrand.checked && bestSeller.classList[1] === 'active') {
 
                 //Clear product list
                 const productList = document.getElementById('product-list');
