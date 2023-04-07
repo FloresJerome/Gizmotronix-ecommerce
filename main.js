@@ -286,25 +286,89 @@ function fetchData(event) {
 
                     data.product.splice(itemIndex, 1);
                 }
-            } else if (event === 'new-arrival') {
+            } else if (allBrand.checked && newest.classList[1] === 'active') {
 
                 //Clear product list
-                    const productList = document.getElementById('product-list');
-                    productList.innerHTML = '';
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
 
                 //Start sorting of data from high rating to low rating
 
-                        for (let x = 1; x <= countItem; x++) {
-                            let sold = data.product[0].rating.sold, count = 0, itemIndex = 0;
-                            for (let item of data.product) {
-                                if (sold > item.rating.sold) {
-                                    sold = item.rating.sold;
-                                    itemIndex = count;
-                                }
-                                count++;
-                            }
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let sold = data.product[0].rating.sold, count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (sold > item.rating.sold) {
+                            sold = item.rating.sold;
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+
+                    const productList = document.getElementById('product-list');
+                    const productContainer = document.createElement('div');
+                    productContainer.className = 'col-3';
+                    productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                        <img src=${data.product[itemIndex].image.thumbnail} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
+                                                        <div class="card-body border-top border-2">
+                                                            <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
+                                                            <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
+                                                            <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
+                                                        </div>
+                                                    </div>`;
+                    productList.appendChild(productContainer);
+
+                    data.product.splice(itemIndex, 1);
+                }
+            } else if (allBrand.checked && cheapest.classList[1] === 'active') {
 
                 //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let sold = parseFloat(data.product[0].price.value.replaceAll(',', '')), count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (sold > parseFloat(item.price.value.replaceAll(',', ''))) {
+                            sold = parseFloat(item.price.value.replaceAll(',', ''));
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+
+                    const productList = document.getElementById('product-list');
+                    const productContainer = document.createElement('div');
+                    productContainer.className = 'col-3';
+                    productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                <img src=${data.product[itemIndex].image.thumbnail} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
+                                                <div class="card-body border-top border-2">
+                                                    <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
+                                                    <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
+                                                    <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
+                                                </div>
+                                            </div>`;
+                    productList.appendChild(productContainer);
+
+                    data.product.splice(itemIndex, 1);
+                }
+            } else {
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
 
 function modalFetch(event) {
 
