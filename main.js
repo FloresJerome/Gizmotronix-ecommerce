@@ -108,7 +108,7 @@ function fetchData(event) {
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
                     productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${bestSellerList[itemIndex].id}>
-                                                            <div class="inner"><a href="#"><img class="card-img-top" src="${bestSellerList[itemIndex].image[0]}"></a></div>
+                                                            <div class="inner"><img class="card-img-top" src="${bestSellerList[itemIndex].image.thumbnail}"></div>
                                                             <div class="card-body p-2">
                                                                     <div>
                                                                             <p class="card-text fw-bolder fs-4 text-center">${bestSellerList[itemIndex].title}</p><span class="fs-4">${bestSellerList[itemIndex].price.currency} ${bestSellerList[itemIndex].price.value}</span><br>
@@ -149,7 +149,7 @@ function fetchData(event) {
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
                     productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${newArrivalList[itemIndex].id}>
-                                                    <div class="inner"><a href="#"><img class="card-img-top" src="${newArrivalList[itemIndex].image[0]}"></a></div>
+                                                    <div class="inner"><img class="card-img-top" src="${newArrivalList[itemIndex].image.thumbnail}"></div>
                                                     <div class="card-body p-2">
                                                             <div>
                                                                     <p class="card-text fw-bolder fs-4 text-center">${newArrivalList[itemIndex].title}</p><span class="fs-4">${newArrivalList[itemIndex].price.currency} ${newArrivalList[itemIndex].price.value}</span><br>
@@ -237,7 +237,7 @@ function fetchData(event) {
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-3';
                     productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
-                                                        <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
+                                                        <img src=${data.product[itemIndex].image.thumbnail} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
                                                         <div class="card-body border-top border-2">
                                                             <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
                                                             <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
@@ -275,7 +275,7 @@ function fetchData(event) {
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-3';
                     productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
-                                                    <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
+                                                    <img src=${data.product[itemIndex].image.thumbnail} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
                                                     <div class="card-body border-top border-2">
                                                         <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
                                                         <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
