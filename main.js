@@ -91,7 +91,7 @@ function fetchData(event) {
         .then(data => {
 
             if (event === 'best-seller-home') {
-                for (let x = 1; x < 8; x++) {
+                for (let x = 0; x < 8; x++) {
                     let bestSellerList = data.product;
                     let soldItem = 0;
                     let count = 0;
@@ -132,7 +132,7 @@ function fetchData(event) {
 
                 }
             } else if (event === 'new-arrival-home') {
-                for (let y = 1; y < 8; y++) {
+                for (let y = 0; y < 8; y++) {
                     let newArrivalList = data.product;
                     let newItem = newArrivalList[0].rating.sold;
                     let count = 0;
