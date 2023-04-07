@@ -80,7 +80,8 @@ function filterCheckBox(event) {
 
 
 function fetchData(event) {
-    return fetch('https://raw.githubusercontent.com/FloresJerome/Gizmotronix-ecommerce/main/product-data.json')
+
+    return fetch('https://raw.githubusercontent.com/FloresJerome/Gizmotronix-ecommerce/main/smartphone-product.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response error');
