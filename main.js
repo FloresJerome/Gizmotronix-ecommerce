@@ -505,17 +505,25 @@ function modalFetch(event) {
                     modalContent.appendChild(productItem);
 
                     const addToCart = document.getElementById('add-to-cart');
-                    addToCart.addEventListener('click', (event) => {
-                        console.log(event);
+                    addToCart.addEventListener('click', () => {
                         const itemQuantity = document.getElementById('item-quantity');
-                        let a = `${event.target.dataset.id}`;
-                        let b = `${itemQuantity.textContent}`;
-                        console.log(a);
-                        console.log(b);
+                        const productID = `${item.id}`;
+                        const productQuantity = `${itemQuantity.textContent}`;
+                        const priceCurrency = `${item.price.currency}`;
+                        const productImage = `${item.image.thumbnail}`;
+                        const priceItem = `${item.price.value}`;
+                        const productTitle = `${item.title}`;
 
-                        // function cartItems(id, itemQuantity) {
-                        //     this.id = id;
-                        //     this.itemQuantity = itemQuantity;
+                        const cartItem = {
+                            id: productID,
+                            title: productTitle,
+                            quantity: productQuantity,
+                            price: {
+                                currency: priceCurrency,
+                                value: priceItem
+                            },
+                            image: productImage
+                        };
 
                         // }
 
