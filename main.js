@@ -544,6 +544,8 @@ function modalFetch(event) {
         });
 }
 
+    const cartList = document.getElementById('cart-modal-list');
+    cartList.innerHTML = '';
 
 
 
