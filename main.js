@@ -1,11 +1,87 @@
-//Page 1
+//Page 1 (Initialize Landing/Home Page)
 
 fetchData('best-seller-home');
 fetchData('new-arrival-home');
 fetchData('shop-dropdown');
 
+//Page 2
+
+const popular = document.getElementById('popular');
+const bestSeller = document.getElementById('best-selling');
+const newest = document.getElementById('newest');
+const cheapest = document.getElementById('cheapest-price');
+const allBrand = document.getElementById('all-brand');
+const myModal = document.getElementById('myModal');
+
+
+popular.addEventListener('click', sortButton);
+bestSeller.addEventListener('click', sortButton);
+newest.addEventListener('click', sortButton);
+cheapest.addEventListener('click', sortButton);
+allBrand.addEventListener('click', filterCheckBox);
+myModal.addEventListener('show.bs.modal', modalFetch);
+
+const addCart = [];
+
+
+function navigationButton(event) {
+    console.log(event);
+    const category = document.querySelectorAll('.category a');
+    for (let list of category) {
+        list.classList.remove('active');
+
+        if (list.id === event) {
+            list.classList.add('active');
+        }
+    }
+    fetchData();
+}
+
+function sortButton(event) {
+    const category = document.querySelectorAll('.category a');
+    for (let list of category) {
+        list.classList.remove('active');
+
+        if (list.id === event.target.id) {
+            list.classList.add('active');
+        }
+    }
+    fetchData();
+}
+
+function filterCheckBox(event) {
+    console.log(event.target);
+    const vivo = document.getElementById('VIVO');
+    const oppo = document.getElementById('OPPO');
+
+    if (event.target.id === 'all-brand' && event.target.checked === true) {
+        const brands = document.querySelectorAll('#brands-list .brands');
+        for (let brand of brands) {
+            brand.checked = true;
+        }
+    } else if (event.target.id === 'all-brand' && event.target.checked === false) {
+        const brands = document.querySelectorAll('#brands-list .brands');
+        for (let brand of brands) {
+            brand.checked = false;
+        }
+    } else if (event.target.id === 'OPPO' && event.target.checked === false) {
+        allBrand.checked = false;
+
+    } else if (event.target.id === 'VIVO' && event.target.checked === false) {
+        allBrand.checked = false;
+
+    } else if (oppo.checked === true && vivo.checked === true) {
+        allBrand.checked = true;
+
+    }
+
+    fetchData();
+}
+
+
 function fetchData(event) {
-    return fetch('https://raw.githubusercontent.com/FloresJerome/Gizmotronix-ecommerce/main/product-data.json')
+
+    return fetch('https://raw.githubusercontent.com/FloresJerome/Gizmotronix-ecommerce/main/smartphone-product.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response error');
@@ -15,7 +91,7 @@ function fetchData(event) {
         .then(data => {
 
             if (event === 'best-seller-home') {
-                for (let x = 1; x < 8; x++) {
+                for (let x = 0; x < 8; x++) {
                     let bestSellerList = data.product;
                     let soldItem = 0;
                     let count = 0;
@@ -31,17 +107,16 @@ function fetchData(event) {
                     const newArrival = document.getElementById('best-seller');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
-                    productContainer.innerHTML = `<div class="card">
-                                                            <div class="inner"><a href="#"><img class="card-img-top" src="${bestSellerList[itemIndex].image[0]}"></a></div>
+                    productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${bestSellerList[itemIndex].id}>
+                                                            <div class="inner"><img class="card-img-top" src="${bestSellerList[itemIndex].image.thumbnail}"></div>
                                                             <div class="card-body p-2 text-center">
                                                                     <div>
-                                                                            <p class="card-text fw-bolder text-center">${bestSellerList[itemIndex].title}</p>
+                                                                            <p class="card-text fw-bolder">${bestSellerList[itemIndex].title}</p>
                                                                             
                                                                                 <span class="fs-4">${bestSellerList[itemIndex].price.currency} ${bestSellerList[itemIndex].price.value}</span><br>
                                                                                 <span class="text-dark fs-6">${bestSellerList[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
                                     
-                                                                                <div class="d-flex justify-content-center text-warning my-4">
-                                        
+                                                                                <div class="d-flex justify-content-center text-warning my-4 text-center">
                                                                                         <div><i class="fa-solid fa-star"></i></div>
                                                                                         <div><i class="fa-solid fa-star"></i></div>
                                                                                         <div><i class="fa-solid fa-star"></i></div>
@@ -56,11 +131,11 @@ function fetchData(event) {
                                                     </div>`;
                     newArrival.appendChild(productContainer);
 
-                    const removeItem = bestSellerList.splice(itemIndex, 1);
+                    bestSellerList.splice(itemIndex, 1);
 
                 }
             } else if (event === 'new-arrival-home') {
-                for (let y = 1; y < 8; y++) {
+                for (let y = 0; y < 8; y++) {
                     let newArrivalList = data.product;
                     let newItem = newArrivalList[0].rating.sold;
                     let count = 0;
@@ -76,15 +151,15 @@ function fetchData(event) {
                     const newArrival = document.getElementById('new-arrival');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
-                    productContainer.innerHTML = `<div class="card">
-                                                    <div class="inner"><a href="#"><img class="card-img-top" src="${newArrivalList[itemIndex].image[0]}"></a></div>
+                    productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${newArrivalList[itemIndex].id}>
+                                                    <div class="inner"><img class="card-img-top" src="${newArrivalList[itemIndex].image.thumbnail}"></div>
                                                     <div class="card-body p-2 text-center">
                                                             <div>
-                                                                    <p class="card-text fw-bolder text-center">${newArrivalList[itemIndex].title}</p>
+                                                                    <p class="card-text fw-bolder">${newArrivalList[itemIndex].title}</p>
                                                                     <span class="fs-4">${newArrivalList[itemIndex].price.currency} ${newArrivalList[itemIndex].price.value}</span><br>
                                                                     <span class="text-dark fs-6">${newArrivalList[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
                             
-                                                                    <div class="d-flex justify-content-center text-warning my-4">
+                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
                                                                             <div><i class="fa-solid fa-star"></i></div>
                                                                             <div><i class="fa-solid fa-star"></i></div>
                                                                             <div><i class="fa-solid fa-star"></i></div>
@@ -114,7 +189,7 @@ function fetchData(event) {
                     if (count === 0) {
                         const list = document.createElement('li');
                         const shopDropDown = document.getElementById('shop-dropdown');
-                        list.innerHTML = `<a class="dropdown-item" onclick="nextContent(${item.brand})">${item.brand}</a>`;
+                        list.innerHTML = `<a class="dropdown-item" onclick="nextContent('${item.brand}')">${item.brand}</a>`;
                         shopDropDown.appendChild(list);
                     }
                 });
@@ -139,18 +214,19 @@ function fetchData(event) {
                         brandsList.appendChild(list);
                     }
                 });
-            } else if (event === 'all-product') {
+                const oppo = document.getElementById('OPPO');
+                const vivo = document.getElementById('VIVO');
+
+                oppo.addEventListener('click', filterCheckBox);
+                vivo.addEventListener('click', filterCheckBox);
+
+            } else if (allBrand.checked && popular.classList[1] === 'active') {
 
                 //Clear All Fields Product List
                 const productList = document.getElementById('product-list');
                 productList.innerHTML = '';
 
-                const allBrands = document.getElementById('all-brand')
-                allBrands.checked = true;
-                const ASUS = document.getElementById('ASUS')
-                ASUS.checked = true;
-                const Acer = document.getElementById('Acer')
-                Acer.checked = true;
+                //Start sorting of data from high rating to low rating
 
                 let countItem = 0;
                 for (let y of data.product) {
@@ -169,6 +245,7 @@ function fetchData(event) {
 
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
+<<<<<<< HEAD
                     productContainer.className = 'col-3';
                     productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
                                                         <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
@@ -176,17 +253,39 @@ function fetchData(event) {
                                                             <p class="card-text d-flex justify-content-between">${data.product[itemIndex].title}</p>
                                                             <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
                                                             <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
+=======
+                    productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                    productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                        <div class="inner"><img class="card-img-top" src="${data.product[itemIndex].image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${data.product[itemIndex].title}</p>
+                                                                    <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                            <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+>>>>>>> 24e8c198f09911cad51c7598660b1231d05c18d0
                                                         </div>
-                                                    </div>`;
+                                                </div>`;
                     productList.appendChild(productContainer);
 
                     data.product.splice(itemIndex, 1);
                 }
-            } else if (event === 'best-seller') {
+            } else if (allBrand.checked && bestSeller.classList[1] === 'active') {
 
                 //Clear product list
                 const productList = document.getElementById('product-list');
                 productList.innerHTML = '';
+
+                //Start sorting of data from high rating to low rating
 
                 let countItem = 0;
                 for (let y of data.product) {
@@ -205,55 +304,241 @@ function fetchData(event) {
 
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
-                    productContainer.className = 'col-3';
-                    productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
-                                                    <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
-                                                    <div class="card-body border-top border-2">
-                                                        <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
-                                                        <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
-                                                        <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
-                                                    </div>
+                    productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                    productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                        <div class="inner"><img class="card-img-top" src="${data.product[itemIndex].image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${data.product[itemIndex].title}</p>
+                                                                    <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                            <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
                                                 </div>`;
                     productList.appendChild(productContainer);
 
                     data.product.splice(itemIndex, 1);
                 }
-            } else if (event === 'new-arrival') {
+            } else if (allBrand.checked && newest.classList[1] === 'active') {
 
-                    //Clear product list
-                    const productList = document.getElementById('product-list');
-                    productList.innerHTML = '';
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
 
-                    let countItem = 0;
-                        for (let y of data.product) {
-                            countItem++;
+                //Start sorting of data from high rating to low rating
+
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let sold = data.product[0].rating.sold, count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (sold > item.rating.sold) {
+                            sold = item.rating.sold;
+                            itemIndex = count;
                         }
+                        count++;
+                    }
 
-                        for (let x = 1; x <= countItem; x++) {
-                            let sold = data.product[0].rating.sold, count = 0, itemIndex = 0;
-                            for (let item of data.product) {
-                                if (sold > item.rating.sold) {
-                                    sold = item.rating.sold;
-                                    itemIndex = count;
-                                }
-                                count++;
-                            }
+                    const productList = document.getElementById('product-list');
+                    const productContainer = document.createElement('div');
+                    productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                    productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                        <div class="inner"><img class="card-img-top" src="${data.product[itemIndex].image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${data.product[itemIndex].title}</p>
+                                                                    <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
 
-                            const productList = document.getElementById('product-list');
-                            const productContainer = document.createElement('div');
-                            productContainer.className = 'col-3';
-                            productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
-                                                        <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
-                                                        <div class="card-body border-top border-2">
-                                                            <p class="card-text d-flex justify-content-center">${data.product[itemIndex].title}</p>
-                                                            <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
-                                                            <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
+                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                            <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
                                                         </div>
-                                                    </div>`;
-                            productList.appendChild(productContainer);
+                                                </div>`;
+                    productList.appendChild(productContainer);
 
-                            data.product.splice(itemIndex, 1);
-            }}
+                    data.product.splice(itemIndex, 1);
+                }
+            } else if (allBrand.checked && cheapest.classList[1] === 'active') {
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let sold = parseFloat(data.product[0].price.value.replaceAll(',', '')), count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (sold > parseFloat(item.price.value.replaceAll(',', ''))) {
+                            sold = parseFloat(item.price.value.replaceAll(',', ''));
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+
+                    const productList = document.getElementById('product-list');
+                    const productContainer = document.createElement('div');
+                    productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                    productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
+                                                        <div class="inner"><img class="card-img-top" src="${data.product[itemIndex].image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${data.product[itemIndex].title}</p>
+                                                                    <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star"></i></div>
+                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                            <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                </div>`;
+                    productList.appendChild(productContainer);
+
+                    data.product.splice(itemIndex, 1);
+                }
+            } else {
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
+function modalFetch(event) {
+
+    return fetch('https://raw.githubusercontent.com/FloresJerome/Gizmotronix-ecommerce/main/smartphone-product.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response error');
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = '';
+
+            data.product.forEach(item => {
+                if (item.id == event.relatedTarget.id) {
+
+                    const productItem = document.createElement('div');
+                    productItem.innerHTML = `<div class="modal-header d-flex justify-content-end border-0">
+                                                     <button type="button" class="btn-close bg-danger btn-close-danger" data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                    <div class="row">
+                                                            <div class="col">
+                                                                    <div class="row">
+                                                                            <div class="col-12">
+                                                                                    <div class="text-center mx-auto" style="width: 342px; height: 342px">
+                                                                                    <img style="width: 100%; height: auto;"
+                                                                                         src=${item.image.thumbnail}
+                                                                                         class="rounded" alt="product">
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-12 d-flex justify-content-around align-items-center">
+                                                                            <img style="width: 25%"
+                                                                                 src=${item.image.OtherImages[0]}
+                                                                                 class="rounded" alt="sample-1">
+                                                                            <img style="width: 25%"
+                                                                                src=${item.image.OtherImages[1]}
+                                                                                class="rounded" alt="sample-2">
+                                                                            <img style="width: 25%"
+                                                                                 src=${item.image.OtherImages[2]}
+                                                                                 class="rounded" alt="sample-3">
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="col">
+                                                            <div class="row">
+                                                                    <div class="col-12">
+                                                                            <h3>${item.brand}</h3>
+                                                                            <h1>${item.title}</h1>
+                                                                            <p><span><i class="fa-solid fa-star" style="color: #febf00;"></i> 
+                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
+                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
+                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
+                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i>
+                                                                               </span>
+                                                                               <span>${item.rating.rate}/5</span> (${item.rating.sold} Item Sold)
+                                                                            </p>
+                                                                            <h4 class="mt-3">Description</h4>
+                                                                            <p>${item.description}</p>
+                                                                    </div>
+                                                                    <div class="col-12">
+                                                                            <div class="row">
+                                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                                            <h2>${item.price.currency} ${item.price.value}</h2>
+                                                                                    </div>
+                                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                                            <h2>Qty: <span id="item-quantity">5</span></h2>
+                                                                                    </div>
+                                                                                    <div class="col mt-4 d-flex justify-content-center gap-5">
+                                                                                            <button style="width: 176px;" type="button" class="btn btn-warning fs-3" data-bs-dismiss="modal" id="add-to-cart" data-id=${item.id}>Add to Cart</button>
+                                                                                            <button style="width: 176px;" type="button" class="btn btn-primary fs-3" id="buy-now">Buy Now</button></div>
+                                                                                    </div>
+                                                                            </div>
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                              </div>`;
+                    modalContent.appendChild(productItem);
+
+                    const addToCart = document.getElementById('add-to-cart');
+                    addToCart.addEventListener('click', (event) => {
+                        console.log(event);
+                        const itemQuantity = document.getElementById('item-quantity');
+                        let a = `${event.target.dataset.id}`;
+                        let b = `${itemQuantity.textContent}`;
+                        console.log(a);
+                        console.log(b);
+
+                        // function cartItems(id, itemQuantity) {
+                        //     this.id = id;
+                        //     this.itemQuantity = itemQuantity;
+
+                        // }
+
+                        const cartItem = {id: a, quantity: b}
+                        addCart.push(cartItem);
+                        console.log(addCart);
+
+
+                        
+
+                    });
+                }
+            });
         })
         .catch(error => {
             console.log(error);
@@ -321,7 +606,7 @@ function updatePage(pageName) {
         toProduceList.classList.remove('hide');
         console.log(pageName);
         fetchData('initializeFilter');
-        fetchData(pageName);
+        navigationButton(pageName);
 
     }
 }

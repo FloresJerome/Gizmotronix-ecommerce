@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse my-auto" id="nav-menu">
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 d-flex gap-4">
                     <li class="nav-item"><a class="nav-link active text-white" onclick="nextContent('home-page')">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active text-white" onclick="nextContent('all-product')">All Product</a></li>
+                    <li class="nav-item"><a class="nav-link active text-white" onclick="nextContent('popular')">All Product</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" aria-expanded="false" data-bs-toggle="dropdown"
                             data-bs-target="shop-dropdown" role="button">Brands</a>
@@ -34,19 +34,19 @@
                             
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-white" onclick="nextContent('best-seller')">Best Seller</a></li>
-                    <li class="nav-item"><a class="nav-link active text-white" onclick="nextContent('new-arrival')">New Arrival</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" onclick="nextContent('best-selling')">Best Seller</a></li>
+                    <li class="nav-item"><a class="nav-link active text-white" onclick="nextContent('newest')">New Arrival</a></li>
                     <li class="nav-item"><a class="nav-link text-white" onclick="nextContent('contact-page')">Contact</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="d-flex flex-row align-items-center gap-3">
                 <a class="text-decoration-none text-white" onclick = "nextContent('login-page')">Login </a>
                 <!-- <span class="login-area"><a href="#loginpage" class="text-decoration-none text-dark hide" onclick = "navigate('loginpage')" id="logout-btn">Logout </a></span> -->
-                
-                <a class="text-decoration-none text-white" onclick = "nextContent('register-page')">| Register</a>
-                    <a href="#" class="btn btn-light" id="cart-btn">
-                        <i class="fa-solid fa-cart-shopping me-2 my-auto"></i>
-                    </a>
+                <a class="text-decoration-none text-white" onclick = "nextContent('register-page')">Register</a>
+                <a class="btn btn-light position-relative" id="cart-btn">
+                        <i class="fa-solid fa-cart-shopping mx-auto"></i>
+                        <span class="rounded-circle bg-danger position-absolute top-0 start-100 translate-middle px-2 border border-light text-white" id="itemCount">0</span>
+                </a>
             </div>
 
         </div>
@@ -75,9 +75,7 @@
                         <div class="product-item"><a href="#"><img src="images/oppo.jpg">Oppo</a></div>
                         <div class="product-item"><a href="#"><img src="images/vivo.jpg">Vivo</a></div>
                         <div class="product-item pe-5"><a href="#"><img src="images/Realme.png">Realme</a></div>
-                    </div>
-
-                    
+                    </div>  
                 </div>
 
             </div>
@@ -116,9 +114,9 @@
 
             <h2>Best Selling</h2>
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 text-center" id="best-seller">
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card card-link">
-                        <div class="inner"><a href="#"><img class="card-img-top" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSZKOKANEd4pb5QlT5oZopKhNJfsCSMLVWFnztMsznSn0BxdJCT"></a></div>
+                <!-- <div class="col-md-6 col-lg-3 mb-4">
+                   <div class="card card-link" id="sample-card" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <div class="inner"><img class="card-img-top" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSZKOKANEd4pb5QlT5oZopKhNJfsCSMLVWFnztMsznSn0BxdJCT"></a></div>
                         <div class="card-body p-2 text-center">
                             <div>
                                 <p class="card-text fw-bolder">Samsung S23 Ultra 5G</p>
@@ -138,26 +136,24 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             
 
 
-
-            <h2>New Arrival</h2>
+            <h2 class="mt-5">New Arrival</h2>
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 text-center" id="new-arrival">
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card card-link">
-                        <div class="inner"><a href="#"><img class="card-img-top" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSZKOKANEd4pb5QlT5oZopKhNJfsCSMLVWFnztMsznSn0BxdJCT"></a></div>
+                <!-- <div class="col-md-6 col-lg-3 mb-4">
+                   <div class="card card-link" id="sample-card" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <div class="inner"><img class="card-img-top" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSZKOKANEd4pb5QlT5oZopKhNJfsCSMLVWFnztMsznSn0BxdJCT"></a></div>
                         <div class="card-body p-2 text-center">
                             <div>
                                 <p class="card-text fw-bolder">Samsung S23 Ultra 5G</p>
-                                
-
+                                <div>
                                     <span class="fs-4">₱73,500</span><br>
                                     <span class="text-dark fs-6">Available</span>
-                                    
-                                    <div class="d-flex justify-content-center text-warning my-4">
+
+                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
                                         <div><i class="fa-solid fa-star"></i></div>
                                         <div><i class="fa-solid fa-star"></i></div>
                                         <div><i class="fa-solid fa-star"></i></div>
@@ -165,12 +161,11 @@
                                         <div><i class="fa-solid fa-star-half-stroke"></i></div>
                                         <span class="text-dark fs-6 ms-2">| 328 Sold</span>
                                     </div>
-                                
-                                
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             
         </div>
@@ -217,7 +212,7 @@
                                 <a class="nav-link" id="newest">Newest</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="cheapest-price">Cheapest Price</a>
+                                <a class="nav-link" id="cheapest-price">Cheapest</a>
                             </li>
                         </ul>
                     </div>
@@ -246,6 +241,16 @@
                 </div>
             </div>
         </div>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content border" style="height: 40rem" id="modal-content">
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     </main>
 
