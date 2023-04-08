@@ -544,6 +544,8 @@ function modalFetch(event) {
         });
 }
 
+function cartModal() {
+
     const cartList = document.getElementById('cart-modal-list');
     cartList.innerHTML = '';
 
@@ -642,6 +644,10 @@ function modalFetch(event) {
                               <h3 class="text-secondary">Cart Empty</h3>`;
         cartList.appendChild(cartItem);
     }
+}
+
+
+
                         // CATEGORY PRODUCT SCROLLING
 
 
