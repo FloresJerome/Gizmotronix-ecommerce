@@ -547,6 +547,20 @@ function modalFetch(event) {
     const cartList = document.getElementById('cart-modal-list');
     cartList.innerHTML = '';
 
+    let countCartItem = 0;
+    let cartTotalPrice = 0;
+
+    for (let cartItem of addCart) {
+        cartTotalPrice += parseFloat(cartItem.price.value.replaceAll(',', '')) * parseFloat(cartItem.quantity);
+        countCartItem++;
+    }
+
+    const itemCount = document.getElementById('item-count');
+    const totalSelectedPrice = document.getElementById('total-selected-price');
+
+    itemCount.textContent = countCartItem;
+    totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+
 
 
                         // CATEGORY PRODUCT SCROLLING
