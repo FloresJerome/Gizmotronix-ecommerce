@@ -255,6 +255,14 @@ header img {
     font-size: 1.3em;
 }
 
+#product-list img {
+   
+ object-fit: contain;
+
+}
+
+
+
 
 footer {
     background-color: #ddd;
