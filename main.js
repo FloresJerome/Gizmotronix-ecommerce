@@ -494,7 +494,7 @@ function modalFetch(event) {
                                                                                             <h2>Qty: <span id="item-quantity">5</span></h2>
                                                                                     </div>
                                                                                     <div class="col mt-4 d-flex justify-content-center gap-5">
-                                                                                            <button style="width: 176px;" type="button" class="btn btn-warning fs-3" data-bs-dismiss="modal" id="add-to-cart" data-id=${item.id}>Add to Cart</button>
+                                                                                            <button style="width: 176px;" type="button" class="btn btn-warning fs-3" data-bs-dismiss="modal" id="add-to-cart">Add to Cart</button>
                                                                                             <button style="width: 176px;" type="button" class="btn btn-primary fs-3" id="buy-now">Buy Now</button></div>
                                                                                     </div>
                                                                             </div>
@@ -525,11 +525,7 @@ function modalFetch(event) {
                             image: productImage
                         };
 
-                        // }
-
-                        const cartItem = {id: a, quantity: b}
                         addCart.push(cartItem);
-                        console.log(addCart);
 
                         let countItem = 0;
 
