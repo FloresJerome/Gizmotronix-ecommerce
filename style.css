@@ -255,6 +255,11 @@ header img {
     font-size: 1.3em;
 }
 
+.modal.right.fade .modal-dialog {
+    position: fixed;
+    width: 450px;
+    right: 1.25rem;
+}
 
 footer {
     background-color: #ddd;
