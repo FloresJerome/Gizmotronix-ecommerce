@@ -604,6 +604,20 @@ function modalFetch(event) {
             });
         }
 
+        const cartInputQuantity = document.querySelectorAll('.cart-input-quantity');
+        for (let inputQuantity of cartInputQuantity) {
+            inputQuantity.addEventListener('input', (event) => {
+                let index = 0;
+
+                addCart.forEach(item => {
+                    if (item.id === event.target.id) {
+                        addCart[index].quantity = event.target.value;
+                    }
+                    index++;
+                });
+                cartModal();
+            });
+        }
                         // CATEGORY PRODUCT SCROLLING
 
 
