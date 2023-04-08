@@ -531,9 +531,14 @@ function modalFetch(event) {
                         addCart.push(cartItem);
                         console.log(addCart);
 
+                        let countItem = 0;
 
-                        
+                        for (let item of addCart) {
+                            countItem++;
+                        }
 
+                        const itemCount = document.getElementById('item-count');
+                        itemCount.textContent = countItem;
                     });
                 }
             });
