@@ -583,6 +583,26 @@ function modalFetch(event) {
             cartList.prepend(cartItem);
         });
 
+        const cartCheckbox = document.querySelectorAll('.cart-checkbox');
+        for (let itemCheckbox of cartCheckbox) {
+            itemCheckbox.addEventListener('change', () => {
+                if (!itemCheckbox.checked) {
+                    addCart.forEach(item => {
+                        if (item.id === itemCheckbox.id) {
+                            cartTotalPrice -= parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
+                            totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+                        }
+                    });
+                } else {
+                    addCart.forEach(item => {
+                        if (item.id === itemCheckbox.id) {
+                            cartTotalPrice += parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
+                            totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+                        }
+                    });
+                }
+            });
+        }
 
                         // CATEGORY PRODUCT SCROLLING
 
