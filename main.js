@@ -12,7 +12,7 @@ const newest = document.getElementById('newest');
 const cheapest = document.getElementById('cheapest-price');
 const allBrand = document.getElementById('all-brand');
 const myModal = document.getElementById('myModal');
-
+const cartButton = document.getElementById('cart-btn');
 
 popular.addEventListener('click', sortButton);
 bestSeller.addEventListener('click', sortButton);
@@ -20,6 +20,7 @@ newest.addEventListener('click', sortButton);
 cheapest.addEventListener('click', sortButton);
 allBrand.addEventListener('click', filterCheckBox);
 myModal.addEventListener('show.bs.modal', modalFetch);
+cartButton.addEventListener('click', cartModal);
 
 const addCart = [];
 
