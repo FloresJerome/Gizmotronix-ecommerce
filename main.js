@@ -26,7 +26,6 @@ const addCart = [];
 
 
 function navigationButton(event) {
-    console.log(event);
     const category = document.querySelectorAll('.category a');
     for (let list of category) {
         list.classList.remove('active');
