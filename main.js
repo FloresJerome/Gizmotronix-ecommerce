@@ -561,6 +561,27 @@ function modalFetch(event) {
     itemCount.textContent = countCartItem;
     totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
 
+    if (countCartItem > 0) {
+        addCart.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.classList = 'col-12 border border-3 bg-light mb-2 rounded-2';
+            cartItem.innerHTML = `<div class="row">
+                                    <div class="col-4 pe-0 d-flex flex-row justify-content-center align-items-center gap-3">
+                                            <input type="checkbox" name="card" id=${item.id} class="cart-checkbox" checked>
+                                            <img src=${item.image} style="width: 100px; height: 100px;" alt=${item.title} class="py-2">
+                                    </div>
+                                    <div class="col px-0 d-flex flex-column justify-content-center ms-3">
+                                            <h5 class="mb-1">${item.title}</h5>
+                                            <p class="mb-1">${item.price.currency} ${item.price.value}</p>
+                                            <p class="d-flex flex-row mb-0 gap-2">Quantity:<input type="number" name="quantity" id=${item.id} class="product-title text-center cart-input-quantity" style="width: 3rem; height: 1.5rem;" value="${item.quantity}" min="1" max="99"></p>
+                                    </div>
+                                    <div class="col-2 ps-0 d-flex justify-content-center align-items-center trashcan-list" id=${item.id}>
+                                            <i class="fa-solid fa-trash-can fa-lg" style="color: #2d2e32;" id=${item.id}></i>
+                                    </div>
+                            </div>`;
+
+            cartList.prepend(cartItem);
+        });
 
 
                         // CATEGORY PRODUCT SCROLLING
