@@ -603,7 +603,6 @@ function updatePage(pageName) {
     } else {
         const toProduceList = document.getElementById('to-product-list');
         toProduceList.classList.remove('hide');
-        console.log(pageName);
         fetchData('initializeFilter');
         navigationButton(pageName);
 
