@@ -122,7 +122,7 @@ function fetchData(event) {
                                                                                         <div><i class="fa-solid fa-star"></i></div>
                                                                                         <div><i class="fa-solid fa-star"></i></div>
                                                                                         <div><i class="fa-solid fa-star-half-stroke"></i></div>
-                                                                                        <span class="text-dark ms-2">${bestSellerList[itemIndex].rating.sold} Sold</span>
+                                                                                        <span class="text-dark ms-1">|${bestSellerList[itemIndex].rating.sold} Sold</span>
                                                                                 </div>
                                                                             </div>
                                                                             

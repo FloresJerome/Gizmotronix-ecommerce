@@ -331,6 +331,24 @@ footer h3 {
         justify-content: start;
     }
 
+    
+    #best-seller .card {
+        height: 30rem;
+    }
+
+    #best-seller  {
+        font-size: 15px;
+    }
+
+    #new-arrival .card {
+        height: 30rem;
+    }
+
+    #new-arrival  {
+        font-size: 15px;
+    }
+
+
 
 
     
@@ -340,10 +358,31 @@ footer h3 {
 
 @media screen and (max-width:600px) {
 
+    #price-quantity {
+        font-size: 9px;
+        
+        
+    }
+    #best-seller  {
+        font-size: 10px;
+    }
+
+    #best-seller .card {
+        height: 24rem;
+    }
+
+    #new-arrival  {
+        font-size: 10px;
+    }
+
+    #new-arrival .card {
+        height: 24rem;
+    }
+
+ 
 
 
 
-    
 }
 
 
