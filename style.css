@@ -200,18 +200,17 @@ header img {
 
 #best-seller .card{
     height: 35rem;
-    width: auto;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-self: center;
+    justify-content: center;
  
 }
 
 #best-seller .card img{
-    height: 15em;
-    width: 70%;
-    margin: 30px 0;
-    object-fit: contain;
+    height: 13em;
+    width: 9em;
+    margin: 50px 0;
+    object-fit: cover;
     
 
 }
@@ -237,27 +236,33 @@ header img {
 
 #new-arrival .card{
     height: 35rem;
-    width: auto;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-self: center;
+    justify-content: center;
 }
 
 
 #new-arrival .card img{
-    height: 15em;
-    width: 70%;
-    margin: 30px 0;
-    object-fit: contain;
+    height: 13em;
+    width: 9em;
+    margin: 50px 0;
+    object-fit: cover;
 
 }
 #new-arrival p {
     font-size: 1.3em;
 }
 
+#product-list .inner{
+    display: flex;
+    justify-content: center;
+}
+
 #product-list img {
-   
- object-fit: contain;
+ object-fit: cover;
+ height: 15em;
+ width: 70%;
+ margin: 30px 0;
 
 }
 

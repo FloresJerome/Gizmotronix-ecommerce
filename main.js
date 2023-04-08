@@ -245,15 +245,6 @@ function fetchData(event) {
 
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
-<<<<<<< HEAD
-                    productContainer.className = 'col-3';
-                    productContainer.innerHTML = `<div class="card border-2" style="width: 18rem;" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
-                                                        <img src=${data.product[itemIndex].image[0]} class="card-img-top product-img" alt=${data.product[itemIndex].title} style="width: 100%;">
-                                                        <div class="card-body border-top border-2">
-                                                            <p class="card-text d-flex justify-content-between">${data.product[itemIndex].title}</p>
-                                                            <p class="card-text d-flex justify-content-between px-4"><span>${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span>Available</p>
-                                                            <p class="card-text d-flex justify-content-between px-4"><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>${data.product[itemIndex].rating.sold}Sold</p>
-=======
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
                     productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${data.product[itemIndex].id}>
                                                         <div class="inner"><img class="card-img-top" src="${data.product[itemIndex].image.thumbnail}"></div>
@@ -272,7 +263,6 @@ function fetchData(event) {
                                                                             <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
                                                                     </div>
                                                             </div>
->>>>>>> 24e8c198f09911cad51c7598660b1231d05c18d0
                                                         </div>
                                                 </div>`;
                     productList.appendChild(productContainer);
