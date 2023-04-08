@@ -618,6 +618,23 @@ function modalFetch(event) {
                 cartModal();
             });
         }
+
+        const trashcanList = document.querySelectorAll('.trashcan-list');
+        for (let trashcan of trashcanList) {
+            trashcan.addEventListener('click', (event) => {
+                let count = 0, index = 0;
+
+                addCart.forEach(item => {
+                    if (item.id === event.target.id) {
+                        index = count;
+                    }
+                    count++;
+                });
+
+                addCart.splice(index, 1);
+                cartModal();
+            });
+        }
                         // CATEGORY PRODUCT SCROLLING
 
 
