@@ -261,6 +261,12 @@ header img {
     right: 1.25rem;
 }
 
+.cart-input-quantity::-webkit-inner-spin-button,
+.card-input-quantity::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+
 footer {
     background-color: #ddd;
     bottom: 0;
