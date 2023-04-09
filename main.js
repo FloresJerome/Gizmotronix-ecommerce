@@ -594,14 +594,21 @@ function cartModal() {
                                     </div>
                             </div>`;
 
-            cartList.prepend(cartItem);
-        });
+                cartList.prepend(cartItem);
+                document.getElementById('checkout').disabled = false;
 
+            });
+
+        } else {
             const cartItem = document.createElement('div');
             cartItem.classList = 'col-12 d-flex flex-column justify-content-center align-items-center';
             cartItem.innerHTML = `<i class="fa-solid fa-cart-shopping fa-5x" style="color: #c0c0c0;"></i>
                               <h3 class="text-secondary">Cart Empty</h3>`;
             cartList.appendChild(cartItem);
+
+            document.getElementById('checkout').disabled = true;
+        }
+
         const cartCheckbox = document.querySelectorAll('.cart-checkbox');
         for (let itemCheckbox of cartCheckbox) {
             itemCheckbox.addEventListener('change', () => {
