@@ -205,15 +205,14 @@ header img {
 
 #best-seller .card{
     height: 35rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    width: auto;
+    
  
 }
 
 #best-seller .card img{
     height: 13em;
-    width: 9em;
+    max-width: 80%;
     margin: 50px 0;
     object-fit: cover;
     
@@ -221,6 +220,7 @@ header img {
 }
 #best-seller p {
     font-size: 1.3em;
+    
 }
 
 
@@ -249,7 +249,7 @@ header img {
 
 #new-arrival .card img{
     height: 13em;
-    width: 9em;
+    max-width: 80%;
     margin: 50px 0;
     object-fit: cover;
 
@@ -343,9 +343,63 @@ footer h3 {
         display: flex;
         justify-content: start;
     }
+
+    
+    #best-seller .card {
+        height: 30rem;
+    }
+
+    #best-seller  {
+        font-size: 15px;
+    }
+
+    #new-arrival .card {
+        height: 30rem;
+    }
+
+    #new-arrival  {
+        font-size: 15px;
+    }
+
+
+
+
+    
  
 
 }
+
+@media screen and (max-width:600px) {
+
+    #price-quantity {
+        font-size: 9px;
+        
+        
+    }
+    #best-seller  {
+        font-size: 10px;
+    }
+
+    #best-seller .card {
+        height: 24rem;
+    }
+
+    #new-arrival  {
+        font-size: 10px;
+    }
+
+    #new-arrival .card {
+        height: 24rem;
+    }
+
+ 
+
+
+
+}
+
+
+
 
 
 
