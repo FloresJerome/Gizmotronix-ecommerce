@@ -639,15 +639,23 @@ function cartModal() {
         const cartInputQuantity = document.querySelectorAll('.cart-input-quantity');
         for (let inputQuantity of cartInputQuantity) {
             inputQuantity.addEventListener('input', (event) => {
+                cartTotalPrice = 0;
                 let index = 0;
+                const quantityID = event.target.id.replace(/\D/g, '');
 
                 addCart.forEach(item => {
-                    if (item.id === event.target.id) {
-                        addCart[index].quantity = event.target.value;
+
+                    if (item.id === quantityID) {
+                        addCart[index].quantity = inputQuantity.value;
+                    }
+
+                    if (document.getElementById(`checkbox${item.id}`).checked) {
+                        cartTotalPrice += parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
                     }
                     index++;
                 });
-                cartModal();
+
+                totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
             });
         }
 
