@@ -43,9 +43,9 @@
                 <a class="text-decoration-none text-white" onclick = "nextContent('login-page')">Login </a>
                 <!-- <span class="login-area"><a href="#loginpage" class="text-decoration-none text-dark hide" onclick = "navigate('loginpage')" id="logout-btn">Logout </a></span> -->
                 <a class="text-decoration-none text-white" onclick = "nextContent('register-page')">Register</a>
-                <a class="btn btn-light position-relative" id="cart-btn">
+                <a class="btn btn-light position-relative" data-bs-toggle="modal" data-bs-target="#cart-modal" id="cart-btn">
                         <i class="fa-solid fa-cart-shopping mx-auto"></i>
-                        <span class="rounded-circle bg-danger position-absolute top-0 start-100 translate-middle px-2 border border-light text-white" id="itemCount">0</span>
+                        <span class="rounded-circle bg-danger position-absolute top-0 start-100 translate-middle px-2 border border-light text-white" id="item-count">0</span>
                 </a>
             </div>
 
@@ -242,7 +242,7 @@
             </div>
         </div>
 
-        <!-- The Modal -->
+        <!-- Product Preview Modal -->
         <div class="modal" id="myModal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content border" style="height: 40rem" id="modal-content">
@@ -251,6 +251,48 @@
             </div>
         </div>
     </div>
+
+    <!-- Cart Preview Modal -->
+    <div class="modal right fade" id="cart-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h5 class="modal-title w-100 d-flex justify-content-center fs-3">Cart</h5>
+              <button type="button" class="btn-close ms-0" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="cart-modal-list">
+                    <!-- <div class="col-12 border border-3 bg-light mb-2 rounded-2">
+                        <div class="row">
+                            <div class="col-4 pe-0 d-flex flex-row justify-content-center align-items-center gap-3">
+                                <input type="checkbox" name="card" id="asus" class="asus" checked>
+                                <img src="https://dlcdnwebimgs.asus.com/gain/7c5affa3-a028-4cc3-8bac-8ce757a46f66/" style="width: 100px; height: 100px;" alt="test">
+                            </div>
+                            <div class="col px-0 d-flex flex-column justify-content-center ms-2">
+                                <h5 class="mb-1">Samsung S23 Ultra 5G</h5>
+                                <p class="mb-1">P 2999</p>
+                                <p class="d-flex flex-row mb-0 gap-2">Quantity:<input type="number" name="quantity" id="product-tile" class="product-title text-center cart-input-quantity" style="width: 3rem; height: 1.5rem;" value="1" min="1" max="99"></p>
+                            </div>
+                            <div class="col-2 ps-0 d-flex justify-content-center align-items-center">
+                                <i class="fa-solid fa-trash-can fa-lg" style="color: #2d2e32;"></i>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                        <i class="fa-solid fa-cart-shopping fa-5x" style="color: #c0c0c0;"></i>
+                        <h3 class="text-secondary">Cart Empty</h3>
+                    </div> -->
+                </div>
+                <p class="mb-0 mt-3 d-flex justify-content-between align-items-center">Total Selected Price: <span id="total-selected-price" class="fs-4 me-3">&#8369 0</span></p>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button type="button" class="btn btn-primary" style="width: 12rem;" id="checkout">Checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </main>
 

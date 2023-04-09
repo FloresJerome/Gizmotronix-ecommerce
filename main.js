@@ -12,7 +12,7 @@ const newest = document.getElementById('newest');
 const cheapest = document.getElementById('cheapest-price');
 const allBrand = document.getElementById('all-brand');
 const myModal = document.getElementById('myModal');
-
+const cartButton = document.getElementById('cart-btn');
 
 popular.addEventListener('click', sortButton);
 bestSeller.addEventListener('click', sortButton);
@@ -20,12 +20,12 @@ newest.addEventListener('click', sortButton);
 cheapest.addEventListener('click', sortButton);
 allBrand.addEventListener('click', filterCheckBox);
 myModal.addEventListener('show.bs.modal', modalFetch);
+cartButton.addEventListener('click', cartModal);
 
 const addCart = [];
 
 
 function navigationButton(event) {
-    console.log(event);
     const category = document.querySelectorAll('.category a');
     for (let list of category) {
         list.classList.remove('active');
@@ -497,7 +497,7 @@ function modalFetch(event) {
                                                                                             <h2>Qty: <span id="item-quantity">5</span></h2>
                                                                                     </div>
                                                                                     <div class="col mt-4 d-flex justify-content-center gap-5">
-                                                                                            <button style="width: 176px;" type="button" class="btn btn-warning fs-3" data-bs-dismiss="modal" id="add-to-cart" data-id=${item.id}>Add to Cart</button>
+                                                                                            <button style="width: 176px;" type="button" class="btn btn-warning fs-3" data-bs-dismiss="modal" id="add-to-cart">Add to Cart</button>
                                                                                             <button style="width: 176px;" type="button" class="btn btn-primary fs-3" id="buy-now">Buy Now</button></div>
                                                                                     </div>
                                                                             </div>
@@ -508,27 +508,36 @@ function modalFetch(event) {
                     modalContent.appendChild(productItem);
 
                     const addToCart = document.getElementById('add-to-cart');
-                    addToCart.addEventListener('click', (event) => {
-                        console.log(event);
+                    addToCart.addEventListener('click', () => {
                         const itemQuantity = document.getElementById('item-quantity');
-                        let a = `${event.target.dataset.id}`;
-                        let b = `${itemQuantity.textContent}`;
-                        console.log(a);
-                        console.log(b);
+                        const productID = `${item.id}`;
+                        const productQuantity = `${itemQuantity.textContent}`;
+                        const priceCurrency = `${item.price.currency}`;
+                        const productImage = `${item.image.thumbnail}`;
+                        const priceItem = `${item.price.value}`;
+                        const productTitle = `${item.title}`;
 
-                        // function cartItems(id, itemQuantity) {
-                        //     this.id = id;
-                        //     this.itemQuantity = itemQuantity;
+                        const cartItem = {
+                            id: productID,
+                            title: productTitle,
+                            quantity: productQuantity,
+                            price: {
+                                currency: priceCurrency,
+                                value: priceItem
+                            },
+                            image: productImage
+                        };
 
-                        // }
-
-                        const cartItem = {id: a, quantity: b}
                         addCart.push(cartItem);
-                        console.log(addCart);
 
+                        let countItem = 0;
 
-                        
+                        for (let item of addCart) {
+                            countItem++;
+                        }
 
+                        const itemCount = document.getElementById('item-count');
+                        itemCount.textContent = countItem;
                     });
                 }
             });
@@ -538,6 +547,107 @@ function modalFetch(event) {
         });
 }
 
+function cartModal() {
+
+    const cartList = document.getElementById('cart-modal-list');
+    cartList.innerHTML = '';
+
+    let countCartItem = 0;
+    let cartTotalPrice = 0;
+
+    for (let cartItem of addCart) {
+        cartTotalPrice += parseFloat(cartItem.price.value.replaceAll(',', '')) * parseFloat(cartItem.quantity);
+        countCartItem++;
+    }
+
+    const itemCount = document.getElementById('item-count');
+    const totalSelectedPrice = document.getElementById('total-selected-price');
+
+    itemCount.textContent = countCartItem;
+    totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+
+    if (countCartItem > 0) {
+        addCart.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.classList = 'col-12 border border-3 bg-light mb-2 rounded-2';
+            cartItem.innerHTML = `<div class="row">
+                                    <div class="col-4 pe-0 d-flex flex-row justify-content-center align-items-center gap-3">
+                                            <input type="checkbox" name="card" id=${item.id} class="cart-checkbox" checked>
+                                            <img src=${item.image} style="width: 100px; height: 100px;" alt=${item.title} class="py-2">
+                                    </div>
+                                    <div class="col px-0 d-flex flex-column justify-content-center ms-3">
+                                            <h5 class="mb-1">${item.title}</h5>
+                                            <p class="mb-1">${item.price.currency} ${item.price.value}</p>
+                                            <p class="d-flex flex-row mb-0 gap-2">Quantity:<input type="number" name="quantity" id=${item.id} class="product-title text-center cart-input-quantity" style="width: 3rem; height: 1.5rem;" value="${item.quantity}" min="1" max="99"></p>
+                                    </div>
+                                    <div class="col-2 ps-0 d-flex justify-content-center align-items-center trashcan-list" id=${item.id}>
+                                            <i class="fa-solid fa-trash-can fa-lg" style="color: #2d2e32;" id=${item.id}></i>
+                                    </div>
+                            </div>`;
+
+            cartList.prepend(cartItem);
+        });
+
+        const cartCheckbox = document.querySelectorAll('.cart-checkbox');
+        for (let itemCheckbox of cartCheckbox) {
+            itemCheckbox.addEventListener('change', () => {
+                if (!itemCheckbox.checked) {
+                    addCart.forEach(item => {
+                        if (item.id === itemCheckbox.id) {
+                            cartTotalPrice -= parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
+                            totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+                        }
+                    });
+                } else {
+                    addCart.forEach(item => {
+                        if (item.id === itemCheckbox.id) {
+                            cartTotalPrice += parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
+                            totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+                        }
+                    });
+                }
+            });
+        }
+
+        const cartInputQuantity = document.querySelectorAll('.cart-input-quantity');
+        for (let inputQuantity of cartInputQuantity) {
+            inputQuantity.addEventListener('input', (event) => {
+                let index = 0;
+
+                addCart.forEach(item => {
+                    if (item.id === event.target.id) {
+                        addCart[index].quantity = event.target.value;
+                    }
+                    index++;
+                });
+                cartModal();
+            });
+        }
+
+        const trashcanList = document.querySelectorAll('.trashcan-list');
+        for (let trashcan of trashcanList) {
+            trashcan.addEventListener('click', (event) => {
+                let count = 0, index = 0;
+
+                addCart.forEach(item => {
+                    if (item.id === event.target.id) {
+                        index = count;
+                    }
+                    count++;
+                });
+
+                addCart.splice(index, 1);
+                cartModal();
+            });
+        }
+    } else {
+        const cartItem = document.createElement('div');
+        cartItem.classList = 'col-12 d-flex flex-column justify-content-center align-items-center';
+        cartItem.innerHTML = `<i class="fa-solid fa-cart-shopping fa-5x" style="color: #c0c0c0;"></i>
+                              <h3 class="text-secondary">Cart Empty</h3>`;
+        cartList.appendChild(cartItem);
+    }
+}
 
 
 
@@ -597,7 +707,6 @@ function updatePage(pageName) {
     } else {
         const toProduceList = document.getElementById('to-product-list');
         toProduceList.classList.remove('hide');
-        console.log(pageName);
         fetchData('initializeFilter');
         navigationButton(pageName);
 
