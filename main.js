@@ -611,19 +611,25 @@ function cartModal() {
 
         const cartCheckbox = document.querySelectorAll('.cart-checkbox');
         for (let itemCheckbox of cartCheckbox) {
-            itemCheckbox.addEventListener('change', () => {
+            itemCheckbox.addEventListener('change', (event) => {
+                const checkboxID = event.target.id.replace(/\D/g, '');
+
                 if (!itemCheckbox.checked) {
                     addCart.forEach(item => {
-                        if (item.id === itemCheckbox.id) {
+                        if (item.id === checkboxID) {
                             cartTotalPrice -= parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
                             totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+
+                            document.getElementById(`quantity${item.id}`).disabled = true;
                         }
                     });
                 } else {
                     addCart.forEach(item => {
-                        if (item.id === itemCheckbox.id) {
+                        if (item.id === checkboxID) {
                             cartTotalPrice += parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
                             totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+
+                            document.getElementById(`quantity${item.id}`).disabled = false;
                         }
                     });
                 }
