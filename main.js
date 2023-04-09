@@ -518,9 +518,7 @@ function modalFetch(event) {
 
                     const addToCart = document.getElementById('add-to-cart');
                     addToCart.addEventListener('click', () => {
-                        const itemQuantity = document.getElementById('item-quantity');
                         const productID = `${item.id}`;
-                        const productQuantity = `${itemQuantity.textContent}`;
                         const priceCurrency = `${item.price.currency}`;
                         const productImage = `${item.image.thumbnail}`;
                         const priceItem = `${item.price.value}`;
@@ -528,8 +526,8 @@ function modalFetch(event) {
 
                         const cartItem = {
                             id: productID,
+                            quantity: '1',
                             title: productTitle,
-                            quantity: productQuantity,
                             price: {
                                 currency: priceCurrency,
                                 value: priceItem
