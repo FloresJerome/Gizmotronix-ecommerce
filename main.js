@@ -440,7 +440,21 @@ function modalFetch(event) {
 
             data.product.forEach(item => {
                 if (item.id == event.relatedTarget.id) {
+                    let starRating ='';
 
+                    if (item.rating.rate == 5) {
+                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>'
+                    } else if (item.rating.rate > 4) {
+                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>'
+                    } else if (item.rating.rate > 3) {
+                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                    } else if (item.rating.rate > 2) {
+                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                    } else if (item.rating.rate > 1) {
+                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                    } else {
+                        starRating = 'No Rating'
+                    }
                     const productItem = document.createElement('div');
                     productItem.innerHTML = `<div class="modal-header d-flex justify-content-end border-0">
                     <button type="button" class="btn-close bg-danger btn-close-danger"
