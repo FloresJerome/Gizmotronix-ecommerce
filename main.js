@@ -443,65 +443,63 @@ function modalFetch(event) {
 
                     const productItem = document.createElement('div');
                     productItem.innerHTML = `<div class="modal-header d-flex justify-content-end border-0">
-                                                     <button type="button" class="btn-close bg-danger btn-close-danger" data-bs-dismiss="modal"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                    <div class="row">
-                                                            <div class="col">
-                                                                    <div class="row">
-                                                                            <div class="col-12">
-                                                                                    <div class="text-center mx-auto" style="width: 342px; height: 342px">
-                                                                                    <img style="width: 100%; height: auto;"
-                                                                                         src=${item.image.thumbnail}
-                                                                                         class="rounded" alt="product">
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-12 d-flex justify-content-around align-items-center">
-                                                                            <img style="width: 25%"
-                                                                                 src=${item.image.OtherImages[0]}
-                                                                                 class="rounded" alt="sample-1">
-                                                                            <img style="width: 25%"
-                                                                                src=${item.image.OtherImages[1]}
-                                                                                class="rounded" alt="sample-2">
-                                                                            <img style="width: 25%"
-                                                                                 src=${item.image.OtherImages[2]}
-                                                                                 class="rounded" alt="sample-3">
-                                                                    </div>
-                                                            </div>
-                                                    </div>
-                                                    <div class="col">
-                                                            <div class="row">
-                                                                    <div class="col-12">
-                                                                            <h3>${item.brand}</h3>
-                                                                            <h1>${item.title}</h1>
-                                                                            <p><span><i class="fa-solid fa-star" style="color: #febf00;"></i> 
-                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
-                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
-                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
-                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i>
-                                                                               </span>
-                                                                               <span>${item.rating.rate}/5</span> (${item.rating.sold} Item Sold)
-                                                                            </p>
-                                                                            <h4 class="mt-3">Description</h4>
-                                                                            <p>${item.description}</p>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                            <div class="row">
-                                                                                    <div class="col-6 d-flex justify-content-center">
-                                                                                            <h2>${item.price.currency} ${item.price.value}</h2>
-                                                                                    </div>
-                                                                                    <div class="col-6 d-flex justify-content-center">
-                                                                                            <h2>Qty: <span id="item-quantity">5</span></h2>
-                                                                                    </div>
-                                                                                    <div class="col mt-4 d-flex justify-content-center gap-5">
-                                                                                            <button style="width: 176px;" type="button" class="btn btn-warning fs-3" data-bs-dismiss="modal" id="add-to-cart">Add to Cart</button>
-                                                                                            <button style="width: 176px;" type="button" class="btn btn-primary fs-3" id="buy-now">Buy Now</button></div>
-                                                                                    </div>
-                                                                            </div>
-                                                                    </div>
-                                                            </div>
-                                                    </div>
-                                              </div>`;
+                    <button type="button" class="btn-close bg-danger btn-close-danger"
+                        data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row d-flex gap-5 ps-4">
+                                <div class="col-12 pe-0">
+                                    <img style="width: 100%; height: 20rem;"
+                                        src=${item.image.thumbnail}
+                                        class="preview-img" alt="product">
+                                </div>
+                                <div class="col-12 d-flex justify-content-around pe-0">
+                                    <img style="width: 132px; height: 88px"
+                                        src=${item.image.OtherImages[0]}
+                                        class="preview-img" alt="sample-1">
+                                    <img style="width: 132px; height: 88px"
+                                        src=${item.image.OtherImages[1]}
+                                        class="preview-img" alt="sample-2">
+                                    <img style="width: 132px; height: 88px"
+                                        src=${item.image.OtherImages[2]}
+                                        class="preview-img" alt="sample-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row pe-4">
+                                <div class="col-12">
+                                    <h4 class="text-secondary">${item.brand}</h4>
+                                    <h1>${item.title}</h1>
+                                    <p class="border-bottom mb-0 pb-3 border-3 d-flex gap-3 align-items-center">
+                                        <span>${starRating}</span>
+                                        <span>${item.rating.rate}/5.0</span> 
+                                        <span>${item.stocks} Sold</span>
+                                        <span class="text-success fw-bolder">${item.stocks > 0 ? 'Available' : 'Out of Stock'}</span>
+                                    </p>
+                                    <h4 class="mt-3">Description</h4>
+                                    <p class="mb-4">${item.description}</p>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row d-flex justify-content-center align-items-center">
+                                        <div class="col-4 d-flex flex-column">
+                                            <p class="d-flex align-items-center m-0">${item.price.currency}<span style="font-size: 4rem;" class="ms-2">${item.price.value}</span></p>      
+                                        </div>
+                                        <div class="col mt-3 d-flex flex-column gap-2 align-items-end">
+                                            <button style="width: 75%;" type="button" class="btn btn-warning fs-3 rounded-0"
+                                                data-bs-dismiss="modal" id="add-to-cart">Add to Cart</button>
+                                            <button style="width: 75%;" type="button" class="btn btn-primary fs-3 rounded-0"
+                                                id="buy-now">Buy Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
                     modalContent.appendChild(productItem);
 
                     const addToCart = document.getElementById('add-to-cart');
