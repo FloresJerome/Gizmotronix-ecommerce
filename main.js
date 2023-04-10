@@ -242,7 +242,7 @@ function fetchData(event) {
                 oppo.addEventListener('click', filterCheckBox);
                 vivo.addEventListener('click', filterCheckBox);
 
-            } else if (allBrand.checked && popular.classList[1] === 'active') {
+            } else if (allBrand.checked && popular.classList[1]) {
 
                 //Clear All Fields Product List
                 const productList = document.getElementById('product-list');
@@ -291,7 +291,7 @@ function fetchData(event) {
 
                     data.product.splice(itemIndex, 1);
                 }
-            } else if (allBrand.checked && bestSeller.classList[1] === 'active') {
+            } else if (allBrand.checked && bestSeller.classList[1]) {
 
                 //Clear product list
                 const productList = document.getElementById('product-list');
@@ -340,7 +340,7 @@ function fetchData(event) {
 
                     data.product.splice(itemIndex, 1);
                 }
-            } else if (allBrand.checked && newest.classList[1] === 'active') {
+            } else if (allBrand.checked && newest.classList[1]) {
 
                 //Clear product list
                 const productList = document.getElementById('product-list');
@@ -389,7 +389,7 @@ function fetchData(event) {
 
                     data.product.splice(itemIndex, 1);
                 }
-            } else if (allBrand.checked && cheapest.classList[1] === 'active') {
+            } else if (allBrand.checked && cheapest.classList[1]) {
 
                 //Clear product list
                 const productList = document.getElementById('product-list');
