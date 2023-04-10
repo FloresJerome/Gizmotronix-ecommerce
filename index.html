@@ -368,8 +368,45 @@
 
                     <!-- LOGIN FORM / LOGIN FORM / LOGIN FORM  -->
 
+            <div class="page hide" id="login-page">
+                <div class="container" id="login-pages">
+            
+                    <div class="row login-content">
+                        <div class="col-md-6 login-image">
+                            <div class="login-text">
+                                <p>Selling only the best gadgets online.</p>
+                            </div>
 
-            <div class="container pt-5 page hide " id="login-page">
+                        </div>
+                        <div class="col-md-6" id="login-form">
+                            <form action="#" class="login-box">
+                                <h3>Login</h3>
+                                <div class="login-input">
+                                    <label for="email" class="form-label mt-3">Email Address:</label>
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                                    
+                                </div>
+                                <div class="login-input">
+                                    <label for="login-password" class="form-label mt-3">Password:</label>
+                                    <input type="login-password" name="login-password" id="login-password" class="form-control" placeholder="Password" required>
+                                    
+                                </div>
+                                <div class="login-input">
+                                    <input type="submit" value="Submit" formaction="#" name="submit" class="btn btn-outline-dark my-4" id="login-btn">
+                                </div>
+                                <div>
+                                    <p class="mt-5">Don't have an account? <a href="#" onclick = "nextContent('register-page')">Register here</a></p>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="container pt-5 page hide " id="login-page">
                 <div class="bg-light mt-3 mx-auto text-dark bg-opacity-50 shadow p-3 mb-5 bg-body rounded" id="login-container">
                     <h3 class="text-center text-uppercase pt-3 fw-bold">Login</h3>
                     <form action="aboutme.html" id="login-form">
@@ -398,7 +435,7 @@
                                 <div></div>
                                     <div class="col mx-auto">
                                         <input type="submit" value="Submit" formaction="index.html" name="register" class="btn btn-primary" id="login-btn">
-                                                        <!-- <a href="register.html" class="btn btn-primary ms-2">Register</a> -->
+                                                        
                                     </div>  
                                                     
                             </div>
@@ -406,15 +443,120 @@
                                 <p class="mt-5">Don't have an account? <a href="#" class="fw-bold text-decoration-none text-dark">Register here</a></p>
                             </div>  
                 </div>
-            </div>
+            </div> -->
     
     
     
                                                 <!-- REGISTRATION FORM / REGISTRATION FORM / REGISTRATION FORM  -->
     
+            <div class="page hide" id="register-page">
+                <div class="container" id="register-pages">
+                    <div class="row register-content">
+                        <div class="col-md-6 register-image"></div>
+                        <div class="col-md-6" id="register-form">
+                            <form action="#" class="register-box" onsubmit="alertSuccess()">
+                                <h3>Create an account</h3>
+                                <div class="register-input">
+                                    <label for="f-name" class="form-label mt-3">First Name:</label>
+                                    <input type="text" name="f-name" id="f-name" class="form-control" placeholder="First Name" required>
+                                    <span id="f-name-error" class="text-danger fs-6 d-none form-error"></span>
+                                </div>
+                                <div class="register-input">
+                                    <label for="l-name" class="form-label mt-3">Last Name:</label>
+                                    <input type="text" name="l-name" id="l-name" class="form-control" placeholder="Last Name" required>
+                                    <span id="l-name-error" class="text-danger fs-6 d-none form-error"></span>
+                                </div>
+                                <div class="row ">
+                                    <div class="col">
+                                        <label for="address" class="form-label pt-2">Address:</label>
+                                    </div>
+                                    <div>
+                                        <input type="text" name="address" id="address" class="form-control" placeholder="Street / Barangay Address" required>
+                                    </div>
+                                    <div class="col-6 mt-3">
+                                        <input type="text"id="address" name="address" class="form-control" placeholder="City" required>
+                                        <span id="address-error" class="text-danger fs-6 d-none form-error"></span>                                 
+                                    </div>
+                                    <div class="col-6 mt-3">
+                                        <input type="text"id="address" name="address" class="form-control" placeholder="Province" required>                              
+                                    </div>
+                                </div>
+                                <div class="register-input">
+                                    <div>
+                                        <label for="email-address" class="form-label mt-3">Email Address:</label>
+                                    </div>
+                                    <div>
+                                        <input type="email" name="email-address" id="email-address" class="form-control" placeholder="Email" required>
+                                        <span id="email-address-error" class="text-danger fs-6 d-none form-error"></span>
+                                    </div>
+                            
+                                </div>
+                                <div class="register-input">
+                                    <div>
+                                        <label for="password" class="form-label">Password</label>
+                                    </div>
+                                    <div>
+                                        <input type="password" name="password" id="password" class="form-control">
+                                        <span id="password-error" class="text-danger fs-6 d-none form-error"></span>
+                                    </div> 
+                                </div>
+                                <div class="register-input">
+                                    <div>
+                                        <label for="confirm-password" class="form-label mt-3">Confirm Password:</label>
+                                    </div>
+                                    <div>
+                                        <input type="password" name="confirm-password" id="confirm-password" class="form-control">
+                                    </div>   
+                                </div>
+                                <div class="register-input">
+                                    <input type="button" value="Submit" class="btn btn-outline-dark my-4" onclick="validateForm()" >
+                                </div>
+                                <div>
+                                    <p class="mt-5">Already have an account? <a href="#" onclick = "nextContent('login-page')">Login here</a></p>
+                                </div>
     
+                            </form>
     
-            <div class="container pt-5 page hide" id="register-page">
+                        </div>
+                        <div id="confirmation-modal" class="modal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Confirm Information</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="info-container">
+                                            <div class="d-flex">
+                                                <p class="w-25 fw-bold">First Name:</p>
+                                                <p id="f-name-confirm"></p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <p class="w-25 fw-bold">Last Name:</p>
+                                                <p id="l-name-confirm"></p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <p class="w-25 fw-bold">Address:</p>
+                                                <p id="address-confirm"></p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <p class="w-25 fw-bold">Email Address:</p>
+                                                <p id="email-address-confirm"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <input type="submit"  name="submit" id="submit" value="Confirm" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- <div class="container pt-5 page hide" id="register-page">
                 <div class="bg-light mt-3 mx-auto text-dark bg-opacity-50 shadow p-3 mb-5 bg-body rounded" id="registration-container">
                     <h3 class="text-center text-uppercase pt-3 fw-bold">Create an account</h3>
                     <form action="aboutme.html">
@@ -486,7 +628,7 @@
                     </div>  
                 </div>
             </div>
-    
+     -->
     
     
     
@@ -546,11 +688,11 @@
                         </div>
                         <div class="col-6 mt-4">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-4">
                                     <h5 class="fw-bold">USA & Canada</h5>
                                     <p class="fw-bold">Sales</p><p>1-888-248-9325 (toll free)</p><p>Mon to Fri from 8am to 6pm GMT</p>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-4">
                                     <h5 class="fw-bold">Philippines</h5>
                                     <p class="fw-bold">Sales</p><p>(02) 8876 1111</p><p>Mon to Fri from 8am to 7pm </p>
                                 </div>
@@ -559,7 +701,7 @@
                             <div class="col px-3">
                                 <h3 class="text-center mt-5 mb-4">Follow Us</h3>
                         
-                                <ul class="socmed d-flex ">
+                                <ul class="socmed d-flex p-0 ">
                                     <li><a href=""><i class="fa-brands fa-facebook fa-2x"></i></a></li>
                                     <li><a href=""><i class="fa-brands fa-instagram fa-2x"></i></a></li>
                                     <li><a href=""><i class="fa-brands fa-twitter fa-2x"></i></a></li>
