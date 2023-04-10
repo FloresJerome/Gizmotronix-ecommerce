@@ -13,6 +13,7 @@ const cheapest = document.getElementById('cheapest-price');
 const allBrand = document.getElementById('all-brand');
 const myModal = document.getElementById('myModal');
 const cartButton = document.getElementById('cart-btn');
+const itemCount = document.getElementById('item-count');
 const sendMail = document.getElementById('checkout');
 
 
@@ -26,6 +27,21 @@ cartButton.addEventListener('click', cartModal);
 sendMail.addEventListener('click', sendEmail);
 
 const addCart = [];
+
+const cartStorage = localStorage.getItem('addCart');
+if (cartStorage) {
+    let countStoreItem = 0;
+    for (let cartStore of JSON.parse(cartStorage)) {
+        addCart.push(cartStore);
+        countStoreItem++;
+    }
+    
+    itemCount.textContent = countStoreItem;
+    cartModal();
+
+ } else {
+    itemCount.textContent = '0'
+}
 
 
 function navigationButton(event) {
@@ -542,6 +558,7 @@ function modalFetch(event) {
                         };
 
                         addCart.push(cartItem);
+                        localStorage.setItem('addCart', JSON.stringify(addCart));
 
                         let countItem = 0;
 
@@ -676,6 +693,7 @@ function cartModal() {
                 });
 
                 addCart.splice(index, 1);
+                localStorage.setItem('addCart', JSON.stringify(addCart));
                 cartModal();
             });
         }
