@@ -30,6 +30,11 @@ header img {
     display: none;
 }
 
+.preview-img {
+    object-fit: contain;
+    object-position: center;
+}
+
 
 
 #contact-page .socmed {

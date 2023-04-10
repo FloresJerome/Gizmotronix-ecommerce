@@ -443,75 +443,85 @@ function modalFetch(event) {
 
             data.product.forEach(item => {
                 if (item.id == event.relatedTarget.id) {
+                    let starRating ='';
 
+                    if (item.rating.rate == 5) {
+                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>'
+                    } else if (item.rating.rate > 4) {
+                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>'
+                    } else if (item.rating.rate > 3) {
+                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                    } else if (item.rating.rate > 2) {
+                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                    } else if (item.rating.rate > 1) {
+                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                    } else {
+                        starRating = 'No Rating'
+                    }
                     const productItem = document.createElement('div');
                     productItem.innerHTML = `<div class="modal-header d-flex justify-content-end border-0">
-                                                     <button type="button" class="btn-close bg-danger btn-close-danger" data-bs-dismiss="modal"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                    <div class="row">
-                                                            <div class="col">
-                                                                    <div class="row">
-                                                                            <div class="col-12">
-                                                                                    <div class="text-center mx-auto" style="width: 342px; height: 342px">
-                                                                                    <img style="width: 100%; height: auto;"
-                                                                                         src=${item.image.thumbnail}
-                                                                                         class="rounded" alt="product">
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-12 d-flex justify-content-around align-items-center">
-                                                                            <img style="width: 25%"
-                                                                                 src=${item.image.OtherImages[0]}
-                                                                                 class="rounded" alt="sample-1">
-                                                                            <img style="width: 25%"
-                                                                                src=${item.image.OtherImages[1]}
-                                                                                class="rounded" alt="sample-2">
-                                                                            <img style="width: 25%"
-                                                                                 src=${item.image.OtherImages[2]}
-                                                                                 class="rounded" alt="sample-3">
-                                                                    </div>
-                                                            </div>
-                                                    </div>
-                                                    <div class="col">
-                                                            <div class="row">
-                                                                    <div class="col-12">
-                                                                            <h3>${item.brand}</h3>
-                                                                            <h1>${item.title}</h1>
-                                                                            <p><span><i class="fa-solid fa-star" style="color: #febf00;"></i> 
-                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
-                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
-                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i> 
-                                                                                     <i class="fa-solid fa-star" style="color: #febf00;"></i>
-                                                                               </span>
-                                                                               <span>${item.rating.rate}/5</span> (${item.rating.sold} Item Sold)
-                                                                            </p>
-                                                                            <h4 class="mt-3">Description</h4>
-                                                                            <p>${item.description}</p>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                            <div class="row">
-                                                                                    <div class="col-6 d-flex justify-content-center">
-                                                                                            <h2>${item.price.currency} ${item.price.value}</h2>
-                                                                                    </div>
-                                                                                    <div class="col-6 d-flex justify-content-center">
-                                                                                            <h2>Qty: <span id="item-quantity">5</span></h2>
-                                                                                    </div>
-                                                                                    <div class="col mt-4 d-flex justify-content-center gap-5">
-                                                                                            <button style="width: 176px;" type="button" class="btn btn-warning fs-3" data-bs-dismiss="modal" id="add-to-cart">Add to Cart</button>
-                                                                                            <button style="width: 176px;" type="button" class="btn btn-primary fs-3" id="buy-now">Buy Now</button></div>
-                                                                                    </div>
-                                                                            </div>
-                                                                    </div>
-                                                            </div>
-                                                    </div>
-                                              </div>`;
+                    <button type="button" class="btn-close bg-danger btn-close-danger"
+                        data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row d-flex gap-5 ps-4">
+                                <div class="col-12 pe-0">
+                                    <img style="width: 100%; height: 20rem;"
+                                        src=${item.image.thumbnail}
+                                        class="preview-img" alt="product">
+                                </div>
+                                <div class="col-12 d-flex justify-content-around pe-0">
+                                    <img style="width: 132px; height: 88px"
+                                        src=${item.image.OtherImages[0]}
+                                        class="preview-img" alt="sample-1">
+                                    <img style="width: 132px; height: 88px"
+                                        src=${item.image.OtherImages[1]}
+                                        class="preview-img" alt="sample-2">
+                                    <img style="width: 132px; height: 88px"
+                                        src=${item.image.OtherImages[2]}
+                                        class="preview-img" alt="sample-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row pe-4">
+                                <div class="col-12">
+                                    <h4 class="text-secondary">${item.brand}</h4>
+                                    <h1>${item.title}</h1>
+                                    <p class="border-bottom mb-0 pb-3 border-3 d-flex gap-3 align-items-center">
+                                        <span>${starRating}</span>
+                                        <span>${item.rating.rate}/5.0</span> 
+                                        <span>${item.stocks} Sold</span>
+                                        <span class="text-success fw-bolder">${item.stocks > 0 ? 'Available' : 'Out of Stock'}</span>
+                                    </p>
+                                    <h4 class="mt-3">Description</h4>
+                                    <p class="mb-4">${item.description}</p>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row d-flex justify-content-center align-items-center">
+                                        <div class="col-4 d-flex flex-column">
+                                            <p class="d-flex align-items-center m-0">${item.price.currency}<span style="font-size: 4rem;" class="ms-2">${item.price.value}</span></p>      
+                                        </div>
+                                        <div class="col mt-3 d-flex flex-column gap-2 align-items-end">
+                                            <button style="width: 75%;" type="button" class="btn btn-warning fs-3 rounded-0"
+                                                data-bs-dismiss="modal" id="add-to-cart">Add to Cart</button>
+                                            <button style="width: 75%;" type="button" class="btn btn-primary fs-3 rounded-0"
+                                                id="buy-now">Buy Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
                     modalContent.appendChild(productItem);
 
                     const addToCart = document.getElementById('add-to-cart');
                     addToCart.addEventListener('click', () => {
-                        const itemQuantity = document.getElementById('item-quantity');
                         const productID = `${item.id}`;
-                        const productQuantity = `${itemQuantity.textContent}`;
                         const priceCurrency = `${item.price.currency}`;
                         const productImage = `${item.image.thumbnail}`;
                         const priceItem = `${item.price.value}`;
@@ -519,8 +529,8 @@ function modalFetch(event) {
 
                         const cartItem = {
                             id: productID,
+                            quantity: '1',
                             title: productTitle,
-                            quantity: productQuantity,
                             price: {
                                 currency: priceCurrency,
                                 value: priceItem
@@ -572,37 +582,55 @@ function cartModal() {
             cartItem.classList = 'col-12 border border-3 bg-light mb-2 rounded-2';
             cartItem.innerHTML = `<div class="row">
                                     <div class="col-4 pe-0 d-flex flex-row justify-content-center align-items-center gap-3">
-                                            <input type="checkbox" name="card" id=${item.id} class="cart-checkbox" checked>
+                                            <input type="checkbox" name="card" id="checkbox${item.id}" class="cart-checkbox" checked>
                                             <img src=${item.image} style="width: 100px; height: 100px;" alt=${item.title} class="py-2">
                                     </div>
                                     <div class="col px-0 d-flex flex-column justify-content-center ms-3">
                                             <h5 class="mb-1">${item.title}</h5>
                                             <p class="mb-1">${item.price.currency} ${item.price.value}</p>
-                                            <p class="d-flex flex-row mb-0 gap-2">Quantity:<input type="number" name="quantity" id=${item.id} class="product-title text-center cart-input-quantity" style="width: 3rem; height: 1.5rem;" value="${item.quantity}" min="1" max="99"></p>
+                                            <p class="d-flex flex-row mb-0 gap-2">Quantity:<input type="number" name="quantity" id="quantity${item.id}" class="product-title text-center cart-input-quantity" style="width: 3rem; height: 1.5rem;" value="1" min="1" max="99"></p>
                                     </div>
                                     <div class="col-2 ps-0 d-flex justify-content-center align-items-center trashcan-list" id=${item.id}>
                                             <i class="fa-solid fa-trash-can fa-lg" style="color: #2d2e32;" id=${item.id}></i>
                                     </div>
                             </div>`;
 
-            cartList.prepend(cartItem);
-        });
+                cartList.prepend(cartItem);
+                document.getElementById('checkout').disabled = false;
+
+            });
+
+        } else {
+            const cartItem = document.createElement('div');
+            cartItem.classList = 'col-12 d-flex flex-column justify-content-center align-items-center';
+            cartItem.innerHTML = `<i class="fa-solid fa-cart-shopping fa-5x" style="color: #c0c0c0;"></i>
+                              <h3 class="text-secondary">Cart Empty</h3>`;
+            cartList.appendChild(cartItem);
+
+            document.getElementById('checkout').disabled = true;
+        }
 
         const cartCheckbox = document.querySelectorAll('.cart-checkbox');
         for (let itemCheckbox of cartCheckbox) {
-            itemCheckbox.addEventListener('change', () => {
+            itemCheckbox.addEventListener('change', (event) => {
+                const checkboxID = event.target.id.replace(/\D/g, '');
+
                 if (!itemCheckbox.checked) {
                     addCart.forEach(item => {
-                        if (item.id === itemCheckbox.id) {
+                        if (item.id === checkboxID) {
                             cartTotalPrice -= parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
                             totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+
+                            document.getElementById(`quantity${item.id}`).disabled = true;
                         }
                     });
                 } else {
                     addCart.forEach(item => {
-                        if (item.id === itemCheckbox.id) {
+                        if (item.id === checkboxID) {
                             cartTotalPrice += parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
                             totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+
+                            document.getElementById(`quantity${item.id}`).disabled = false;
                         }
                     });
                 }
@@ -612,15 +640,23 @@ function cartModal() {
         const cartInputQuantity = document.querySelectorAll('.cart-input-quantity');
         for (let inputQuantity of cartInputQuantity) {
             inputQuantity.addEventListener('input', (event) => {
+                cartTotalPrice = 0;
                 let index = 0;
+                const quantityID = event.target.id.replace(/\D/g, '');
 
                 addCart.forEach(item => {
-                    if (item.id === event.target.id) {
-                        addCart[index].quantity = event.target.value;
+
+                    if (item.id === quantityID) {
+                        addCart[index].quantity = inputQuantity.value;
+                    }
+
+                    if (document.getElementById(`checkbox${item.id}`).checked) {
+                        cartTotalPrice += parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
                     }
                     index++;
                 });
-                cartModal();
+
+                totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
             });
         }
 
@@ -640,14 +676,7 @@ function cartModal() {
                 cartModal();
             });
         }
-    } else {
-        const cartItem = document.createElement('div');
-        cartItem.classList = 'col-12 d-flex flex-column justify-content-center align-items-center';
-        cartItem.innerHTML = `<i class="fa-solid fa-cart-shopping fa-5x" style="color: #c0c0c0;"></i>
-                              <h3 class="text-secondary">Cart Empty</h3>`;
-        cartList.appendChild(cartItem);
     }
-}
 
 
 
