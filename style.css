@@ -277,6 +277,81 @@ header img {
 
 }
 
+#login-pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    border-radius: 10px;
+    margin-top: 10px;
+
+     
+ }
+ 
+ .login-content {
+     width: 1300px;
+     height: 550px;
+     border-radius: 10px;
+     /* box-shadow: 2px 2px 20px 1px; */
+     border: solid 1px;
+    
+ }
+ 
+ .login-image {
+     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTvyjdGUXIw6JdKItrpt8Qooo9VpWT8g1aPg&usqp=CAU");
+     background-position: center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     position: relative;
+     border-radius: 10px 0 0 10px ;
+    
+ }
+ 
+ .login-text{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     text-align: center;
+ }
+ 
+ .login-text p {
+     font-size: 40px;
+     color: #ddd;
+ }
+ 
+ #login-form {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: relative;
+     /* border: solid 1px;
+     border-radius: 10px; */
+     
+ }
+ 
+ .login-box {
+     width: 400px;
+     box-sizing: border-box;
+ }
+ 
+ .login-box p a {
+     text-decoration: none;
+ 
+ }
+ 
+ .login-input {
+     display: flex;
+     flex-direction: column;
+     position: relative;
+     
+ }
+ 
+ #login-btn:hover {
+     background-color: #000080;
+     color: white;
+ }
+
 footer {
     background-color: #ddd;
     bottom: 0;
@@ -329,6 +404,14 @@ footer h3 {
         
     }
 
+    .login-box {
+        width: 280px;
+    }
+
+    .login-text p {
+        font-size: 23px;
+    }
+
     
     .row-product {
         display: none;
@@ -365,6 +448,20 @@ footer h3 {
 }
 
 @media screen and (max-width:600px) {
+    .login-content {
+        margin: 10px;
+    }
+
+    .login-image{
+        border-radius: 10px 10px 0 0;
+        
+    }
+
+    .login-text p {
+        font-size: 18px;
+        margin: 0;
+        text-align: center;
+    }
 
     #price-quantity {
         font-size: 9px;
