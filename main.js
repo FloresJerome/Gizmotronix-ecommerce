@@ -566,7 +566,6 @@ function modalFetch(event) {
                             countItem++;
                         }
 
-                        const itemCount = document.getElementById('item-count');
                         itemCount.textContent = countItem;
                     });
                 }
@@ -578,7 +577,6 @@ function modalFetch(event) {
 }
 
 function cartModal() {
-
     const cartList = document.getElementById('cart-modal-list');
     cartList.innerHTML = '';
 
@@ -590,7 +588,6 @@ function cartModal() {
         countCartItem++;
     }
 
-    const itemCount = document.getElementById('item-count');
     const totalSelectedPrice = document.getElementById('total-selected-price');
 
     itemCount.textContent = countCartItem;
