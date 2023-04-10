@@ -751,6 +751,117 @@ window.addEventListener('popstate', function (e) {
 
 
 
+function validateForm() {
+    let hasError = false;
+
+
+    const formErrors = document.getElementsByClassName('form-error');
+    for(let fe of formErrors) {
+        fe.textContent = '';
+        fe.classList.add('d-none');
+    }
+
+    const firstNameInput = document.getElementById('f-name');
+    if (firstNameInput.value === '') {
+        const firstNameError = document.getElementById('f-name-error');
+        firstNameError.classList.remove('d-none');
+        firstNameError.textContent = 'First name is required';
+        hasError = true;
+    }
+
+    const lastNameInput = document.getElementById('l-name');
+    if (lastNameInput.value === '') {
+        const lastNameError = document.getElementById('l-name-error');
+        lastNameError.classList.remove('d-none');
+        lastNameError.textContent = 'Last name is required';
+        hasError = true;
+    }
+
+    const addressInput = document.getElementById('address');
+    if (addressInput.value === '') {
+        const addressError = document.getElementById('address-error');
+        addressError.classList.remove('d-none');
+        addressError.textContent = 'Address is required';
+        hasError = true;
+    }
+
+
+    const emailAddressInput = document.getElementById('email-address');
+    if (emailAddressInput.value === '') {
+        const emailAddressError = document.getElementById('email-address-error');
+        emailAddressError.classList.remove('d-none');
+        emailAddressError.textContent = 'Email address is required';
+        hasError = true;
+    }
+    
+    let passwordErrorText = '';
+    const passwordError = document.getElementById('password-error');
+
+    const passwordInput = document.getElementById('password');
+    if (passwordInput.value === '') {
+        passwordError.classList.remove('d-none');
+        passwordErrorText += 'Password is required \n';
+        hasError = true;
+    } else if (passwordInput.value.length < 8) {
+        passwordError.classList.remove('d-none');
+        passwordErrorText += 'Password must contain at least 8 characters \n';
+        hasError = true;
+    }
+
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    if (passwordInput.value !== confirmPasswordInput.value) {
+        passwordError.classList.remove('d-none');
+        passwordErrorText += 'Password did not match';
+        hasError = true;
+    }
+
+    passwordError.textContent = passwordErrorText;
+
+
+
+  
+    if (!hasError) {
+        openConfirmModal();
+    } else {
+        window.scrollTo(0,0);
+    }
+}
+
+function openConfirmModal() {
+
+   
+        const firstNameInput = document.getElementById('f-name');
+        const firstNameConfirm = document.getElementById('f-name-confirm');
+        firstNameConfirm.textContent = firstNameInput.value;
+    
+      
+        const lastNameInput = document.getElementById('l-name');
+        const lastNameConfirm = document.getElementById('l-name-confirm');
+        lastNameConfirm.textContent = lastNameInput.value;
+
+        const addressInput = document.getElementById('address');
+        const addressConfirm = document.getElementById('address-confirm');
+        addressConfirm.textContent = addressInput.value;
+
+        const emailAddressInput = document.getElementById('email-address');
+        const emailAddressConfirm = document.getElementById('email-address-confirm');
+        emailAddressConfirm.textContent = emailAddressInput.value;
+
+
+
+
+   
+
+    const confirmationModal = new bootstrap.Modal(document.getElementById("confirmation-modal"), {});
+    confirmationModal.show();
+}
+
+function alertSuccess() {
+    alert('Successfully registered! Thank you!');
+}
+
+
+
 
                          // FOR STORAGE API
 
