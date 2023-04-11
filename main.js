@@ -13,7 +13,13 @@ const cheapest = document.getElementById('cheapest-price');
 const allBrand = document.getElementById('all-brand');
 const myModal = document.getElementById('myModal');
 const cartButton = document.getElementById('cart-btn');
+<<<<<<< HEAD
 // const checkoutButton = document.getElementById('checkout');
+=======
+const itemCount = document.getElementById('item-count');
+const sendMail = document.getElementById('checkout');
+
+>>>>>>> 17084618d15c4871334471963d644f27c3395005
 
 popular.addEventListener('click', sortButton);
 bestSeller.addEventListener('click', sortButton);
@@ -22,9 +28,28 @@ cheapest.addEventListener('click', sortButton);
 allBrand.addEventListener('click', filterCheckBox);
 myModal.addEventListener('show.bs.modal', modalFetch);
 cartButton.addEventListener('click', cartModal);
+<<<<<<< HEAD
 // checkoutButton.addEventListener('click', paymentOption);
+=======
+sendMail.addEventListener('click', sendEmail);
+>>>>>>> 17084618d15c4871334471963d644f27c3395005
 
 const addCart = [];
+
+const cartStorage = localStorage.getItem('addCart');
+if (cartStorage) {
+    let countStoreItem = 0;
+    for (let cartStore of JSON.parse(cartStorage)) {
+        addCart.push(cartStore);
+        countStoreItem++;
+    }
+    
+    itemCount.textContent = countStoreItem;
+    cartModal();
+
+ } else {
+    itemCount.textContent = '0'
+}
 
 
 function navigationButton(event) {
@@ -106,6 +131,31 @@ function fetchData(event) {
                         }
                         count++;
                     }
+
+                    let starRating = '';
+
+                    if (bestSellerList[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const newArrival = document.getElementById('best-seller');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -118,13 +168,9 @@ function fetchData(event) {
                                                                                 <span>${bestSellerList[itemIndex].price.currency} ${bestSellerList[itemIndex].price.value}</span><br>
                                                                                 <span class="text-dark">${bestSellerList[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
                                     
-                                                                                <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                                        <div><i class="fa-solid fa-star"></i></div>
-                                                                                        <div><i class="fa-solid fa-star"></i></div>
-                                                                                        <div><i class="fa-solid fa-star"></i></div>
-                                                                                        <div><i class="fa-solid fa-star"></i></div>
-                                                                                        <div><i class="fa-solid fa-star-half-stroke"></i></div>
-                                                                                        <span class="text-dark ms-1">|${bestSellerList[itemIndex].rating.sold} Sold</span>
+                                                                                <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                                        ${starRating}
+                                                                                        <span class="text-dark ms-1">| ${bestSellerList[itemIndex].rating.sold} Sold</span>
                                                                                 </div>
                                                                             </div>
                                                                             
@@ -151,6 +197,31 @@ function fetchData(event) {
                         }
                         count++;
                     }
+
+                    let starRating = '';
+
+                    if (newArrivalList[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const newArrival = document.getElementById('new-arrival');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -163,12 +234,8 @@ function fetchData(event) {
                                                                         <span>${newArrivalList[itemIndex].price.currency} ${newArrivalList[itemIndex].price.value}</span><br>
                                                                         <span class="text-dark">${newArrivalList[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
                                 
-                                                                        <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                                <div><i class="fa-solid fa-star"></i></div>
-                                                                                <div><i class="fa-solid fa-star"></i></div>
-                                                                                <div><i class="fa-solid fa-star"></i></div>
-                                                                                <div><i class="fa-solid fa-star"></i></div>
-                                                                                <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                        <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                                ${starRating}
                                                                                 <span class="text-dark ms-2">| ${newArrivalList[itemIndex].rating.sold} Sold</span>
                                                                         </div>
                                                                     </div>
@@ -225,7 +292,7 @@ function fetchData(event) {
                 oppo.addEventListener('click', filterCheckBox);
                 vivo.addEventListener('click', filterCheckBox);
 
-            } else if (allBrand.checked && popular.classList[1] === 'active') {
+            } else if (allBrand.checked && popular.classList[1]) {
 
                 //Clear All Fields Product List
                 const productList = document.getElementById('product-list');
@@ -248,6 +315,30 @@ function fetchData(event) {
                         count++;
                     }
 
+                    let starRating = '';
+
+                    if (data.product[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -259,12 +350,8 @@ function fetchData(event) {
                                                                     <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
                                                                     <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
 
-                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
                                                                             <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
                                                                     </div>
                                                             </div>
@@ -274,7 +361,7 @@ function fetchData(event) {
 
                     data.product.splice(itemIndex, 1);
                 }
-            } else if (allBrand.checked && bestSeller.classList[1] === 'active') {
+            } else if (allBrand.checked && bestSeller.classList[1]) {
 
                 //Clear product list
                 const productList = document.getElementById('product-list');
@@ -297,6 +384,30 @@ function fetchData(event) {
                         count++;
                     }
 
+                    let starRating = '';
+
+                    if (data.product[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -308,12 +419,8 @@ function fetchData(event) {
                                                                     <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
                                                                     <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
 
-                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
                                                                             <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
                                                                     </div>
                                                             </div>
@@ -323,7 +430,7 @@ function fetchData(event) {
 
                     data.product.splice(itemIndex, 1);
                 }
-            } else if (allBrand.checked && newest.classList[1] === 'active') {
+            } else if (allBrand.checked && newest.classList[1]) {
 
                 //Clear product list
                 const productList = document.getElementById('product-list');
@@ -346,6 +453,30 @@ function fetchData(event) {
                         count++;
                     }
 
+                    let starRating = '';
+
+                    if (data.product[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -357,12 +488,8 @@ function fetchData(event) {
                                                                     <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
                                                                     <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
 
-                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
                                                                             <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
                                                                     </div>
                                                             </div>
@@ -372,7 +499,7 @@ function fetchData(event) {
 
                     data.product.splice(itemIndex, 1);
                 }
-            } else if (allBrand.checked && cheapest.classList[1] === 'active') {
+            } else if (allBrand.checked && cheapest.classList[1]) {
 
                 //Clear product list
                 const productList = document.getElementById('product-list');
@@ -393,6 +520,30 @@ function fetchData(event) {
                         count++;
                     }
 
+                    let starRating = '';
+
+                    if (data.product[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -404,12 +555,8 @@ function fetchData(event) {
                                                                     <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
                                                                     <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
 
-                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
                                                                             <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
                                                                     </div>
                                                             </div>
@@ -445,21 +592,30 @@ function modalFetch(event) {
 
             data.product.forEach(item => {
                 if (item.id == event.relatedTarget.id) {
-                    let starRating ='';
+                    let starRating = '';
 
                     if (item.rating.rate == 5) {
-                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>'
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
                     } else if (item.rating.rate > 4) {
-                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>'
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (item.rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
                     } else if (item.rating.rate > 3) {
-                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (item.rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
                     } else if (item.rating.rate > 2) {
-                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (item.rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
                     } else if (item.rating.rate > 1) {
-                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (item.rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
                     } else {
-                        starRating = 'No Rating'
+                        starRating = 'No Rating';
                     }
+
                     const productItem = document.createElement('div');
                     productItem.innerHTML = `<div class="modal-header d-flex justify-content-end border-0">
                     <button type="button" class="btn-close bg-danger btn-close-danger"
@@ -496,7 +652,7 @@ function modalFetch(event) {
                                     <p class="border-bottom mb-0 pb-3 border-3 d-flex gap-3 align-items-center">
                                         <span>${starRating}</span>
                                         <span>${item.rating.rate}/5.0</span> 
-                                        <span>${item.stocks} Sold</span>
+                                        <span>${item.rating.sold} Sold</span>
                                         <span class="text-success fw-bolder">${item.stocks > 0 ? 'Available' : 'Out of Stock'}</span>
                                     </p>
                                     <h4 class="mt-3">Description</h4>
@@ -541,6 +697,7 @@ function modalFetch(event) {
                         };
 
                         addCart.push(cartItem);
+                        localStorage.setItem('addCart', JSON.stringify(addCart));
 
                         let countItem = 0;
 
@@ -548,7 +705,6 @@ function modalFetch(event) {
                             countItem++;
                         }
 
-                        const itemCount = document.getElementById('item-count');
                         itemCount.textContent = countItem;
                     });
                 }
@@ -560,19 +716,16 @@ function modalFetch(event) {
 }
 
 function cartModal() {
-
     const cartList = document.getElementById('cart-modal-list');
     cartList.innerHTML = '';
 
-    let countCartItem = 0;
-    let cartTotalPrice = 0;
+    let countCartItem = 0; cartTotalPrice = 0, countCheckItem = 0;
 
     for (let cartItem of addCart) {
         cartTotalPrice += parseFloat(cartItem.price.value.replaceAll(',', '')) * parseFloat(cartItem.quantity);
         countCartItem++;
     }
 
-    const itemCount = document.getElementById('item-count');
     const totalSelectedPrice = document.getElementById('total-selected-price');
 
     itemCount.textContent = countCartItem;
@@ -623,21 +776,29 @@ function cartModal() {
                             cartTotalPrice -= parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
                             totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
 
-                            document.getElementById(`quantity${item.id}`).disabled = true;
-                        }
-                    });
-                } else {
-                    addCart.forEach(item => {
-                        if (item.id === checkboxID) {
-                            cartTotalPrice += parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
-                            totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+                        document.getElementById(`quantity${item.id}`).disabled = true;
+                        countCheckItem++;
 
-                            document.getElementById(`quantity${item.id}`).disabled = false;
+                        if (countCheckItem === addCart.length) {
+                            document.getElementById('checkout').disabled = true;
                         }
-                    });
-                }
-            });
-        }
+                    }
+                });
+            } else {
+                addCart.forEach(item => {
+                    if (item.id === checkboxID) {
+                        cartTotalPrice += parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
+                        totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+
+                        document.getElementById(`quantity${item.id}`).disabled = false;
+                        countCheckItem--;
+
+                        document.getElementById('checkout').disabled = false;
+                    }
+                });
+            }
+        });
+    }
 
         const cartInputQuantity = document.querySelectorAll('.cart-input-quantity');
         for (let inputQuantity of cartInputQuantity) {
@@ -675,10 +836,44 @@ function cartModal() {
                 });
 
                 addCart.splice(index, 1);
+                localStorage.setItem('addCart', JSON.stringify(addCart));
                 cartModal();
             });
         }
     }
+
+function sendEmail() {
+
+    const checkout = addCart.filter(item => {
+        return (
+            document.getElementById(`checkbox${item.id}`).checked
+        );
+    });
+    console.log(checkout);
+
+    checkout.forEach(itemOut => {
+        console.log(itemOut);
+        for (let i = 0; i < addCart.length; i++) {
+            if (itemOut.id === addCart[i].id) {
+                addCart.splice(i, 1);
+            }
+        }
+    })
+
+    Email.send({
+        SecureToken: "d7510748-0de5-495e-9519-c457b26f06c3",
+        From: "sarabia.karljoseph@gmail.com",
+        To: 'sarabia.karljoseph@gmail.com',
+        ReplyTo: "GIZMOTRONIX.com",
+        Subject: "Payment Transaction Confirmation",
+        Body: "This is a testing purpose only. Thank you"
+    }).then(
+        alert("Payment transaction receipt was send via Email")
+    );
+
+    localStorage.setItem('addCart', JSON.stringify(addCart));
+    cartModal();
+}
 
 
 
