@@ -769,21 +769,29 @@ function cartModal() {
                             cartTotalPrice -= parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
                             totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
 
-                            document.getElementById(`quantity${item.id}`).disabled = true;
-                        }
-                    });
-                } else {
-                    addCart.forEach(item => {
-                        if (item.id === checkboxID) {
-                            cartTotalPrice += parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
-                            totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+                        document.getElementById(`quantity${item.id}`).disabled = true;
+                        countCheckItem++;
 
-                            document.getElementById(`quantity${item.id}`).disabled = false;
+                        if (countCheckItem === addCart.length) {
+                            document.getElementById('checkout').disabled = true;
                         }
-                    });
-                }
-            });
-        }
+                    }
+                });
+            } else {
+                addCart.forEach(item => {
+                    if (item.id === checkboxID) {
+                        cartTotalPrice += parseFloat(item.price.value.replaceAll(',', '')) * parseFloat(item.quantity);
+                        totalSelectedPrice.innerHTML = `&#8369 ${cartTotalPrice.toLocaleString('en-US')}`;
+
+                        document.getElementById(`quantity${item.id}`).disabled = false;
+                        countCheckItem--;
+
+                        document.getElementById('checkout').disabled = false;
+                    }
+                });
+            }
+        });
+    }
 
         const cartInputQuantity = document.querySelectorAll('.cart-input-quantity');
         for (let inputQuantity of cartInputQuantity) {
