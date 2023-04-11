@@ -357,11 +357,114 @@
                 <p class="mb-0 mt-3 d-flex justify-content-between align-items-center">Total Selected Price: <span id="total-selected-price" class="fs-4 me-3">&#8369 0</span></p>
             </div>
             <div class="modal-footer d-flex justify-content-center">
-              <button type="button" class="btn btn-primary" style="width: 12rem;" id="checkout">Checkout</button>
+              <button type="button" class="btn btn-primary" style="width: 12rem;" id="checkout" >Checkout</button>
             </div>
           </div>
         </div>
       </div>
+
+
+
+      <!-- PAYMENT SECTION -->
+
+
+        <div class="page hide" id="payment-page">
+            <div class="container" id="payment-container">
+                <div class="payment-tab">
+                    <button class="payment-btn">COD</button>
+                    <button class="payment-btn">E-Wallet</button>
+                    <button class="payment-btn">Online Banking</button>
+                    <button class="payment-btn">Credit/Debit Card</button>
+                    
+
+                </div>
+                <div class="payment-content">
+                    <div class="content active">
+                        <h2 class="py-3 fw-bold">Cash On Delivery</h2>
+                        <p class="fs-4">From checkout to your doorstep, Your one-stop solution for easy payments.</p>
+                       
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Place Order" class="btn btn-secondary btn-lg">
+                        </div>
+                    </div>
+                    
+                    <div class="content">
+                        <h2 class="py-3 fw-bold">E-Wallet</h2>
+                        <ul>
+                            <div>
+                                <div>
+                                    <input type="radio" id="gcash" name="selected">
+                                    <label for="gcash"class="fs-4 my-2">Gcash</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="paymaya" name="selected">
+                                    <label for="paymaya"class="fs-4 my-2">Paymaya</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="coinsph" name="selected">
+                                    <label for="coinsph"class="fs-4 my-2">CoinsPH</label>
+                                </div>
+                            </div>
+                        </ul>
+                        
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Place Order" class="btn btn-secondary btn-lg">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2 class="py-3 fw-bold">Bank Transfer</h2>
+                        <ul>
+                            <div>
+                                <input type="radio" id="bpi" name="selected">
+                                <label for="bpi"class="fs-4 my-2">BPI Online Banking</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="bdo" name="selected">
+                                <label for="bdo" class="fs-4 my-2">BDO Digital Banking</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="metrobank" name="selected">
+                                <label for="metrobank" class="fs-4 my-2">Metrobank Mobile Banking</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="unionbank" name="selected">
+                                <label for="unionbank" class="fs-4 my-2">Unionbank Online</label>
+                            </div>
+                        </ul>
+                       
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Place Order" class="btn btn-secondary btn-lg">
+                        </div>
+                    </div>
+                    <div class="content" id="creditcard">
+                        <h2 class="py-3 fw-bold">Credit/Debit Card</h2>
+                        <p class="text-center fs-4">Your credit card details are protected.</p>
+                        <h4>Card Details</h4>
+                        <div class="row">
+                            <div class="col py-3">
+                                <input type="number" placeholder=" Card Number">
+                            </div>
+                            <div class="col py-3 pe-4">
+                                <input type="text" placeholder=" Expiry Date (MM/YY)">
+                                <input type="number" placeholder=" CVV">
+                            </div>
+                            <div class="col py-3">
+                                <input type="text" placeholder=" Name on Card">
+                            </div>
+                        </div>
+                       
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Place Order" class="btn btn-secondary btn-lg">
+                        </div>
+                        
+                    </div>
+
+                </div>
+        
+        
+            </div>
+        </div>
+     
 
     </main>
 

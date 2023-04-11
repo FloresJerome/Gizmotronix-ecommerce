@@ -13,6 +13,7 @@ const cheapest = document.getElementById('cheapest-price');
 const allBrand = document.getElementById('all-brand');
 const myModal = document.getElementById('myModal');
 const cartButton = document.getElementById('cart-btn');
+// const checkoutButton = document.getElementById('checkout');
 
 popular.addEventListener('click', sortButton);
 bestSeller.addEventListener('click', sortButton);
@@ -21,6 +22,7 @@ cheapest.addEventListener('click', sortButton);
 allBrand.addEventListener('click', filterCheckBox);
 myModal.addEventListener('show.bs.modal', modalFetch);
 cartButton.addEventListener('click', cartModal);
+// checkoutButton.addEventListener('click', paymentOption);
 
 const addCart = [];
 
@@ -859,6 +861,36 @@ function openConfirmModal() {
 function alertSuccess() {
     alert('Successfully registered! Thank you!');
 }
+
+
+                // PAYMENT SECTION
+
+
+    
+    const paymentTab = document.querySelectorAll('.payment-btn');
+    const allContent = document.querySelectorAll('.content');
+    
+    paymentTab.forEach((tab, index) => {
+        tab.addEventListener('click', (e)=>{
+            paymentTab.forEach(tab=>{tab.classList.remove('active')});
+            tab.classList.add('active');
+    
+    
+        //     let underline = document.querySelector('.underline');
+        // underline.style.width = e.target.offsetWidth + "px";
+        // underline.style.left = e.target.offsetleft + "px";
+    
+        allContent.forEach(content =>{content.classList.remove('active')});
+        allContent[index].classList.add('active');
+        }); 
+    
+        
+     
+    });
+
+
+
+
 
 
 
