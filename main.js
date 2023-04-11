@@ -835,18 +835,38 @@ function cartModal() {
         }
     }
 
-    function sendEmail() {
-        Email.send({
-            SecureToken: "d7510748-0de5-495e-9519-c457b26f06c3",
-            From: "sarabia.karljoseph@gmail.com",
-            To: 'sarabia.karljoseph@gmail.com',
-            ReplyTo: "GIZMOTRONIX.com",
-            Subject: "Payment Transaction Confirmation",
-            Body: "This is a testing purpose only. Thank you"
-        }).then(
-            alert("Payment transaction receipt was send via Email")
+function sendEmail() {
+
+    const checkout = addCart.filter(item => {
+        return (
+            document.getElementById(`checkbox${item.id}`).checked
         );
-    }
+    });
+    console.log(checkout);
+
+    checkout.forEach(itemOut => {
+        console.log(itemOut);
+        for (let i = 0; i < addCart.length; i++) {
+            if (itemOut.id === addCart[i].id) {
+                addCart.splice(i, 1);
+            }
+        }
+    })
+
+    Email.send({
+        SecureToken: "d7510748-0de5-495e-9519-c457b26f06c3",
+        From: "sarabia.karljoseph@gmail.com",
+        To: 'sarabia.karljoseph@gmail.com',
+        ReplyTo: "GIZMOTRONIX.com",
+        Subject: "Payment Transaction Confirmation",
+        Body: "This is a testing purpose only. Thank you"
+    }).then(
+        alert("Payment transaction receipt was send via Email")
+    );
+
+    localStorage.setItem('addCart', JSON.stringify(addCart));
+    cartModal();
+}
 
 
 
