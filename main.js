@@ -711,8 +711,7 @@ function cartModal() {
     const cartList = document.getElementById('cart-modal-list');
     cartList.innerHTML = '';
 
-    let countCartItem = 0;
-    let cartTotalPrice = 0;
+    let countCartItem = 0; cartTotalPrice = 0, countCheckItem = 0;
 
     for (let cartItem of addCart) {
         cartTotalPrice += parseFloat(cartItem.price.value.replaceAll(',', '')) * parseFloat(cartItem.quantity);
