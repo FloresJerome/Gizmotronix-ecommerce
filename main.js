@@ -123,6 +123,31 @@ function fetchData(event) {
                         }
                         count++;
                     }
+
+                    let starRating = '';
+
+                    if (bestSellerList[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (bestSellerList[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const newArrival = document.getElementById('best-seller');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -135,13 +160,9 @@ function fetchData(event) {
                                                                                 <span>${bestSellerList[itemIndex].price.currency} ${bestSellerList[itemIndex].price.value}</span><br>
                                                                                 <span class="text-dark">${bestSellerList[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
                                     
-                                                                                <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                                        <div><i class="fa-solid fa-star"></i></div>
-                                                                                        <div><i class="fa-solid fa-star"></i></div>
-                                                                                        <div><i class="fa-solid fa-star"></i></div>
-                                                                                        <div><i class="fa-solid fa-star"></i></div>
-                                                                                        <div><i class="fa-solid fa-star-half-stroke"></i></div>
-                                                                                        <span class="text-dark ms-1">|${bestSellerList[itemIndex].rating.sold} Sold</span>
+                                                                                <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                                        ${starRating}
+                                                                                        <span class="text-dark ms-1">| ${bestSellerList[itemIndex].rating.sold} Sold</span>
                                                                                 </div>
                                                                             </div>
                                                                             
@@ -168,6 +189,31 @@ function fetchData(event) {
                         }
                         count++;
                     }
+
+                    let starRating = '';
+
+                    if (newArrivalList[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (newArrivalList[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const newArrival = document.getElementById('new-arrival');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -180,12 +226,8 @@ function fetchData(event) {
                                                                         <span>${newArrivalList[itemIndex].price.currency} ${newArrivalList[itemIndex].price.value}</span><br>
                                                                         <span class="text-dark">${newArrivalList[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
                                 
-                                                                        <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                                <div><i class="fa-solid fa-star"></i></div>
-                                                                                <div><i class="fa-solid fa-star"></i></div>
-                                                                                <div><i class="fa-solid fa-star"></i></div>
-                                                                                <div><i class="fa-solid fa-star"></i></div>
-                                                                                <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                        <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                                ${starRating}
                                                                                 <span class="text-dark ms-2">| ${newArrivalList[itemIndex].rating.sold} Sold</span>
                                                                         </div>
                                                                     </div>
@@ -265,6 +307,30 @@ function fetchData(event) {
                         count++;
                     }
 
+                    let starRating = '';
+
+                    if (data.product[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -276,12 +342,8 @@ function fetchData(event) {
                                                                     <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
                                                                     <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
 
-                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
                                                                             <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
                                                                     </div>
                                                             </div>
@@ -314,6 +376,30 @@ function fetchData(event) {
                         count++;
                     }
 
+                    let starRating = '';
+
+                    if (data.product[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -325,12 +411,8 @@ function fetchData(event) {
                                                                     <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
                                                                     <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
 
-                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
                                                                             <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
                                                                     </div>
                                                             </div>
@@ -363,6 +445,30 @@ function fetchData(event) {
                         count++;
                     }
 
+                    let starRating = '';
+
+                    if (data.product[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -374,12 +480,8 @@ function fetchData(event) {
                                                                     <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
                                                                     <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
 
-                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
                                                                             <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
                                                                     </div>
                                                             </div>
@@ -410,6 +512,30 @@ function fetchData(event) {
                         count++;
                     }
 
+                    let starRating = '';
+
+                    if (data.product[itemIndex].rating.rate == 5) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate > 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (data.product[itemIndex].rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else {
+                        starRating = 'No Rating';
+                    }
+
                     const productList = document.getElementById('product-list');
                     const productContainer = document.createElement('div');
                     productContainer.className = 'col-md-6 col-lg-3 mb-4';
@@ -421,12 +547,8 @@ function fetchData(event) {
                                                                     <span class="fs-4">${data.product[itemIndex].price.currency} ${data.product[itemIndex].price.value}</span><br>
                                                                     <span class="text-dark fs-6">${data.product[itemIndex].stock != 0 ? 'Available' : 'Not Available'}</span>
 
-                                                                    <div class="d-flex justify-content-center text-warning my-4 text-center">
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star"></i></div>
-                                                                            <div><i class="fa-solid fa-star-half-stroke"></i></div>
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
                                                                             <span class="text-dark fs-6 ms-2">| ${data.product[itemIndex].rating.sold} Sold</span>
                                                                     </div>
                                                             </div>
@@ -462,21 +584,30 @@ function modalFetch(event) {
 
             data.product.forEach(item => {
                 if (item.id == event.relatedTarget.id) {
-                    let starRating ='';
+                    let starRating = '';
 
                     if (item.rating.rate == 5) {
-                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>'
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
                     } else if (item.rating.rate > 4) {
-                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>'
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                    } else if (item.rating.rate == 4) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
                     } else if (item.rating.rate > 3) {
-                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (item.rating.rate == 3) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
                     } else if (item.rating.rate > 2) {
-                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (item.rating.rate == 2) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
                     } else if (item.rating.rate > 1) {
-                        starRating ='<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>'
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                    } else if (item.rating.rate == 1) {
+                        starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
                     } else {
-                        starRating = 'No Rating'
+                        starRating = 'No Rating';
                     }
+
                     const productItem = document.createElement('div');
                     productItem.innerHTML = `<div class="modal-header d-flex justify-content-end border-0">
                     <button type="button" class="btn-close bg-danger btn-close-danger"
@@ -513,7 +644,7 @@ function modalFetch(event) {
                                     <p class="border-bottom mb-0 pb-3 border-3 d-flex gap-3 align-items-center">
                                         <span>${starRating}</span>
                                         <span>${item.rating.rate}/5.0</span> 
-                                        <span>${item.stocks} Sold</span>
+                                        <span>${item.rating.sold} Sold</span>
                                         <span class="text-success fw-bolder">${item.stocks > 0 ? 'Available' : 'Out of Stock'}</span>
                                     </p>
                                     <h4 class="mt-3">Description</h4>
