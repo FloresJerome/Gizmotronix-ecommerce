@@ -17,13 +17,8 @@ const cheapest = document.getElementById('cheapest-price');
 const allBrand = document.getElementById('all-brand');
 const myModal = document.getElementById('myModal');
 const cartButton = document.getElementById('cart-btn');
-<<<<<<< HEAD
-// const checkoutButton = document.getElementById('checkout');
-=======
 const itemCount = document.getElementById('item-count');
 const sendMail = document.getElementById('checkout');
-
->>>>>>> 17084618d15c4871334471963d644f27c3395005
 
 popular.addEventListener('click', sortButton);
 bestSeller.addEventListener('click', sortButton);
@@ -32,11 +27,7 @@ cheapest.addEventListener('click', sortButton);
 allBrand.addEventListener('change', filterCheckBox);
 myModal.addEventListener('show.bs.modal', modalFetch);
 cartButton.addEventListener('click', cartModal);
-<<<<<<< HEAD
-// checkoutButton.addEventListener('click', paymentOption);
-=======
 sendMail.addEventListener('click', sendEmail);
->>>>>>> 17084618d15c4871334471963d644f27c3395005
 
 const popularSortBy = [];
 const bestSellerSortBy = [];
