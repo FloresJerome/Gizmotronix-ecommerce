@@ -25,7 +25,7 @@ popular.addEventListener('click', sortButton);
 bestSeller.addEventListener('click', sortButton);
 newest.addEventListener('click', sortButton);
 cheapest.addEventListener('click', sortButton);
-allBrand.addEventListener('click', filterCheckBox);
+allBrand.addEventListener('change', filterCheckBox);
 myModal.addEventListener('show.bs.modal', modalFetch);
 cartButton.addEventListener('click', cartModal);
 sendMail.addEventListener('click', sendEmail);
@@ -47,8 +47,8 @@ if (cartStorage) {
     itemCount.textContent = countStoreItem;
     cartModal();
 
- } else {
-    itemCount.textContent = '0'
+} else {
+    itemCount.textContent = '0';
 }
 
 
@@ -77,7 +77,7 @@ function sortButton(event) {
 }
 
 function filterCheckBox(event) {
-    console.log(event.target);
+
     const vivo = document.getElementById('VIVO');
     const oppo = document.getElementById('OPPO');
 
@@ -107,6 +107,8 @@ function filterCheckBox(event) {
 
 
 function fetchData(event) {
+    const vivo = document.getElementById('VIVO');
+    const oppo = document.getElementById('OPPO');
 
     return fetch('https://raw.githubusercontent.com/FloresJerome/Gizmotronix-ecommerce/main/smartphone-product.json')
         .then(response => {
@@ -1359,7 +1361,7 @@ function sendEmail() {
                 addCart.splice(i, 1);
             }
         }
-    })
+    });
 
     Email.send({
         SecureToken: "d7510748-0de5-495e-9519-c457b26f06c3",
