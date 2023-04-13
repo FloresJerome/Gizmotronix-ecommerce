@@ -3,6 +3,10 @@
 fetchData('best-seller-home');
 fetchData('new-arrival-home');
 fetchData('shop-dropdown');
+fetchData('getPopularSort');
+fetchData('getBestSellerSort');
+fetchData('getNewestSort');
+fetchData('getCheapestSort');
 
 //Page 2
 
@@ -26,6 +30,10 @@ myModal.addEventListener('show.bs.modal', modalFetch);
 cartButton.addEventListener('click', cartModal);
 sendMail.addEventListener('click', sendEmail);
 
+const popularSortBy = [];
+const bestSellerSortBy = [];
+const newestSortyBy = [];
+const cheapestSortBy = [];
 const addCart = [];
 
 const cartStorage = localStorage.getItem('addCart');
@@ -283,6 +291,82 @@ function fetchData(event) {
 
                 oppo.addEventListener('click', filterCheckBox);
                 vivo.addEventListener('click', filterCheckBox);
+
+            } else if (event === 'getPopularSort') {
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let rating = 0, count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (rating < item.rating.rate) {
+                            rating = item.rating.rate;
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+                    popularSortBy.push(data.product[itemIndex]);
+                    data.product.splice(itemIndex, 1);
+                }
+
+            } else if (event === 'getBestSellerSort') {
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let sold = 0, count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (sold < item.rating.sold) {
+                            sold = item.rating.sold;
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+                    bestSellerSortBy.push(data.product[itemIndex]);
+                    data.product.splice(itemIndex, 1);
+                }
+
+            } else if (event === 'getNewestSort') {
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let sold = data.product[0].rating.sold, count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (sold > item.rating.sold) {
+                            sold = item.rating.sold;
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+                    newestSortyBy.push(data.product[itemIndex]);
+                    data.product.splice(itemIndex, 1);
+                }
+
+            } else if (event === 'getCheapestSort') {
+                let countItem = 0;
+                for (let y of data.product) {
+                    countItem++;
+                }
+
+                for (let x = 1; x <= countItem; x++) {
+                    let sold = parseFloat(data.product[0].price.value.replaceAll(',', '')), count = 0, itemIndex = 0;
+                    for (let item of data.product) {
+                        if (sold > parseFloat(item.price.value.replaceAll(',', ''))) {
+                            sold = parseFloat(item.price.value.replaceAll(',', ''));
+                            itemIndex = count;
+                        }
+                        count++;
+                    }
+                    cheapestSortBy.push(data.product[itemIndex]);
+                    data.product.splice(itemIndex, 1);
+                }
 
             } else if (allBrand.checked && popular.classList[1]) {
 
@@ -558,6 +642,431 @@ function fetchData(event) {
 
                     data.product.splice(itemIndex, 1);
                 }
+
+            } else if (oppo.checked && popular.classList[1]) {
+
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                popularSortBy.forEach(popular => {
+                    if (popular.brand === 'OPPO') {
+                        if (popular.rating.rate == 5) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate > 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate == 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate > 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate == 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate > 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate == 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate > 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate == 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else {
+                            starRating = 'No Rating';
+                        }
+
+                        const productList = document.getElementById('product-list');
+                        const productContainer = document.createElement('div');
+                        productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                        productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${popular.id}>
+                                                        <div class="inner"><img class="card-img-top" src="${popular.image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${popular.title}</p>
+                                                                    <span class="fs-4">${popular.price.currency} ${popular.price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${popular.stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
+                                                                            <span class="text-dark fs-6 ms-2">| ${popular.rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                </div>`;
+                        productList.appendChild(productContainer);
+                    }
+                });
+
+            } else if (oppo.checked && bestSeller.classList[1]) {
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                bestSellerSortBy.forEach(bestSellerItems => {
+
+                    if (bestSellerItems.brand === 'OPPO') {
+                        if (bestSellerItems.rating.rate == 5) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate > 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate == 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate > 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate == 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate > 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate == 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate > 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate == 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else {
+                            starRating = 'No Rating';
+                        }
+
+                        const productList = document.getElementById('product-list');
+                        const productContainer = document.createElement('div');
+                        productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                        productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${bestSellerItems.id}>
+                                                        <div class="inner"><img class="card-img-top" src="${bestSellerItems.image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${bestSellerItems.title}</p>
+                                                                    <span class="fs-4">${bestSellerItems.price.currency} ${bestSellerItems.price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${bestSellerItems.stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
+                                                                            <span class="text-dark fs-6 ms-2">| ${bestSellerItems.rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                </div>`;
+                        productList.appendChild(productContainer);
+                    }
+                });
+
+            } else if (oppo.checked && newest.classList[1]) {
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                newestSortyBy.forEach(newestItem => {
+
+                    if (newestItem.brand === 'OPPO') {
+                        if (newestItem.rating.rate == 5) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate > 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate == 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate > 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate == 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate > 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate == 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate > 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate == 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else {
+                            starRating = 'No Rating';
+                        }
+
+                        const productList = document.getElementById('product-list');
+                        const productContainer = document.createElement('div');
+                        productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                        productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${newestItem.id}>
+                                                        <div class="inner"><img class="card-img-top" src="${newestItem.image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${newestItem.title}</p>
+                                                                    <span class="fs-4">${newestItem.price.currency} ${newestItem.price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${newestItem.stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
+                                                                            <span class="text-dark fs-6 ms-2">| ${newestItem.rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                </div>`;
+                        productList.appendChild(productContainer);
+                    }
+                });
+
+            } else if (oppo.checked && cheapest.classList[1]) {
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                cheapestSortBy.forEach(cheapestItem => {
+
+                    if (cheapestItem.brand === 'OPPO') {
+                        if (cheapestItem.rating.rate == 5) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate > 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate == 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate > 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate == 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate > 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate == 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate > 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate == 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else {
+                            starRating = 'No Rating';
+                        }
+
+                        const productList = document.getElementById('product-list');
+                        const productContainer = document.createElement('div');
+                        productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                        productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${cheapestItem.id}>
+                                                        <div class="inner"><img class="card-img-top" src="${cheapestItem.image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${cheapestItem.title}</p>
+                                                                    <span class="fs-4">${cheapestItem.price.currency} ${cheapestItem.price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${cheapestItem.stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
+                                                                            <span class="text-dark fs-6 ms-2">| ${cheapestItem.rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                </div>`;
+                        productList.appendChild(productContainer);
+                    }
+                });
+
+            } else if (vivo.checked && popular.classList[1]) {
+
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                popularSortBy.forEach(popular => {
+                    if (popular.brand === 'VIVO') {
+                        if (popular.rating.rate == 5) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate > 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate == 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate > 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate == 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate > 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate == 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate > 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (popular.rating.rate == 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else {
+                            starRating = 'No Rating';
+                        }
+
+                        const productList = document.getElementById('product-list');
+                        const productContainer = document.createElement('div');
+                        productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                        productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${popular.id}>
+                                                        <div class="inner"><img class="card-img-top" src="${popular.image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${popular.title}</p>
+                                                                    <span class="fs-4">${popular.price.currency} ${popular.price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${popular.stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
+                                                                            <span class="text-dark fs-6 ms-2">| ${popular.rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                </div>`;
+                        productList.appendChild(productContainer);
+                    }
+                });
+
+            } else if (vivo.checked && bestSeller.classList[1]) {
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                bestSellerSortBy.forEach(bestSellerItems => {
+
+                    if (bestSellerItems.brand === 'VIVO') {
+                        if (bestSellerItems.rating.rate == 5) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate > 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate == 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate > 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate == 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate > 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate == 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate > 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (bestSellerItems.rating.rate == 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else {
+                            starRating = 'No Rating';
+                        }
+
+                        const productList = document.getElementById('product-list');
+                        const productContainer = document.createElement('div');
+                        productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                        productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${bestSellerItems.id}>
+                                                        <div class="inner"><img class="card-img-top" src="${bestSellerItems.image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${bestSellerItems.title}</p>
+                                                                    <span class="fs-4">${bestSellerItems.price.currency} ${bestSellerItems.price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${bestSellerItems.stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
+                                                                            <span class="text-dark fs-6 ms-2">| ${bestSellerItems.rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                </div>`;
+                        productList.appendChild(productContainer);
+                    }
+                });
+
+            } else if (vivo.checked && newest.classList[1]) {
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                newestSortyBy.forEach(newestItem => {
+
+                    if (newestItem.brand === 'VIVO') {
+                        if (newestItem.rating.rate == 5) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate > 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate == 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate > 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate == 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate > 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate == 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate > 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (newestItem.rating.rate == 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else {
+                            starRating = 'No Rating';
+                        }
+
+                        const productList = document.getElementById('product-list');
+                        const productContainer = document.createElement('div');
+                        productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                        productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${newestItem.id}>
+                                                        <div class="inner"><img class="card-img-top" src="${newestItem.image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${newestItem.title}</p>
+                                                                    <span class="fs-4">${newestItem.price.currency} ${newestItem.price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${newestItem.stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
+                                                                            <span class="text-dark fs-6 ms-2">| ${newestItem.rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                </div>`;
+                        productList.appendChild(productContainer);
+                    }
+                });
+
+            } else if (vivo.checked && cheapest.classList[1]) {
+
+                //Clear product list
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                cheapestSortBy.forEach(cheapestItem => {
+
+                    if (cheapestItem.brand === 'VIVO') {
+                        if (cheapestItem.rating.rate == 5) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate > 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate == 4) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate > 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate == 3) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate > 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate == 2) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate > 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-solid fa-star-half-stroke" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else if (cheapestItem.rating.rate == 1) {
+                            starRating = '<i class="fa-solid fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i><i class="fa-regular fa-star" style="color: #febf00;"></i>';
+                        } else {
+                            starRating = 'No Rating';
+                        }
+
+                        const productList = document.getElementById('product-list');
+                        const productContainer = document.createElement('div');
+                        productContainer.className = 'col-md-6 col-lg-3 mb-4';
+                        productContainer.innerHTML = `<div class="card" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id=${cheapestItem.id}>
+                                                        <div class="inner"><img class="card-img-top" src="${cheapestItem.image.thumbnail}"></div>
+                                                        <div class="card-body p-2 text-center">
+                                                            <div>
+                                                                    <p class="card-text fw-bolder">${cheapestItem.title}</p>
+                                                                    <span class="fs-4">${cheapestItem.price.currency} ${cheapestItem.price.value}</span><br>
+                                                                    <span class="text-dark fs-6">${cheapestItem.stock != 0 ? 'Available' : 'Not Available'}</span>
+
+                                                                    <div class="d-flex justify-content-center text-warning my-4 align-items-center">
+                                                                            ${starRating}
+                                                                            <span class="text-dark fs-6 ms-2">| ${cheapestItem.rating.sold} Sold</span>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                </div>`;
+                        productList.appendChild(productContainer);
+                    }
+                });
+
             } else {
                 const productList = document.getElementById('product-list');
                 productList.innerHTML = '';
